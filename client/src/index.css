@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 5%;
+  --foreground: 0 0% 100%;
+  --muted: 0 0% 67%;
+  --muted-foreground: 0 0% 67%;
+  --popover: 0 0% 5%;
+  --popover-foreground: 0 0% 100%;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 100%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --primary: 50 100% 50%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 50 100% 50%;
+  --accent-foreground: 0 0% 5%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 50 100% 50%;
+  --radius: 0.5rem;
+  
+  /* Custom site colors */
+  --playyellow: #FFD300;
+  --playblack: #0e0e0e;
+  --playgray: #aaaaaa;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-playblack text-white font-inter antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@font-face {
+  font-family: 'Pixel';
+  src: url('https://fonts.cdnfonts.com/css/press-start-2p');
+  font-display: swap;
+}
+
+.font-space {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-pixel {
+  font-family: 'Press Start 2P', 'Pixel', monospace;
+}
+
+/* Scanline effect */
+.scanline {
+  background: linear-gradient(to bottom, transparent, rgba(255, 211, 0, 0.04), transparent);
+  pointer-events: none;
+}
+
+/* Pixel font styles */
+.pixel-text {
+  font-family: 'Press Start 2P', 'Pixel', monospace;
+  text-shadow: 0 0 8px rgba(255, 211, 0, 0.7);
+}
+
+/* CRT glow effect */
+.glow {
+  text-shadow: 0 0 5px rgba(255, 211, 0, 0.7), 0 0 10px rgba(255, 211, 0, 0.5);
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  from { text-shadow: 0 0 5px rgba(255, 211, 0, 0.7), 0 0 10px rgba(255, 211, 0, 0.5); }
+  to { text-shadow: 0 0 7px rgba(255, 211, 0, 0.9), 0 0 15px rgba(255, 211, 0, 0.7); }
+}
+
+/* Animation for floating icons */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(3deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(10px) rotate(-3deg); }
+}
+
+.floating-icon {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-icon-delay-1 {
+  animation: float 6s ease-in-out 1s infinite;
+}
+
+.floating-icon-delay-2 {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+.floating-icon-delay-3 {
+  animation: float 6s ease-in-out 3s infinite;
+}
+
+.floating-icon-delay-4 {
+  animation: float 6s ease-in-out 4s infinite;
+}
+
+.floating-icon-delay-5 {
+  animation: float 6s ease-in-out 5s infinite;
+}
+
+/* Phone tilt effect */
+.phone-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.phone-tilt:hover {
+  transform: perspective(1000px) rotateY(5deg) rotateX(-2deg);
+}
+
+/* Custom colors */
+.bg-playblack {
+  background-color: #0e0e0e;
+}
+
+.bg-playyellow {
+  background-color: #FFD300;
+}
+
+.text-playyellow {
+  color: #FFD300;
+}
+
+.text-playgray {
+  color: #aaaaaa;
+}
+
+.border-playyellow {
+  border-color: #FFD300;
+}
+
+/* Custom utility for the horizontal scrolling container */
+.scroll-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.scroll-item {
+  scroll-snap-align: start;
+}
+
+/* Focus effect for input elements */
+.focus-glow:focus {
+  box-shadow: 0 0 0 2px rgba(255, 211, 0, 0.5);
+  border-color: #FFD300;
+}

@@ -1,0 +1,66 @@
+export interface Project {
+  name: string;
+  tag: string;
+  problem: string;
+  solution: string;
+  result: string;
+}
+
+export const projects: Project[] = [
+  {
+    name: "Trade AI",
+    tag: "Landing Page",
+    problem: "Users bouncing on a confusing homepage.",
+    solution: "Rebuilt landing page with a conversion-first layout.",
+    result: "+19% trial signups."
+  },
+  {
+    name: "FreshDrip",
+    tag: "Ad Creative",
+    problem: "Needed standout visuals for TikTok ads.",
+    solution: "Delivered 3 ad sets with hooks and UGC voiceover.",
+    result: "2x ROAS in week 1."
+  },
+  {
+    name: "GrowGuru",
+    tag: "Email Campaign",
+    problem: "Low open rates on nurture sequence.",
+    solution: "Redesigned email flow with stronger hooks.",
+    result: "+42% open rate increase."
+  },
+  {
+    name: "LaunchX",
+    tag: "Full Rebrand",
+    problem: "Brand identity didn't match product quality.",
+    solution: "Complete visual overhaul and positioning.",
+    result: "Conversion up 27%."
+  },
+  {
+    name: "PeakFit",
+    tag: "Landing Page",
+    problem: "High traffic but poor signup conversion.",
+    solution: "Simplified signup flow and strengthened value props.",
+    result: "68% more memberships."
+  },
+  {
+    name: "NomadWork",
+    tag: "Ad Creative",
+    problem: "High CPM but poor click-through rate.",
+    solution: "Created video ads highlighting user testimonials.",
+    result: "CTR improved by 2.3x."
+  },
+  {
+    name: "EcoBox",
+    tag: "Full Rebrand",
+    problem: "Premium product with budget-looking branding.",
+    solution: "Premium visual identity and packaging redesign.",
+    result: "Enabled 15% price increase."
+  },
+  {
+    name: "MindfulMe",
+    tag: "Email Campaign",
+    problem: "Free trial users not converting to paid.",
+    solution: "New email sequence focusing on core benefits.",
+    result: "Trial-to-paid up 32%."
+  }
+];
