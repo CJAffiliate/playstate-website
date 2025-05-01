@@ -1,0 +1,132 @@
+Build a modern, mobile-first marketing agency landing page called “PLAYSTATE.”
+This is the public-facing site of a design-forward marketing agency. The site must be responsive, fast-loading, and visually engaging with smooth, professional animations that add depth and interactivity without clutter. The color palette is yellow, black, and white, inspired by retro-arcade visuals but designed with modern web minimalism in mind.
+
+🟡 GENERAL STYLING + LAYOUT
+Font: Use a clean, modern sans-serif font like Inter, Space Grotesk, or Satoshi.
+
+Color Scheme:
+
+Background: #0e0e0e (deep black)
+
+Accent: #FFD300 (bright yellow)
+
+Secondary text: #ffffff and muted greys like #aaaaaa
+
+Theme: Professional but animated. Think: creative studio that actually converts.
+
+Animation style: Soft scroll reveals, hover effects, floating elements, icon pulses, maybe parallax on larger screens.
+
+🎮 HERO SECTION
+Large “PLAYSTATE” wordmark in glowing 8-bit font style centered on screen. Use pixel-style type, animated glow with CSS, maybe even subtle “scanline” effects in background.
+
+Background is black with floating yellow & white marketing icons (ads, emails, megaphones, cursor clicks, landing pages) that subtly float or pulse around the logo.
+
+Under logo: Add tagline in clean font (adjustable later), like:
+
+"Custom-built marketing. From pixels to profits."
+
+Add a large CTA button:
+[Work With Us] → triggers a modal or pop-up inquiry form (always accessible from anywhere on the site too).
+
+📦 OFFER SECTION (Immediately below hero)
+Design 3 compact cards, side-by-side on desktop and stacked on mobile. Each should have an icon, a punchy name, short description, and a “Get Started” or “Learn More” link.
+
+Pixel-Perfect Pages
+
+Sleek landing pages and websites made to convert traffic into results. Like this one—you’re literally looking at our product.
+
+Plug-and-Play Promos
+
+Need ads, emails, or a full content drop? We deliver marketing assets ready to roll. Done-for-you and done right.
+
+Wildcard Wins
+
+Don’t see what you need? We’re problem solvers. Drop us your business struggle and we’ll tailor the solution.
+
+Under the 3 cards, a horizontal callout:
+
+All services include post-marketing care: optimization, updates, and scaling built-in. We grow with you.
+
+📁 PROJECTS PREVIEW SECTION
+Horizontal scrolling section with animated, swipeable project cards.
+
+Each card should include:
+
+A client/project name (e.g. “Trade AI”)
+
+“The Problem” (short)
+
+“Our Solution” (short)
+
+Optional tag like “Landing Page” / “Ad Creative”
+
+Subtle animated hover or swipe effects.
+
+Example mock cards:
+
+Trade AI
+
+Problem: Users bouncing on a confusing homepage.
+Solution: Rebuilt landing page with a conversion-first layout. +19% trial signups.
+
+FreshDrip
+
+Problem: Needed standout visuals for TikTok ads.
+Solution: Delivered 3 ad sets with hooks and UGC voiceover. 2x ROAS in week 1.
+
+📱 MOBILE TESTIMONIAL DISPLAY
+Floating mock mobile phone UI that cycles through:
+
+Testimonials from past clients
+
+Visuals of delivered landing pages or ad creatives
+
+Design to look like the screen is lit up and alive (glow effect optional).
+
+Phone can slightly tilt or float with scroll, subtle animation.
+
+🧱 LOGO TRUST SECTION
+Add a trust-building section: “Brands we’ve leveled up with”
+
+Display 4–6 greyed-out logos of real or mock companies you've worked with (editable).
+
+Use low-opacity greyscale and optionally animate on hover (subtle reveal).
+
+🔁 FLOATING INQUIRY FORM
+Floating button labeled “Let’s Talk”, visible on every page in the lower-right corner.
+
+On click, triggers a slide-up or modal-style form:
+
+Name
+
+Email
+
+Business name (optional)
+
+Message box: “What are you trying to fix/build?”
+
+Submission confirmation message: “Got it. We’ll get back to you with next steps.”
+
+📧 FOOTER WITH EMAIL CAPTURE
+Simple black footer with:
+
+Navigation links: Home | Projects | Why Us
+
+Email signup form:
+
+Email input
+
+Button: “Send Me the Free Checklist”
+
+Subtext: “6-point business fix-up checklist—free.”
+
+Copyright PLAYSTATE © 2025
+
+📄 OTHER PAGES (LINKED IN NAV)
+Why Us
+
+Short, persuasive copy on your creative process, problem-solving approach, and value. Can include visual proof (e.g., screenshots, % increases, retention stats).
+
+Projects
+
+Grid or scroll view of all project cards. Include filters/tabs: All, Landing Pages, Ads, Emails
