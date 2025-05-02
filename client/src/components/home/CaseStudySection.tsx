@@ -110,29 +110,33 @@ export default function CaseStudySection() {
             className="w-full md:w-1/2 space-y-6"
             variants={itemVariants}
           >
-            <h3 className="heading-3 mb-5 text-white">
-              Case Study: <span className="text-playyellow">TradeIQ</span>
+            <h3 className="heading-3 mb-4 text-white">
+              Case Study: <span className="text-playyellow">TRADE AI</span>
             </h3>
+            
+            <div className="bg-playyellow/20 text-playyellow text-xs px-3 py-1.5 rounded-md border border-playyellow/10 inline-block mb-5">
+              Funnel & Website Development
+            </div>
             
             <div className="space-y-6">
               <div className="bg-white/5 backdrop-blur-sm p-6 rounded-[12px] border border-white/10 hover:bg-white/8 transition-all duration-300 shadow-lg">
-                <h4 className="text-sm uppercase text-playgray mb-3 font-bold">Problem:</h4>
+                <h4 className="text-sm uppercase text-playgray mb-3 font-bold">Objective:</h4>
                 <p className="body-text">
-                  "Trading platform lacked sophisticated AI analysis tools. Users needed real-time data insights without emotional bias impacting decisions."
+                  "Trade AI had developed cutting-edge AI-powered trading analysis software but needed a way to attract early users and prove market demand. With £250,000 in funding on the line."
                 </p>
               </div>
               
               <div className="bg-white/5 backdrop-blur-sm p-6 rounded-[12px] border border-white/10 hover:bg-white/8 transition-all duration-300 shadow-lg">
-                <h4 className="text-sm uppercase text-playgray mb-3 font-bold">Our Solution:</h4>
+                <h4 className="text-sm uppercase text-playgray mb-3 font-bold">Action Taken:</h4>
                 <p className="body-text">
-                  "We designed a clean, data-focused mobile UI that analyzes personal trading styles to deliver smarter, faster decisions powered by real data, not emotions."
+                  "We designed and developed a sleek, high-conversion landing page and lead funnel system, focused on educating visitors and capturing high-intent users for a waitlist."
                 </p>
               </div>
               
               <div className="bg-white/5 backdrop-blur-sm p-6 rounded-[12px] border border-white/10 hover:bg-white/8 transition-all duration-300 shadow-lg">
-                <h4 className="text-sm uppercase text-playgray mb-3 font-bold">Results:</h4>
+                <h4 className="text-sm uppercase text-playgray mb-3 font-bold">Outcome:</h4>
                 <p className="text-playyellow font-bold">
-                  "+42% user engagement and 8,500+ waitlist signups within first month of launch."
+                  "Secured their full £250,000 in funding. With that traction, they launched the first public version of their app and now have an active, growing user base."
                 </p>
               </div>
             </div>

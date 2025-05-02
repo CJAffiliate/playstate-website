@@ -15,10 +15,10 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: "TRADE AI",
-    tag: "Landing Page",
-    objective: "Potential users were bouncing within 30 seconds due to confusing value proposition and unclear UI elements on the homepage.",
-    action: "Completely rebuilt the landing page with a conversion-first approach, implementing a clear value ladder and streamlined CTA placement.",
-    outcome: "Increased trial signups by 19% in first month and reduced bounce rate by 37% across all devices.",
+    tag: "Funnel & Website Development",
+    objective: "Trade AI had developed cutting-edge AI-powered trading analysis software—but needed a way to attract early users and prove market demand. With £250,000 in funding on the line, they came to us needing more than just a site—they needed customer acquisition infrastructure.",
+    action: "We designed and developed a sleek, high-conversion landing page and lead funnel system, focused on educating visitors, validating interest, and capturing high-intent users for a waitlist. We crafted the flow to position the product as exclusive and investment-worthy, with strategic copy, sharp UI, and lead magnets.",
+    outcome: "The waitlist grew large enough to validate demand and secure their full £250,000 in funding. With that traction, they launched the first public version of their app and now have an active, growing user base.",
     fileNumber: "FILE 01",
     status: "FILE COMPLETE",
     image: "tradeiq-app.jpg",
