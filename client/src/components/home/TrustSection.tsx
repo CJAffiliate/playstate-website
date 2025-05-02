@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
+import tradeIQLogo from '@/assets/tradeiq-logo.svg';
 
 export default function TrustSection() {
   const ref = useRef(null);
@@ -27,7 +28,7 @@ export default function TrustSection() {
   };
 
   const brands = [
-    { icon: 'bxl-spotify', color: '#1ED760' },
+    { name: 'TradeIQ', image: tradeIQLogo, color: '#00B8D9' },
     { icon: 'bxl-slack', color: '#E01E5A' },
     { icon: 'bxl-dribbble', color: '#EA4C89' },
     { icon: 'bxl-shopify', color: '#95BF47' },
@@ -62,21 +63,42 @@ export default function TrustSection() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <motion.i 
-                className={`bx ${brand.icon} text-5xl`}
-                initial={{ filter: "grayscale(100%)", opacity: 0.4 }}
-                animate={{ 
-                  filter: hoveredIndex === index ? "grayscale(0%)" : "grayscale(100%)",
-                  opacity: hoveredIndex === index ? 1 : 0.4,
-                  scale: hoveredIndex === index ? 1.1 : 1,
-                  rotate: hoveredIndex === index ? [0, -5, 5, -3, 3, 0] : 0,
-                  color: hoveredIndex === index ? brand.color : "#FFFFFF"
-                }}
-                transition={{ 
-                  duration: 0.3,
-                  rotate: { duration: 0.5 }
-                }}
-              />
+              {brand.image ? (
+                <motion.img 
+                  src={brand.image}
+                  alt={brand.name}
+                  width={40}
+                  height={40}
+                  className="h-12 w-auto"
+                  initial={{ filter: "grayscale(100%)", opacity: 0.4 }}
+                  animate={{ 
+                    filter: hoveredIndex === index ? "grayscale(0%)" : "grayscale(100%)",
+                    opacity: hoveredIndex === index ? 1 : 0.4,
+                    scale: hoveredIndex === index ? 1.1 : 1,
+                    rotate: hoveredIndex === index ? [0, -5, 5, -3, 3, 0] : 0
+                  }}
+                  transition={{ 
+                    duration: 0.3,
+                    rotate: { duration: 0.5 }
+                  }}
+                />
+              ) : (
+                <motion.i 
+                  className={`bx ${brand.icon} text-5xl`}
+                  initial={{ filter: "grayscale(100%)", opacity: 0.4 }}
+                  animate={{ 
+                    filter: hoveredIndex === index ? "grayscale(0%)" : "grayscale(100%)",
+                    opacity: hoveredIndex === index ? 1 : 0.4,
+                    scale: hoveredIndex === index ? 1.1 : 1,
+                    rotate: hoveredIndex === index ? [0, -5, 5, -3, 3, 0] : 0,
+                    color: hoveredIndex === index ? brand.color : "#FFFFFF"
+                  }}
+                  transition={{ 
+                    duration: 0.3,
+                    rotate: { duration: 0.5 }
+                  }}
+                />
+              )}
             </motion.div>
           ))}
         </motion.div>
