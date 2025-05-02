@@ -97,6 +97,9 @@ export default function CaseStudySection() {
               {/* Radial light burst behind phone */}
               <div className="absolute -inset-20 bg-gradient-radial from-playyellow/30 via-playyellow/5 to-transparent rounded-full blur-3xl -z-10"></div>
               
+              {/* Soft ambient glow */}
+              <div className="absolute -inset-10 bg-playyellow/10 rounded-full blur-[80px] -z-15"></div>
+              
               {/* Phone glow effect */}
               <div className="absolute -inset-4 bg-playyellow/15 rounded-full blur-xl -z-5 animate-pulse"></div>
             </div>
