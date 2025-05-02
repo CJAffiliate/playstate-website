@@ -1,0 +1,60 @@
+Rebuild the current "Our Services" section as a modern, 3-card visual layout inspired by the reference screenshot provided.
+
+Each card should feature a full-width image background with a dark overlay, white clear titles, short supporting descriptions, and tag-style service labels. This section must be fully mobile-responsive: stack vertically on mobile, 3-column grid on desktop.
+
+📐 LAYOUT & STRUCTURE
+Each card includes:
+
+Background image with object-fit: cover
+
+Dark overlay for readability
+
+Top-left: Large service title
+
+Underneath: Short, clear description
+
+Bottom row: tags/pills showing deliverables or service types
+
+Optional: hover/scroll zoom-in or blur image
+
+🟨 SERVICE CARDS
+🖥️ Landing Page & Website Builds
+Conversion-first web builds designed to make your brand look legit and generate more leads.
+We design and build modern, mobile-optimized pages—like this one—that make visitors stop scrolling and start converting.
+
+Tags: Landing Pages, Full Websites, Sales Pages
+
+Suggested BG: UI design mockup or modern landing page aesthetic
+
+📢 Ad & Email Creative Bundles
+Done-for-you visuals and copy designed to plug straight into your campaigns.
+Whether you need scroll-stopping ad graphics, polished UGC, or conversion-tested emails—we’ll design it, write it, and deliver it ready to use.
+
+Tags: Ad Creatives, UGC Bundles, Email Campaigns
+
+Suggested BG: Social feed layout or mock creative grid
+
+🧠 Custom Strategy & Solutions
+Stuck on something weird? That’s our favourite kind of problem.
+If your needs don’t fit in a template, we’ll audit, plan, and design a custom marketing fix—from funnel strategy to brand repositioning.
+
+Tags: Audit, Consulting, Problem Solving
+
+Suggested BG: Abstract/futuristic or creative strategy board
+
+🖼️ VISUAL STYLING DETAILS
+
+Element	Style
+Background	Full-image with rgba(0,0,0,0.65) dark overlay
+Title (H3)	White, bold, ~26px on desktop, 20–22px mobile
+Description	White/light gray, max 3 lines
+Tags	Rounded pills (12px padding), low contrast, like #aaaaaa on dark
+Card Radius	20px rounded corners, light shadow on hover
+Hover (desktop)	Subtle zoom-in or soft blur effect
+✅ MOBILE
+Stack all cards vertically
+
+Maintain full readability, spacing between (40–60px)
+
+Make sure CTA text and tags stay legible
+
