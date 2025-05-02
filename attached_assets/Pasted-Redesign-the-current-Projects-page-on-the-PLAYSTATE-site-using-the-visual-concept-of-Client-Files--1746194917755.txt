@@ -1,0 +1,72 @@
+Redesign the current Projects page on the PLAYSTATE site using the visual concept of “Client Files.”
+Instead of the current grid or card layout, each project should now be displayed like a modern digital case file—a stylized, classified document or mission dossier that showcases the work we’ve done in a clean, structured, and slightly cinematic way.
+
+Here’s exactly how to structure and style the new version:
+
+🧱 OVERALL STRUCTURE:
+Layout: Vertical stack of 3–5 full-width "Client File" blocks, each representing a case study.
+
+Each file should have its own clear container (light border, subtle paper/folder visual cue, or shadow to differentiate it).
+
+The page should still feel modern and minimal—use dark background, white/yellow text accents, and clear spacing.
+
+📄 EACH CLIENT FILE INCLUDES:
+Top Row - File Header:
+
+Styled like a digital document header with:
+
+Client Name (e.g., “TRADE AI”)
+
+Project Type Tag (e.g., “Landing Page”)
+
+A small badge: STATUS: FILE COMPLETE
+
+Optional file number: FILE 01
+
+Problem → Solution → Result Section:
+
+Use labeled subheadings:
+
+❓ The Challenge: Brief sentence describing the issue.
+
+⚒️ The Build: What PLAYSTATE did to solve it.
+
+🎯 The Result: Quantified result or client win.
+
+Asset Preview / Visual:
+
+Display a medium-sized screenshot of the work delivered (landing page, ad, etc.)
+
+The image should appear embedded within the file, like a photo attached to a case report.
+
+CTA Button (bottom of each file):
+
+“Open Full File” or “View Case Breakdown”
+
+Optional: Add subtle hover animation to feel like clicking into a deeper report.
+
+✨ VISUAL STYLE:
+Typography: Use clean sans-serif fonts (e.g., Inter or Space Grotesk). Section headers can mimic a terminal or dossier label style (uppercase, monospace optional).
+
+Color Theme:
+
+Background: #0e0e0e (dark)
+
+Accents: #FFD300 (yellow), #FFFFFF (white text), #aaaaaa for labels
+
+Card Styling:
+
+Each client file box has a light outline or shadow, maybe a thin yellow top border like a folder tab.
+
+Animate in with a fade-up scroll animation for each file.
+
+Hover Effects: Slight glow or scale on hover for CTAs or images.
+
+📍 FOOTER OR FINAL CTA:
+At the bottom of the page, include a centered CTA:
+
+“Your brand could be the next case file.”
+[Start Your Project]
+
+And ensure the floating 'Let’s Talk' inquiry button remains visible throughout.
+
