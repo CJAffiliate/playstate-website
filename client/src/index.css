@@ -326,17 +326,26 @@ html.has-scroll-dragging {
 /* Client files styles */
 .client-file {
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-top: 3px solid rgba(255, 211, 0, 0.7) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  /* Left side "folder tab" styling */
+  border-top-left-radius: 12px !important;
 }
 
-.client-file:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-}
-
+/* Main file top border - only goes 80% across to make room for the folded corner */
 .client-file::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75%;
+  height: 4px;
+  background: rgba(255, 211, 0, 0.7);
+  z-index: 10;
+}
+
+/* Folded corner paper effect */
+.client-file::after {
   content: '';
   position: absolute;
   top: 0;
@@ -344,13 +353,14 @@ html.has-scroll-dragging {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 30px 30px 0;
-  border-color: transparent rgba(255, 211, 0, 0.7) transparent transparent;
+  border-width: 0 35px 35px 0;
+  border-color: transparent rgba(255, 211, 0, 0.3) transparent transparent;
   z-index: 10;
+  transition: all 0.3s ease;
 }
 
-/* Add a subtle paper texture to the client files */
-.client-file::after {
+/* Paper texture overlay */
+.client-file > div::before {
   content: '';
   position: absolute;
   top: 0;
@@ -359,6 +369,44 @@ html.has-scroll-dragging {
   bottom: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.03' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.3;
   z-index: 0;
+}
+
+/* Hover effects for client files */
+.client-file:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.client-file:hover::after {
+  border-width: 0 40px 40px 0;
+  border-color: transparent rgba(255, 211, 0, 0.5) transparent transparent;
+}
+
+/* Specific button effects */
+.file-open-btn {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.file-open-btn:hover {
+  box-shadow: 0 6px 15px rgba(255, 211, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Special glow on the main CTA button */
+.cta-button {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255, 211, 0, 0.2);
+  border: 1px solid rgba(255, 211, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.cta-button:hover {
+  box-shadow: 0 8px 25px rgba(255, 211, 0, 0.4);
+  transform: translateY(-3px);
 }

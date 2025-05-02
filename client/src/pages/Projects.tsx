@@ -3,113 +3,80 @@ import { projects } from '@/lib/project-data';
 import { Link } from 'wouter';
 
 export default function Projects() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2, // Increased stagger for more pronounced sequencing
-      }
-    }
-  };
-
+  // Featured projects - Limited to just 4 top projects
+  const featuredProjects = projects.slice(0, 4);
+  
+  // Individual file animation
   const fileVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 80 },
     visible: {
       opacity: 1,
       y: 0,
       transition: { 
         type: "spring",
-        stiffness: 100,
-        damping: 15,
-        duration: 0.6
+        stiffness: 70,
+        damping: 20,
+        duration: 0.8
       }
     }
   };
 
-  // Group projects by category for filtering
-  const categories = Array.from(new Set(projects.map(project => project.tag)));
-
   return (
-    <div className="min-h-screen pt-20">
-      <section className="py-20 bg-playblack relative">
+    <div className="min-h-screen pt-24">
+      <section className="py-20 pb-32 bg-playblack relative">
         {/* Subtle grid background */}
         <div className="absolute inset-0 grid-bg opacity-[0.03] pointer-events-none"></div>
         
         <div className="container mx-auto px-4">
           <motion.h1 
-            className="font-space text-4xl md:text-5xl font-bold text-center mb-4"
+            className="font-space text-4xl md:text-6xl font-bold text-center mb-5"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7 }}
           >
             Client <span className="text-playyellow">Files</span>
           </motion.h1>
 
           <motion.p 
-            className="text-playgray text-center max-w-2xl mx-auto mb-12"
+            className="text-playgray text-center max-w-2xl mx-auto mb-20"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
-              duration: 0.6,
+              duration: 0.7,
               delay: 0.2
             }}
           >
-            Browse our classified case files and see how PLAYSTATE has transformed brands through strategic marketing.
+            Classified case files showcasing how PLAYSTATE transforms brands through strategic marketing.
           </motion.p>
 
-          {/* Category filters */}
-          <motion.div 
-            className="flex flex-wrap justify-center gap-4 mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <button className="bg-playyellow text-playblack px-4 py-2 rounded-md font-medium hover:bg-white transition-colors">
-              All Files
-            </button>
-            
-            {categories.map((category, index) => (
-              <button 
-                key={index}
-                className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md font-medium transition-colors"
-              >
-                {category}
-              </button>
-            ))}
-          </motion.div>
-
-          {/* Client Files - Vertical Stack */}
-          <motion.div 
-            className="space-y-8 max-w-4xl mx-auto"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {projects.map((project, index) => (
+          {/* Curated Client Files - With generous spacing between each file */}
+          <div className="space-y-28 max-w-5xl mx-auto">
+            {featuredProjects.map((project, index) => (
               <motion.div 
                 key={index}
                 className="client-file bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden group hover:border-playyellow/20 transition-all relative"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
                 variants={fileVariants}
-                // Styling now handled by the client-file CSS class
               >
                 {/* Client File Container */}
-                <div className="p-6 md:p-8">
+                <div className="p-8 md:p-10">
                   {/* File Header */}
-                  <div className="flex flex-col md:flex-row justify-between items-start mb-6 pb-4 border-b border-white/10">
-                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-3 md:mb-0">
+                  <div className="flex flex-col md:flex-row justify-between items-start mb-8 pb-6 border-b border-white/10">
+                    <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-5 mb-4 md:mb-0">
                       {/* File Number */}
                       <span className="font-mono text-xs text-playgray bg-white/5 px-2 py-1 rounded">
                         {project.fileNumber}
                       </span>
                       
                       {/* Client Name */}
-                      <h3 className="font-space text-2xl font-bold group-hover:text-playyellow transition-colors">
+                      <h3 className="font-space text-2xl md:text-3xl font-bold group-hover:text-playyellow transition-colors">
                         {project.name}
                       </h3>
                       
                       {/* Project Type Tag */}
-                      <span className="bg-playyellow/20 text-playyellow text-xs px-2 py-1 rounded w-fit">
+                      <span className="bg-playyellow/20 text-playyellow text-xs px-3 py-1 rounded-md w-fit">
                         {project.tag}
                       </span>
                     </div>
@@ -122,34 +89,34 @@ export default function Projects() {
                   </div>
                   
                   {/* File Content */}
-                  <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
                     {/* Left Column: Problem → Solution → Result */}
-                    <div className="md:col-span-3 space-y-5">
+                    <div className="md:col-span-3 space-y-6">
                       <div>
-                        <h4 className="text-sm uppercase text-playgray mb-2 flex items-center">
+                        <h4 className="text-sm uppercase text-playgray mb-3 flex items-center">
                           <span className="text-playyellow text-lg mr-2">❓</span> The Challenge
                         </h4>
-                        <p className="text-white">{project.problem}</p>
+                        <p className="text-white text-lg">{project.problem}</p>
                       </div>
                       
                       <div>
-                        <h4 className="text-sm uppercase text-playgray mb-2 flex items-center">
+                        <h4 className="text-sm uppercase text-playgray mb-3 flex items-center">
                           <span className="text-playyellow text-lg mr-2">⚒️</span> The Build
                         </h4>
-                        <p className="text-white">{project.solution}</p>
+                        <p className="text-white text-lg">{project.solution}</p>
                       </div>
                       
                       <div>
-                        <h4 className="text-sm uppercase text-playgray mb-2 flex items-center">
+                        <h4 className="text-sm uppercase text-playgray mb-3 flex items-center">
                           <span className="text-playyellow text-lg mr-2">🎯</span> The Result
                         </h4>
-                        <p className="text-playyellow font-medium">{project.result}</p>
+                        <p className="text-playyellow font-medium text-xl">{project.result}</p>
                       </div>
                     </div>
                     
                     {/* Right Column: Asset Preview */}
                     <div className="md:col-span-2 flex items-center justify-center">
-                      <div className="overflow-hidden rounded-md border border-white/10 shadow-lg relative">
+                      <div className="overflow-hidden rounded-md border border-white/10 shadow-xl relative">
                         {/* Asset Frame */}
                         <div className="absolute inset-0 border-4 border-white/5 rounded-md pointer-events-none z-10"></div>
                         
@@ -157,35 +124,36 @@ export default function Projects() {
                         <img 
                           src={`/src/assets/${project.image}`}
                           alt={`${project.name} project preview`} 
-                          className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                          className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-1000"
                         />
                       </div>
                     </div>
                   </div>
                   
                   {/* CTA Button */}
-                  <div className="mt-6 text-right">
-                    <button className="inline-flex items-center bg-white/10 hover:bg-playyellow/80 hover:text-playblack text-white px-4 py-2 rounded-md font-medium transition-colors duration-300">
+                  <div className="mt-10 text-right">
+                    <button className="file-open-btn inline-flex items-center bg-white/10 hover:bg-playyellow/90 hover:text-playblack text-white px-5 py-3 rounded-md font-medium transition-all duration-300">
                       Open Full File <i className='bx bx-folder-open ml-2'></i>
                     </button>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Final CTA */}
           <motion.div 
-            className="text-center mt-16 bg-white/5 backdrop-blur-sm p-8 rounded-lg border border-white/10 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
+            className="text-center mt-28 bg-white/5 backdrop-blur-sm p-10 rounded-lg border border-white/10 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <h3 className="font-space text-2xl font-bold mb-3">Your brand could be the next case file.</h3>
-            <p className="text-playgray mb-6">Let PLAYSTATE transform your marketing into a conversion machine.</p>
+            <h3 className="font-space text-3xl font-bold mb-4">Your brand could be the next case file.</h3>
+            <p className="text-playgray mb-8 text-lg">Let PLAYSTATE transform your marketing into a conversion machine.</p>
             
-            <Link href="/#contact" className="inline-flex items-center bg-playyellow text-playblack px-6 py-3 rounded-md font-medium hover:bg-white transition-colors">
-              Start Your Project <i className='bx bx-right-arrow-alt ml-2'></i>
+            <Link href="/#contact" className="cta-button inline-flex items-center bg-playyellow text-playblack px-8 py-4 rounded-md font-medium hover:bg-white transition-all duration-300 text-lg">
+              Submit Your Brand Brief <i className='bx bx-right-arrow-alt ml-2'></i>
             </Link>
           </motion.div>
         </div>
