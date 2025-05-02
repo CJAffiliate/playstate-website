@@ -89,13 +89,9 @@ export default function Projects() {
             {projects.map((project, index) => (
               <motion.div 
                 key={index}
-                className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden group hover:border-playyellow/20 transition-all relative"
+                className="client-file bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden group hover:border-playyellow/20 transition-all relative"
                 variants={fileVariants}
-                // Adding a subtle yellow top border to resemble a folder tab
-                style={{
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-                  borderTop: '3px solid rgba(255, 211, 0, 0.7)'
-                }}
+                // Styling now handled by the client-file CSS class
               >
                 {/* Client File Container */}
                 <div className="p-6 md:p-8">
@@ -119,7 +115,8 @@ export default function Projects() {
                     </div>
                     
                     {/* Status Badge */}
-                    <span className="bg-green-900/20 text-green-400 text-xs px-3 py-1 rounded-full border border-green-800/30 font-mono uppercase tracking-wider">
+                    <span className="bg-green-900/20 text-green-400 text-xs px-3 py-1 rounded-full border border-green-800/30 font-mono uppercase tracking-wider flex items-center">
+                      <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
                       {project.status}
                     </span>
                   </div>
@@ -158,7 +155,7 @@ export default function Projects() {
                         
                         {/* Image */}
                         <img 
-                          src="/placeholder.png" 
+                          src={`/src/assets/${project.image}`}
                           alt={`${project.name} project preview`} 
                           className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                         />

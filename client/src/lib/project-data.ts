@@ -18,7 +18,7 @@ export const projects: Project[] = [
     result: "+19% trial signups.",
     fileNumber: "FILE 01",
     status: "FILE COMPLETE",
-    image: "@assets/tradeiq-app.jpg"
+    image: "tradeiq-app.jpg"
   },
   {
     name: "FreshDrip",
@@ -28,7 +28,7 @@ export const projects: Project[] = [
     result: "2x ROAS in week 1.",
     fileNumber: "FILE 02",
     status: "FILE COMPLETE",
-    image: "@assets/tradeiq-app.jpg"
+    image: "tradeiq-mockup.jpg"
   },
   {
     name: "GrowGuru",
@@ -38,7 +38,7 @@ export const projects: Project[] = [
     result: "+42% open rate increase.",
     fileNumber: "FILE 03",
     status: "FILE COMPLETE",
-    image: "@assets/tradeiq-app.jpg"
+    image: "tradeiq-app.jpg"
   },
   {
     name: "LaunchX",
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     result: "Conversion up 27%.",
     fileNumber: "FILE 04",
     status: "FILE COMPLETE",
-    image: "@assets/tradeiq-app.jpg"
+    image: "tradeiq-mockup.jpg"
   },
   {
     name: "PeakFit",
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     result: "68% more memberships.",
     fileNumber: "FILE 05",
     status: "FILE COMPLETE",
-    image: "@assets/tradeiq-app.jpg"
+    image: "tradeiq-app.jpg"
   },
   {
     name: "NomadWork",
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     result: "CTR improved by 2.3x.",
     fileNumber: "FILE 06",
     status: "FILE COMPLETE",
-    image: "@assets/tradeiq-app.jpg"
+    image: "tradeiq-mockup.jpg"
   },
   {
     name: "EcoBox",
@@ -78,7 +78,7 @@ export const projects: Project[] = [
     result: "Enabled 15% price increase.",
     fileNumber: "FILE 07",
     status: "FILE COMPLETE",
-    image: "@assets/tradeiq-app.jpg"
+    image: "tradeiq-app.jpg"
   },
   {
     name: "MindfulMe",
@@ -88,6 +88,6 @@ export const projects: Project[] = [
     result: "Trial-to-paid up 32%.",
     fileNumber: "FILE 08",
     status: "FILE COMPLETE",
-    image: "@assets/tradeiq-app.jpg"
+    image: "tradeiq-mockup.jpg"
   }
 ];
