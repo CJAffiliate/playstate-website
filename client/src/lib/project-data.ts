@@ -1,93 +1,55 @@
 export interface Project {
   name: string;
   tag: string;
-  problem: string;
-  solution: string;
-  result: string;
+  objective: string;   // Changed from problem
+  action: string;      // Changed from solution
+  outcome: string;     // Changed from result
   fileNumber: string;
   status: string;
-  image?: string;
+  image: string;
+  reversed?: boolean;  // For alternating layouts
+  timestamp?: string;  // For file timestamp
+  priority?: string;   // For priority indicator
 }
 
 export const projects: Project[] = [
   {
-    name: "Trade AI",
+    name: "TRADE AI",
     tag: "Landing Page",
-    problem: "Users bouncing on a confusing homepage.",
-    solution: "Rebuilt landing page with a conversion-first layout.",
-    result: "+19% trial signups.",
+    objective: "Potential users were bouncing within 30 seconds due to confusing value proposition and unclear UI elements on the homepage.",
+    action: "Completely rebuilt the landing page with a conversion-first approach, implementing a clear value ladder and streamlined CTA placement.",
+    outcome: "Increased trial signups by 19% in first month and reduced bounce rate by 37% across all devices.",
     fileNumber: "FILE 01",
     status: "FILE COMPLETE",
-    image: "tradeiq-app.jpg"
+    image: "tradeiq-app.jpg",
+    reversed: false,
+    timestamp: "Updated: 05.24.25",
+    priority: "HIGH"
   },
   {
-    name: "FreshDrip",
+    name: "FRESHDRIP",
     tag: "Ad Creative",
-    problem: "Needed standout visuals for TikTok ads.",
-    solution: "Delivered 3 ad sets with hooks and UGC voiceover.",
-    result: "2x ROAS in week 1.",
+    objective: "Needed standout creative for TikTok ad campaign with limited budget that would capture attention in a saturated coffee subscription market.",
+    action: "Delivered 3 distinct ad sets with scroll-stopping hooks, UGC-style content, and custom voiceover that highlighted the unique brewing technology.",
+    outcome: "Achieved 2x ROAS in week 1, with CPM 23% lower than industry average and CTR 3.7x higher than previous campaign.",
     fileNumber: "FILE 02",
     status: "FILE COMPLETE",
-    image: "tradeiq-mockup.jpg"
+    image: "coffee-subscription.jpg",
+    reversed: true,
+    timestamp: "Updated: 04.12.25",
+    priority: "MEDIUM"
   },
   {
-    name: "GrowGuru",
+    name: "GROWGURU",
     tag: "Email Campaign",
-    problem: "Low open rates on nurture sequence.",
-    solution: "Redesigned email flow with stronger hooks.",
-    result: "+42% open rate increase.",
+    objective: "Low open rates (12%) on their nurture sequence was causing sales pipeline issues and poor lead qualification for their B2B SaaS product.",
+    action: "Redesigned entire email flow with stronger subject lines, personalized content blocks, and sequenced value-building that addressed specific pain points.",
+    outcome: "Open rates increased by 42%, click-through improved by 27%, and sales calls from email nurture doubled within 3 weeks of implementation.",
     fileNumber: "FILE 03",
     status: "FILE COMPLETE",
-    image: "tradeiq-app.jpg"
-  },
-  {
-    name: "LaunchX",
-    tag: "Full Rebrand",
-    problem: "Brand identity didn't match product quality.",
-    solution: "Complete visual overhaul and positioning.",
-    result: "Conversion up 27%.",
-    fileNumber: "FILE 04",
-    status: "FILE COMPLETE",
-    image: "tradeiq-mockup.jpg"
-  },
-  {
-    name: "PeakFit",
-    tag: "Landing Page",
-    problem: "High traffic but poor signup conversion.",
-    solution: "Simplified signup flow and strengthened value props.",
-    result: "68% more memberships.",
-    fileNumber: "FILE 05",
-    status: "FILE COMPLETE",
-    image: "tradeiq-app.jpg"
-  },
-  {
-    name: "NomadWork",
-    tag: "Ad Creative",
-    problem: "High CPM but poor click-through rate.",
-    solution: "Created video ads highlighting user testimonials.",
-    result: "CTR improved by 2.3x.",
-    fileNumber: "FILE 06",
-    status: "FILE COMPLETE",
-    image: "tradeiq-mockup.jpg"
-  },
-  {
-    name: "EcoBox",
-    tag: "Full Rebrand",
-    problem: "Premium product with budget-looking branding.",
-    solution: "Premium visual identity and packaging redesign.",
-    result: "Enabled 15% price increase.",
-    fileNumber: "FILE 07",
-    status: "FILE COMPLETE",
-    image: "tradeiq-app.jpg"
-  },
-  {
-    name: "MindfulMe",
-    tag: "Email Campaign",
-    problem: "Free trial users not converting to paid.",
-    solution: "New email sequence focusing on core benefits.",
-    result: "Trial-to-paid up 32%.",
-    fileNumber: "FILE 08",
-    status: "FILE COMPLETE",
-    image: "tradeiq-mockup.jpg"
+    image: "email-campaign.jpg",
+    reversed: false,
+    timestamp: "Updated: 03.01.25",
+    priority: "HIGH"
   }
 ];
