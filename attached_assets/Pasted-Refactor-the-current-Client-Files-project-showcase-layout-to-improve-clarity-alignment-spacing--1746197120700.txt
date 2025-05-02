@@ -1,0 +1,80 @@
+Refactor the current “Client Files” project showcase layout to improve clarity, alignment, spacing, and presentation. Keep the classified/mission-file theme, but remove the overlapping and visual noise. Here's exactly how to fix it:
+
+✅ 1. Remove the Overlap
+Get rid of the floating/stacked card overlap effect currently used.
+
+Instead, display each “file” as its own standalone card, aligned in a clean vertical stack with proper spacing (at least 80–100px between cards).
+
+Cards can animate in on scroll, but should not float, stack, or obscure each other.
+
+✅ 2. Only Show One Case Study Per File
+Right now, the Trade AI card contains two projects inside it. That’s confusing.
+
+Each Client File = one clear project.
+
+Trade AI (File 01)
+
+FreshDrip (File 02)
+
+GrowGuru (File 03)
+
+Do not mix two brands inside one card.
+
+✅ 3. Standardize Layout of Each Card
+Each card should include:
+
+File Header
+
+“FILE 01 — TRADE AI”
+
+Top-right label: STATUS: FILE COMPLETE
+
+Project type tag (e.g., Landing Page)
+
+Text Content
+
+❓ Objective
+
+⚙️ Action Taken
+
+🎯 Outcome
+
+Visual
+
+1 image of the asset delivered (clean, scaled, ideally different per project)
+
+Place to the right or underneath the text depending on screen size
+
+CTA
+
+“Open File” button at bottom of card
+
+Cards should be styled like clean, digital folders or dossiers.
+
+✅ 4. Improve Mobile Responsiveness
+On smaller screens:
+
+Stack image under the text content
+
+Reduce padding, but preserve breathing room
+
+Make sure buttons don’t wrap or overlap
+
+✅ 5. Tone/Hierarchy Cleanup
+Make the Client name bold and prominent.
+
+Use consistent font sizing for Objective / Action / Outcome.
+
+Highlight the result in yellow (e.g., “+27% conversion”)
+
+Remove placeholder text like “project preview” from image boxes. Use real or varied visuals.
+
+✅ 6. Adjust Footer CTA Positioning
+Move the "Submit Your Brand Brief" CTA slightly higher, just after the last file.
+
+Ensure it has extra top/bottom margin so it doesn’t feel glued to the last card or footer.
+
+Optionally add:
+
+“Your brand could be File 04.”
+Above the button.

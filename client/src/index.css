@@ -326,8 +326,8 @@ html.has-scroll-dragging {
 /* Client files styles */
 .client-file {
   position: relative;
-  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
   border-radius: 8px;
   background-color: rgba(25, 25, 30, 0.7);
   overflow: visible;
@@ -363,23 +363,22 @@ html.has-scroll-dragging {
   z-index: 0;
 }
 
-/* Hover effects for client files */
+/* Hover effects for client files - more subtle */
 .client-file:hover {
-  transform: translateY(-15px) rotate(0deg) !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 211, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 211, 0, 0.1);
   border-color: rgba(255, 211, 0, 0.25);
   background-color: rgba(35, 35, 40, 0.9);
-  z-index: 50 !important;
 }
 
 /* Emphasize elements on hover */
-.client-file:hover h2 {
+.client-file:hover h3 {
   color: rgba(255, 211, 0, 1);
   text-shadow: 0 0 10px rgba(255, 211, 0, 0.3);
 }
 
 .client-file:hover::after {
-  border-width: 0 50px 50px 0;
+  border-width: 0 45px 45px 0;
   border-color: transparent rgba(255, 211, 0, 0.35) transparent transparent;
 }
 
@@ -387,13 +386,12 @@ html.has-scroll-dragging {
 .project-image-container {
   position: relative;
   transition: all 0.4s ease;
-  transform: perspective(800px) rotateY(0deg);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
+/* Subtle 3D hover effect */
 .client-file:hover .project-image-container {
-  transform: perspective(800px) rotateY(5deg);
-  box-shadow: -10px 15px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
 /* File tab styling */
@@ -403,8 +401,20 @@ html.has-scroll-dragging {
 }
 
 .client-file:hover .file-tab {
-  transform: translateX(5px);
-  box-shadow: 0 -4px 15px rgba(255, 211, 0, 0.2);
+  transform: translateX(3px);
+  box-shadow: 0 -4px 15px rgba(255, 211, 0, 0.3);
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 768px) {
+  .client-file {
+    padding: 16px;
+  }
+  
+  .project-image-container {
+    max-height: 180px;
+    margin-top: 16px;
+  }
 }
 
 /* Specific button effects */
