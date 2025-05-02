@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 // Project feed items
 const feedItems = [
   '🚀 Launching GrowGuru\'s ad bundle...',
-  '📈 TradeIQ funnel waitlist just passed 1,000 signups...',
+  '📈 10,000+ leads captured across all active campaigns...',
   '🛠 FreshDrip creative sets in testing phase...',
   '📧 5-email welcome series deployed for SynthEx...',
   '💡 New funnel strategy underway for Project Neon...',
