@@ -85,7 +85,7 @@ export default function Projects() {
                       <div className="flex items-center">
                         <div className="file-tab w-6 h-6 bg-playyellow/90 rounded-t-md rounded-r-md -ml-8 mr-3"></div>
                         <h3 className="font-mono text-xs font-bold text-playyellow">
-                          {project.fileNumber} — {project.name}
+                          {project.fileNumber} · {project.name}
                         </h3>
                       </div>
                       
