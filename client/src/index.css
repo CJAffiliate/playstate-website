@@ -68,6 +68,107 @@
   pointer-events: none;
 }
 
+/* 3D Grid Tunnel Effect */
+.grid-tunnel {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background-color: #0e0e0e;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  z-index: 0;
+}
+
+.grid-tunnel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(transparent 0%, rgba(14, 14, 14, 0.8) 90%), 
+    radial-gradient(circle at center, transparent 30%, #0e0e0e 85%);
+  z-index: 2;
+}
+
+.grid-lines {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  opacity: 0.15;
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  transform: rotateX(60deg);
+  animation: grid-move 30s linear infinite;
+  z-index: 1;
+}
+
+.grid-vertical {
+  position: absolute;
+  width: 150vw;
+  height: 150vh;
+  top: -25vh;
+  left: -25vw;
+  opacity: 0.05;
+  background: repeating-linear-gradient(90deg, white, white 1px, transparent 1px, transparent 50px);
+  transform: rotateY(90deg) translateZ(-50vw);
+  z-index: 1;
+}
+
+.grid-horizontal {
+  position: absolute;
+  width: 150vw;
+  height: 150vh;
+  top: -25vh;
+  left: -25vw;
+  opacity: 0.05;
+  background: repeating-linear-gradient(0deg, white, white 1px, transparent 1px, transparent 50px);
+  transform: rotateX(90deg) translateZ(-50vh);
+  z-index: 1;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: rotateX(60deg) translateY(0);
+  }
+  100% {
+    transform: rotateX(60deg) translateY(50%);
+  }
+}
+
+/* Parallax scroll effect for grid */
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+html.has-scroll-dragging {
+  user-select: none;
+}
+
+.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+.hero-parallax {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.parallax-grid {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.grid-tunnel-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(14, 14, 14, 0.4) 70%);
+  z-index: 2;
+}
+
 /* Pixel font styles */
 .pixel-text {
   font-family: 'Press Start 2P', 'Pixel', monospace;

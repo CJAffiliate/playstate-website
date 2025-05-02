@@ -1,11 +1,44 @@
 import { motion } from 'framer-motion';
 import { PixelText } from '@/components/ui/pixel-text';
+import { useEffect, useRef } from 'react';
 
 interface HeroSectionProps {
   onWorkWithUsClick: () => void;
 }
 
 export default function HeroSection({ onWorkWithUsClick }: HeroSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  // Parallax effect on scroll
+  useEffect(() => {
+    const parallaxElements = document.querySelectorAll('.parallax-grid');
+    
+    function handleScroll() {
+      if (!sectionRef.current) return;
+      
+      const scrollY = window.scrollY;
+      const sectionTop = sectionRef.current.offsetTop;
+      const sectionHeight = sectionRef.current.offsetHeight;
+      
+      // Only apply parallax when the section is in view
+      if (scrollY >= sectionTop - window.innerHeight && scrollY <= sectionTop + sectionHeight) {
+        const relativeScroll = (scrollY - sectionTop + window.innerHeight) / (sectionHeight + window.innerHeight);
+        
+        parallaxElements.forEach((element) => {
+          const el = element as HTMLElement;
+          const speed = el.dataset.speed ? parseFloat(el.dataset.speed) : 0.1;
+          const yPos = -(relativeScroll * speed * 100);
+          el.style.transform = `translateY(${yPos}px)`;
+        });
+      }
+    }
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   // Animation variants for floating icons
   const floatingIconsContainer = {
     hidden: { opacity: 0 },
@@ -30,13 +63,21 @@ export default function HeroSection({ onWorkWithUsClick }: HeroSectionProps) {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden hero-parallax">
+      {/* 3D Grid Tunnel Background */}
+      <div className="grid-tunnel">
+        <div className="grid-lines parallax-grid" data-speed="0.1"></div>
+        <div className="grid-vertical parallax-grid" data-speed="0.05"></div>
+        <div className="grid-horizontal parallax-grid" data-speed="0.08"></div>
+        <div className="grid-tunnel-overlay"></div>
+      </div>
+      
       {/* Scanline effect */}
-      <div className="scanline absolute inset-0 opacity-20 pointer-events-none"></div>
+      <div className="scanline absolute inset-0 opacity-20 pointer-events-none z-[1]"></div>
       
       {/* Floating marketing icons */}
       <motion.div 
-        className="absolute inset-0 overflow-hidden pointer-events-none"
+        className="absolute inset-0 overflow-hidden pointer-events-none z-[2]"
         variants={floatingIconsContainer}
         initial="hidden"
         animate="visible"
