@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import HeroSection from '@/components/home/HeroSection';
 import ServicesSection from '@/components/home/ServicesSection';
-import ProjectsSection from '@/components/home/ProjectsSection';
-import TestimonialSection from '@/components/home/TestimonialSection';
+import CaseStudySection from '@/components/home/CaseStudySection';
 import TrustSection from '@/components/home/TrustSection';
 import WhyUsSection from '@/components/home/WhyUsSection';
 
@@ -13,8 +12,7 @@ export default function Home() {
     <>
       <HeroSection onWorkWithUsClick={() => setIsWorkWithUsModalOpen(true)} />
       <ServicesSection />
-      <ProjectsSection />
-      <TestimonialSection />
+      <CaseStudySection />
       <TrustSection />
       <WhyUsSection />
     </>
