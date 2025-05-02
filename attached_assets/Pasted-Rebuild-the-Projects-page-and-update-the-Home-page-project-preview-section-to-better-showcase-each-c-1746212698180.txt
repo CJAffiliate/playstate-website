@@ -1,0 +1,78 @@
+Rebuild the Projects page and update the Home page project preview section to better showcase each client project visually and dynamically.
+
+Use a floating phone mockup UI for each project, displaying screenshots or content related to the project (e.g., landing pages, ads, email flows). Add an auto-rotating feature on the homepage to cycle through multiple projects with different visuals. Also update the brand section accordingly.
+
+✅ SECTION 1 — Homepage “Our Work” / Project Preview
+Goal: Show rotating featured projects (one at a time) using a floating phone mockup that updates automatically every few seconds.
+
+Instructions:
+
+Use a centered floating phone frame (like current Trade IQ example), but allow it to rotate between multiple projects
+
+Each “slide” includes:
+
+Phone screen content (screenshot of asset: site, ad, or email)
+
+Short 2–3 line case summary
+
+Label: Client/project name (e.g., TRADE AI, GREENHOMEPATH)
+
+Optional tag: Landing Page, Funnel, Ad Bundle
+
+Rotate automatically every 6–8 seconds using JavaScript
+
+Include manual navigation dots or arrows to allow user control
+
+Example Project #1: TRADE AI
+Image: Landing page or funnel screenshot
+
+Text:
+
+Helped secure £250,000 in funding by designing a high-conversion funnel and waitlist system for an AI-powered trading app.
+
+Example Project #2: GREENHOMEPATH
+Image: Screenshot of the lead capture landing page
+
+Text:
+
+Built a lead-gen system for a pay-per-lead affiliate brand in the green energy space. Targeted cost-conscious homeowners via Facebook & Instagram ads and funneled leads to HVAC companies.
+
+✅ SECTION 2 — Projects Page Overhaul
+Goal: Visually showcase all projects using a consistent floating mobile device UI that reflects the actual asset delivered.
+
+Instructions:
+
+For each project:
+
+Display a phone frame or device mockup (floating or lightly shadowed)
+
+On the phone screen, show:
+
+A live preview or image of what PLAYSTATE delivered (landing page, email flow, ad creative, dashboard, etc.)
+
+Below or beside the phone, add:
+
+Project title
+
+Short paragraph (problem → what PLAYSTATE did → outcome)
+
+CTA: “View Project File” or “Open Breakdown”
+
+Stack these vertically with 100px+ space between each for a clean scroll
+
+✅ SECTION 3 — Update "Brands We've Helped Build"
+Instructions:
+
+Replace the Airbnb logo in the “Brands We’ve Helped Build” section with the GreenHomePath logo
+
+Use a monochrome version (gray or white) to match styling of the other logos
+
+Apply the same hover effect (brightness or fade-in glow)
+
+✨ BONUS VISUAL REFINEMENTS
+Add subtle background elements to the Projects section (blueprint lines, floating UI elements, or tech-style grid)
+
+Phone screens should animate slightly or pulse on load (parallax tilt or subtle floating motion)
+
+On mobile, make sure phone mockups stack vertically with text and CTA beneath
+

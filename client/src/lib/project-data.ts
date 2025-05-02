@@ -1,12 +1,14 @@
 export interface Project {
   name: string;
   tag: string;
-  objective: string;   // Changed from problem
-  action: string;      // Changed from solution
-  outcome: string;     // Changed from result
+  objective: string;   // The problem/challenge
+  action: string;      // What we did to solve it
+  outcome: string;     // The results
   fileNumber: string;
   status: string;
-  image: string;
+  image: string;       // Project card image
+  screenImage?: string; // Phone mockup screenshot 
+  description?: string; // Shortened description for previews
   reversed?: boolean;  // For alternating layouts
   timestamp?: string;  // For file timestamp
   priority?: string;   // For priority indicator

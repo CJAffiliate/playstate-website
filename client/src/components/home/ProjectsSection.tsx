@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { projects } from '@/lib/project-data';
 import { Link } from 'wouter';
+import ProjectCarousel from './ProjectCarousel';
 
 export default function ProjectsSection() {
   const ref = useRef(null);
@@ -54,41 +55,14 @@ export default function ProjectsSection() {
           Swipe through our recent work and see how we've helped businesses level up their marketing game.
         </motion.p>
         
-        {/* Horizontal scrolling projects */}
-        <motion.div 
-          className="scroll-container flex overflow-x-auto pb-8 -mx-4 px-4 snap-x"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : ""}
+        {/* Project Carousel with Phone Mockups */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-10 mb-16"
         >
-          {projects.map((project, index) => (
-            <motion.div 
-              key={index}
-              className="scroll-item flex-shrink-0 w-full md:w-[400px] mx-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden group"
-              variants={itemVariants}
-            >
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="font-space text-xl font-bold group-hover:text-playyellow transition-colors">{project.name}</h3>
-                  <span className="bg-playyellow/20 text-playyellow text-xs px-2 py-1 rounded">{project.tag}</span>
-                </div>
-                
-                <div className="mb-3">
-                  <h4 className="text-sm uppercase text-playgray mb-1">The Problem</h4>
-                  <p className="text-white">{project.problem}</p>
-                </div>
-                
-                <div className="mb-3">
-                  <h4 className="text-sm uppercase text-playgray mb-1">Our Solution</h4>
-                  <p className="text-white">{project.solution} <span className="text-playyellow">{project.result}</span></p>
-                </div>
-                
-                <a href="#" className="inline-flex items-center text-playyellow hover:text-white transition-colors mt-2">
-                  View Case Study <i className='bx bx-right-arrow-alt ml-1'></i>
-                </a>
-              </div>
-            </motion.div>
-          ))}
+          <ProjectCarousel />
         </motion.div>
         
         {/* View all projects button */}
