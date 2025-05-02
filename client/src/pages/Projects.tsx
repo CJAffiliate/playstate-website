@@ -28,36 +28,57 @@ export default function Projects() {
         <div className="absolute inset-0 grid-bg opacity-[0.03] pointer-events-none"></div>
         
         <div className="container mx-auto px-4">
-          <motion.h1 
-            className="font-space text-4xl md:text-6xl font-bold text-center mb-5"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <motion.div 
+            className="relative mb-16 w-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.7 }}
           >
-            Client <span className="text-playyellow">Files</span>
-          </motion.h1>
+            {/* Decorative elements that look like scattered paper/folder tabs at the top */}
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-12 w-80 h-4 flex justify-center space-x-4 opacity-30">
+              <div className="h-full w-20 bg-playyellow rounded-t-md rotate-2"></div>
+              <div className="h-full w-16 bg-playyellow/60 rounded-t-md -rotate-3"></div>
+              <div className="h-full w-24 bg-playyellow/40 rounded-t-md rotate-1"></div>
+            </div>
+            
+            <motion.h1 
+              className="font-space text-4xl md:text-6xl font-bold text-center mb-5"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+            >
+              Client <span className="text-playyellow">Files</span>
+            </motion.h1>
 
-          <motion.p 
-            className="text-playgray text-center max-w-2xl mx-auto mb-20"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.7,
-              delay: 0.2
-            }}
-          >
-            Classified case files showcasing how PLAYSTATE transforms brands through strategic marketing.
-          </motion.p>
+            <motion.p 
+              className="text-playgray text-center max-w-2xl mx-auto mb-20"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.7,
+                delay: 0.2
+              }}
+            >
+              Classified case files showcasing how PLAYSTATE transforms brands through strategic marketing.
+            </motion.p>
+          </motion.div>
 
-          {/* Curated Client Files - With generous spacing between each file */}
-          <div className="space-y-28 max-w-5xl mx-auto">
+          {/* Curated Client Files - Stacked like folders */}
+          <div className="relative max-w-5xl mx-auto pt-16 pb-64">
             {featuredProjects.map((project, index) => (
               <motion.div 
                 key={index}
+                style={{ 
+                  marginTop: index === 0 ? '0' : '-180px',
+                  zIndex: featuredProjects.length - index,
+                  transformOrigin: 'top center',
+                  transform: `rotate(${index * 0.8 - 1.2}deg) translateY(${index * 15}px)`,
+                  opacity: 1 - (index * 0.05)
+                }}
                 className="client-file bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden group hover:border-playyellow/20 transition-all relative"
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.1 }}
                 variants={fileVariants}
               >
                 {/* Client File Container */}
