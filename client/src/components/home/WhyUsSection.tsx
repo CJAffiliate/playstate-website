@@ -77,7 +77,7 @@ export default function WhyUsSection() {
   const stats = [
     { value: '35%', label: 'Average conversion rate increase', icon: 'bx-trending-up' },
     { value: '3.2X', label: 'ROI on marketing spend', icon: 'bx-dollar-circle' },
-    { value: '97%', label: 'Client retention rate', icon: 'bx-check-shield' }
+    { value: '10,000+', label: 'Leads captured', icon: 'bx-user-plus' }
   ];
 
   // Staggered animations for blocks dropping into place
