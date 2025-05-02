@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import tradeIQLogo from '@/assets/tradeiq-logo.svg';
+import greenHomePathLogo from '@/assets/greenhomepath-logo.svg';
 
 export default function TrustSection() {
   const ref = useRef(null);
@@ -29,7 +30,7 @@ export default function TrustSection() {
 
   const brands = [
     { name: 'TradeIQ', image: tradeIQLogo, color: '#00B8D9' },
-    { icon: 'bxl-slack', color: '#E01E5A' },
+    { name: 'GreenHomePath', image: greenHomePathLogo, color: '#1F5C3D' },
     { icon: 'bxl-dribbble', color: '#EA4C89' },
     { icon: 'bxl-shopify', color: '#95BF47' },
     { icon: 'bxl-airbnb', color: '#FF5A5F' },
