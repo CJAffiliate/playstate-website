@@ -201,10 +201,10 @@ export default function WhyUsSection() {
           <span className="text-playyellow">Each block plays a role.</span> Together, they form your conversion engine.
         </motion.p>
         
-        {/* Stacked System Pyramid Layout */}
+        {/* Stacked System Layout */}
         <div className="relative">
-          {/* SVG Connector Lines */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
+          {/* Desktop SVG Connector Lines - Hidden on mobile */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block" xmlns="http://www.w3.org/2000/svg">
             {/* Top to Middle Left */}
             <motion.path
               d="M600,140 L400,280"
@@ -265,9 +265,96 @@ export default function WhyUsSection() {
             />
           </svg>
           
-          {/* 1-2-3 Pyramid Structure with Blocks */}
+          {/* Mobile Vertical Connector Line - Only visible on mobile */}
+          <div className="absolute top-0 bottom-0 left-8 md:hidden z-0 w-[2px] h-full">
+            <motion.div 
+              className="h-full w-full bg-gradient-to-b from-[#FFD300]/30 via-[#FF6B6B]/30 to-[#4ECDC4]/30"
+              initial={{ scaleY: 0, opacity: 0 }}
+              animate={isInView ? { scaleY: 1, opacity: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              style={{ transformOrigin: 'top center' }}
+            ></motion.div>
+          </div>
+          
+          {/* Two layouts: Desktop Pyramid and Mobile Stack */}
+          <div className="block md:hidden">
+            {/* Mobile: Vertical Stack */}
+            <motion.div 
+              className="flex flex-col space-y-12 relative pl-10"
+              variants={containerVariants}
+              initial="hidden"
+              animate={controls}
+            >
+              {stackedSystems.map((block, index) => (
+                <motion.div 
+                  key={index}
+                  className="w-full"
+                  variants={blockVariants}
+                  custom={index}
+                  viewport={{ once: true, amount: 0.2 }}
+                  whileInView={{ 
+                    opacity: 1, 
+                    y: 0, 
+                    transition: { 
+                      type: 'spring',
+                      stiffness: 300,
+                      damping: 15,
+                      delay: index * 0.1,
+                      duration: 0.6
+                    } 
+                  }}
+                  initial={{ opacity: 0, y: 30 }}
+                >
+                  {/* Connection node to vertical line */}
+                  <div className="absolute left-0 top-[30px] w-10 h-[2px] bg-playyellow/30"></div>
+                  <div className="absolute left-0 top-[29px] w-4 h-4 rounded-full bg-playyellow/10 border-2 border-playyellow/30 flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-playyellow"></div>
+                  </div>
+                  
+                  <div 
+                    className="system-block bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 relative z-10 shadow-lg"
+                    style={{ 
+                      boxShadow: `0 12px 30px -5px rgba(${
+                        block.iconColor === '#FFD300' ? '255, 211, 0' : 
+                        block.iconColor === '#FF6B6B' ? '255, 107, 107' : 
+                        block.iconColor === '#4ECDC4' ? '78, 205, 196' :
+                        block.iconColor === '#8A2BE2' ? '138, 43, 226' :
+                        block.iconColor === '#00B8D9' ? '0, 184, 217' : '255, 159, 28'
+                      }, 0.1)` 
+                    }}
+                  >
+                    <div className="absolute -top-2 left-6 bg-opacity-90 text-xs font-mono px-2 py-0.5 rounded"
+                      style={{ 
+                        backgroundColor: block.iconColor,
+                        color: ['#8A2BE2'].includes(block.iconColor) ? 'white' : 'black'
+                      }}
+                    >
+                      LAYER {index < 1 ? 1 : index < 3 ? 2 : 3}
+                    </div>
+                    
+                    {/* System node icon */}
+                    <div className="mb-4 flex items-center">
+                      <div className="rounded-xl bg-gradient-to-br from-white/5 to-white/10 p-4 relative">
+                        <div className="absolute inset-0 bg-gradient-to-r opacity-20 rounded-xl" 
+                          style={{ backgroundImage: `linear-gradient(to right, transparent, ${block.iconColor})` }}></div>
+                        <i className={`bx ${block.icon} text-2xl`} style={{ color: block.iconColor }}></i>
+                      </div>
+                      <div className="ml-4">
+                        <h3 className="font-space text-lg font-bold">{block.title}</h3>
+                      </div>
+                    </div>
+                    
+                    {/* Description */}
+                    <p className="text-playgray text-sm">{block.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+          
+          {/* Desktop: Pyramid Structure - Hidden on mobile */}
           <motion.div 
-            className="grid grid-cols-12 gap-4 relative"
+            className="hidden md:grid grid-cols-12 gap-4 relative"
             variants={containerVariants}
             initial="hidden"
             animate={controls}
@@ -475,10 +562,10 @@ export default function WhyUsSection() {
             {stats.map((stat, index) => (
               <motion.div 
                 key={index} 
-                className="flex items-center space-x-4 p-4 bg-playblack/50 rounded-lg border border-white/10"
+                className="flex flex-col md:flex-row items-center md:space-x-4 p-4 bg-playblack/50 rounded-lg border border-white/10 text-center md:text-left"
                 variants={statItemVariants}
               >
-                <div className="bg-playyellow/10 p-3 rounded-full">
+                <div className="bg-playyellow/10 p-3 rounded-full mb-3 md:mb-0">
                   <i className={`bx ${stat.icon} text-2xl text-playyellow`}></i>
                 </div>
                 <div>
