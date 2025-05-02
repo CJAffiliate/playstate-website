@@ -313,3 +313,12 @@ html.has-scroll-dragging {
   box-shadow: 0 0 20px rgba(255, 211, 0, 0.1);
   transition: box-shadow 0.3s ease;
 }
+
+/* Background grid pattern for WHY US section */
+.grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(255, 220, 100, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 220, 100, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+}
