@@ -235,7 +235,7 @@ export default function CaseStudySection() {
         >
           <Link href="/projects">
             <div className="btn btn-secondary inline-flex items-center cursor-pointer">
-              → View Full Projects
+              → View More Case Studies
             </div>
           </Link>
         </motion.div>
