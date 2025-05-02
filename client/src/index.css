@@ -184,3 +184,30 @@
   opacity: 1 !important;
   transform: scale(1.05);
 }
+
+/* Card glow effect */
+.bg-white\/5, 
+.border-white\/10 {
+  box-shadow: 0 0 15px rgba(255, 211, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-white\/5::after, 
+.border-white\/10::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgba(255, 211, 0, 0.1);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.bg-white\/5:hover, 
+.border-white\/10:hover {
+  box-shadow: 0 0 20px rgba(255, 211, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}

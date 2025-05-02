@@ -28,7 +28,8 @@ export default function CaseStudySection() {
   };
 
   return (
-    <section className="py-20 bg-playblack" ref={ref}>
+    <section className="py-20 bg-gradient-to-b from-playblack to-black relative" ref={ref}>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,211,0,0.03)_0,transparent_70%)] pointer-events-none"></div>
       <div className="container mx-auto px-4">
         <motion.h2 
           className="font-space text-3xl md:text-4xl font-bold mb-12 text-center"
@@ -91,22 +92,22 @@ export default function CaseStudySection() {
             </h3>
             
             <div className="space-y-6">
-              <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10">
-                <h4 className="text-sm uppercase text-playgray mb-2">Problem:</h4>
+              <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/8 transition-all duration-300">
+                <h4 className="text-sm uppercase text-playgray mb-2 font-bold">Problem:</h4>
                 <p className="text-white">
                   "Users were bouncing on a confusing homepage. Engagement was low, and trial signups were underperforming."
                 </p>
               </div>
               
-              <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10">
-                <h4 className="text-sm uppercase text-playgray mb-2">Our Solution:</h4>
+              <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/8 transition-all duration-300">
+                <h4 className="text-sm uppercase text-playgray mb-2 font-bold">Our Solution:</h4>
                 <p className="text-white">
                   "We rebuilt the landing page with a conversion-first layout that guided the user journey. Copy, layout, and CTA strategy were refined from the ground up."
                 </p>
               </div>
               
-              <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10">
-                <h4 className="text-sm uppercase text-playgray mb-2">Results:</h4>
+              <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/8 transition-all duration-300">
+                <h4 className="text-sm uppercase text-playgray mb-2 font-bold">Results:</h4>
                 <p className="text-playyellow font-bold">
                   "+19% trial signups in the first 14 days post-launch."
                 </p>
@@ -126,7 +127,7 @@ export default function CaseStudySection() {
           }}
         >
           <Link href="/projects">
-            <a className="inline-flex items-center bg-white/5 hover:bg-playyellow hover:text-playblack text-white px-6 py-3 rounded-md font-medium transition-colors">
+            <a className="inline-flex items-center bg-white/5 hover:bg-playyellow hover:text-playblack text-white px-6 py-3 rounded-md font-medium transition-all duration-300 border border-playyellow/20 shadow-[0_0_15px_rgba(255,211,0,0.15)] hover:shadow-[0_0_20px_rgba(255,211,0,0.3)]">
               View Full Projects <i className='bx bx-right-arrow-alt ml-2'></i>
             </a>
           </Link>
