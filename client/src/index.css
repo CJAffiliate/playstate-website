@@ -428,6 +428,8 @@ html.has-scroll-dragging {
 .file-open-btn:hover {
   box-shadow: 0 6px 15px rgba(255, 211, 0, 0.2);
   transform: translateY(-2px);
+  background-color: var(--playyellow);
+  color: var(--playblack);
 }
 
 /* Special glow on the main CTA button */
@@ -442,4 +444,11 @@ html.has-scroll-dragging {
 .cta-button:hover {
   box-shadow: 0 8px 25px rgba(255, 211, 0, 0.4);
   transform: translateY(-3px);
+  background-color: white;
+  color: var(--playblack); /* Ensure text is dark on white background */
+}
+
+/* Global fix for button hovers with white background */
+.bg-playyellow.hover\:bg-white:hover {
+  color: var(--playblack) !important; /* Ensure text is visible on white background */
 }
