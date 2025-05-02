@@ -1,0 +1,78 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#111111" fill-opacity="0"/>
+  
+  <!-- Horizontal lines -->
+  <path d="M0 100H1200" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M0 200H1200" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M0 300H1200" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M0 400H1200" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M0 500H1200" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M0 600H1200" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M0 700H1200" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  
+  <!-- Vertical lines -->
+  <path d="M100 0V800" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M200 0V800" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M300 0V800" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M400 0V800" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M500 0V800" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M600 0V800" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M700 0V800" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M800 0V800" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M900 0V800" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M1000 0V800" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  <path d="M1100 0V800" stroke="#3B82F6" stroke-width="0.5" stroke-opacity="0.06"/>
+  
+  <!-- Circuit elements -->
+  <!-- Circuit paths -->
+  <path d="M100 100H300V300H500V500H700V700H900" stroke="#64B5F6" stroke-width="1" stroke-opacity="0.08"/>
+  <path d="M1100 100H900V400H600" stroke="#64B5F6" stroke-width="1" stroke-opacity="0.08"/>
+  <path d="M200 700H400V500H600V200" stroke="#64B5F6" stroke-width="1" stroke-opacity="0.08"/>
+  <path d="M1000 600H800V300H700V100" stroke="#64B5F6" stroke-width="1" stroke-opacity="0.08"/>
+  
+  <!-- Connection nodes -->
+  <circle cx="100" cy="100" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="300" cy="100" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="300" cy="300" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="500" cy="300" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="500" cy="500" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="700" cy="500" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="700" cy="700" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="900" cy="700" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  
+  <circle cx="1100" cy="100" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="900" cy="100" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="900" cy="400" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="600" cy="400" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  
+  <circle cx="200" cy="700" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="400" cy="700" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="400" cy="500" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="600" cy="500" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="600" cy="200" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  
+  <circle cx="1000" cy="600" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="800" cy="600" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="800" cy="300" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="700" cy="300" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  <circle cx="700" cy="100" r="4" fill="#4FC3F7" fill-opacity="0.15"/>
+  
+  <!-- Component symbols -->
+  <rect x="295" y="295" width="10" height="10" fill="#4FC3F7" fill-opacity="0.2"/>
+  <rect x="495" y="495" width="10" height="10" fill="#4FC3F7" fill-opacity="0.2"/>
+  <rect x="695" y="695" width="10" height="10" fill="#4FC3F7" fill-opacity="0.2"/>
+  <rect x="895" y="395" width="10" height="10" fill="#4FC3F7" fill-opacity="0.2"/>
+  <rect x="395" y="695" width="10" height="10" fill="#4FC3F7" fill-opacity="0.2"/>
+  <rect x="595" y="495" width="10" height="10" fill="#4FC3F7" fill-opacity="0.2"/>
+  <rect x="795" y="595" width="10" height="10" fill="#4FC3F7" fill-opacity="0.2"/>
+  <rect x="695" y="295" width="10" height="10" fill="#4FC3F7" fill-opacity="0.2"/>
+  
+  <circle cx="300" cy="300" r="6" stroke="#4FC3F7" stroke-width="1" stroke-opacity="0.2"/>
+  <circle cx="500" cy="500" r="6" stroke="#4FC3F7" stroke-width="1" stroke-opacity="0.2"/>
+  <circle cx="700" cy="700" r="6" stroke="#4FC3F7" stroke-width="1" stroke-opacity="0.2"/>
+  <circle cx="900" cy="400" r="6" stroke="#4FC3F7" stroke-width="1" stroke-opacity="0.2"/>
+  <circle cx="400" cy="700" r="6" stroke="#4FC3F7" stroke-width="1" stroke-opacity="0.2"/>
+  <circle cx="600" cy="500" r="6" stroke="#4FC3F7" stroke-width="1" stroke-opacity="0.2"/>
+  <circle cx="800" cy="600" r="6" stroke="#4FC3F7" stroke-width="1" stroke-opacity="0.2"/>
+  <circle cx="700" cy="300" r="6" stroke="#4FC3F7" stroke-width="1" stroke-opacity="0.2"/>
+</svg>
