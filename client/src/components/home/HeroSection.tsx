@@ -66,9 +66,9 @@ export default function HeroSection({ onWorkWithUsClick }: HeroSectionProps) {
     <section ref={sectionRef} className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden hero-parallax">
       {/* 3D Grid Tunnel Background */}
       <div className="grid-tunnel">
-        <div className="grid-lines parallax-grid" data-speed="0.1"></div>
-        <div className="grid-vertical parallax-grid" data-speed="0.05"></div>
-        <div className="grid-horizontal parallax-grid" data-speed="0.08"></div>
+        <div className="grid-lines parallax-grid" data-speed="0.05"></div>
+        <div className="grid-vertical parallax-grid" data-speed="0.03"></div>
+        <div className="grid-horizontal parallax-grid" data-speed="0.04"></div>
         <div className="grid-tunnel-overlay"></div>
       </div>
       
