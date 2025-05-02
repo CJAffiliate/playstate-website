@@ -28,11 +28,28 @@ export default function CaseStudySection() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-playblack to-black relative" ref={ref}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,211,0,0.03)_0,transparent_70%)] pointer-events-none"></div>
-      <div className="container mx-auto px-4">
+    <section className="section-spacing bg-gradient-to-b from-playblack to-black relative overflow-hidden" ref={ref}>
+      {/* Circuit board background pattern */}
+      <div className="absolute inset-0 bg-circuit-pattern opacity-10 pointer-events-none"></div>
+      
+      {/* Dark overlay */}
+      <div className="absolute inset-0 overlay-dark pointer-events-none"></div>
+      
+      {/* Scanline animation */}
+      <div className="scanline-effect"></div>
+      
+      {/* Floating data/analytics icons */}
+      <div className="absolute w-full h-full pointer-events-none">
+        <i className="bx bx-bar-chart-alt-2 text-white text-2xl absolute top-1/4 left-1/5 opacity-[0.03] floating-icon"></i>
+        <i className="bx bx-line-chart text-white text-3xl absolute top-1/3 right-1/4 opacity-[0.04] floating-icon-delay-2"></i>
+        <i className="bx bx-pie-chart-alt-2 text-white text-2xl absolute bottom-1/3 left-1/3 opacity-[0.03] floating-icon-delay-3"></i>
+        <i className="bx bx-analyse text-white text-3xl absolute bottom-1/4 right-1/5 opacity-[0.04] floating-icon-delay-4"></i>
+        <i className="bx bx-trending-up text-white text-2xl absolute top-1/2 left-1/4 opacity-[0.03] floating-icon-delay-5"></i>
+      </div>
+      
+      <div className="container-width relative z-10 px-4">
         <motion.h2 
-          className="font-space text-3xl md:text-4xl font-bold mb-12 text-center"
+          className="heading-2 md:heading-1 font-space font-bold mb-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -77,8 +94,11 @@ export default function CaseStudySection() {
                 </div>
               </div>
               
+              {/* Radial light burst behind phone */}
+              <div className="absolute -inset-20 bg-gradient-radial from-playyellow/30 via-playyellow/5 to-transparent rounded-full blur-3xl -z-10"></div>
+              
               {/* Phone glow effect */}
-              <div className="absolute -inset-4 bg-playyellow/10 rounded-full blur-xl -z-10"></div>
+              <div className="absolute -inset-4 bg-playyellow/15 rounded-full blur-xl -z-5 animate-pulse"></div>
             </div>
           </motion.div>
           
@@ -87,27 +107,27 @@ export default function CaseStudySection() {
             className="w-full md:w-1/2 space-y-6"
             variants={itemVariants}
           >
-            <h3 className="font-space text-2xl font-bold text-white">
+            <h3 className="heading-3 mb-5 text-white">
               Case Study: <span className="text-playyellow">TradeIQ</span>
             </h3>
             
             <div className="space-y-6">
-              <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/8 transition-all duration-300">
-                <h4 className="text-sm uppercase text-playgray mb-2 font-bold">Problem:</h4>
-                <p className="text-white">
+              <div className="bg-white/5 backdrop-blur-sm p-6 rounded-[12px] border border-white/10 hover:bg-white/8 transition-all duration-300 shadow-lg">
+                <h4 className="text-sm uppercase text-playgray mb-3 font-bold">Problem:</h4>
+                <p className="body-text">
                   "Trading platform lacked sophisticated AI analysis tools. Users needed real-time data insights without emotional bias impacting decisions."
                 </p>
               </div>
               
-              <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/8 transition-all duration-300">
-                <h4 className="text-sm uppercase text-playgray mb-2 font-bold">Our Solution:</h4>
-                <p className="text-white">
+              <div className="bg-white/5 backdrop-blur-sm p-6 rounded-[12px] border border-white/10 hover:bg-white/8 transition-all duration-300 shadow-lg">
+                <h4 className="text-sm uppercase text-playgray mb-3 font-bold">Our Solution:</h4>
+                <p className="body-text">
                   "We designed a clean, data-focused mobile UI that analyzes personal trading styles to deliver smarter, faster decisions powered by real data, not emotions."
                 </p>
               </div>
               
-              <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/8 transition-all duration-300">
-                <h4 className="text-sm uppercase text-playgray mb-2 font-bold">Results:</h4>
+              <div className="bg-white/5 backdrop-blur-sm p-6 rounded-[12px] border border-white/10 hover:bg-white/8 transition-all duration-300 shadow-lg">
+                <h4 className="text-sm uppercase text-playgray mb-3 font-bold">Results:</h4>
                 <p className="text-playyellow font-bold">
                   "+42% user engagement and 8,500+ waitlist signups within first month of launch."
                 </p>
@@ -127,8 +147,8 @@ export default function CaseStudySection() {
           }}
         >
           <Link href="/projects">
-            <div className="inline-flex items-center bg-white/5 hover:bg-playyellow hover:text-playblack text-white px-6 py-3 rounded-md font-medium transition-all duration-300 border border-playyellow/20 shadow-[0_0_15px_rgba(255,211,0,0.15)] hover:shadow-[0_0_20px_rgba(255,211,0,0.3)] cursor-pointer">
-              View Full Projects <i className='bx bx-right-arrow-alt ml-2'></i>
+            <div className="btn btn-secondary inline-flex items-center cursor-pointer">
+              → View Full Projects
             </div>
           </Link>
         </motion.div>

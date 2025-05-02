@@ -63,10 +63,15 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-playblack to-playblack/95">
-      <div className="container mx-auto px-4" ref={ref}>
+    <section id="services" className="section-spacing relative bg-gradient-to-b from-playblack to-playblack/95 overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-diagonal-pattern opacity-10"></div>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50"></div>
+      
+      <div className="container-width relative z-10 px-4" ref={ref}>
         <motion.h2 
-          className="font-space text-3xl md:text-4xl font-bold mb-8 text-center"
+          className="heading-2 md:heading-1 font-space font-bold mb-8 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -75,7 +80,7 @@ export default function ServicesSection() {
         </motion.h2>
         
         <motion.p
-          className="text-playgray text-center max-w-2xl mx-auto mb-16"
+          className="body-text text-center max-w-2xl mx-auto mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -114,12 +119,12 @@ export default function ServicesSection() {
               <div className="relative z-20 h-full flex flex-col justify-between p-6 md:p-8">
                 <div>
                   {/* Title */}
-                  <h3 className="font-space text-2xl md:text-3xl font-bold mb-3 text-white leading-tight">
+                  <h3 className="heading-3 font-space font-bold mb-4 text-white">
                     {card.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-[#e6e6e6] md:max-w-2xl">{card.description}</p>
+                  <p className="body-text md:max-w-2xl">{card.description}</p>
                 </div>
                 
                 {/* Service Tags in Pills */}
