@@ -63,15 +63,24 @@ export default function Projects() {
             </motion.p>
           </motion.div>
 
-          {/* Project Files with generous spacing and alternating layouts */}
-          <div className="space-y-40 max-w-6xl mx-auto">
+          {/* Project Files in a zig-zag pattern */}
+          <div className="relative max-w-6xl mx-auto h-[500px] flex flex-col justify-center">
             {featuredProjects.map((project, index) => (
               <motion.div 
                 key={index}
+                style={{
+                  position: 'absolute',
+                  top: `${5 + (index * 27)}%`,
+                  left: index % 2 === 0 ? '5%' : 'auto',
+                  right: index % 2 === 0 ? 'auto' : '5%',
+                  width: '500px',
+                  maxWidth: '80%',
+                  zIndex: featuredProjects.length - index,
+                  transform: `rotate(${index % 2 === 0 ? -2 : 2}deg)`
+                }}
                 className="client-file bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden group hover:border-playyellow/20 transition-all relative"
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                animate="visible"
                 variants={fileVariants}
               >
                 {/* Priority indicator */}
@@ -88,112 +97,90 @@ export default function Projects() {
                 )}
                 
                 {/* File Container */}
-                <div className="p-10 md:p-12">
-                  {/* Top File Header - Bold with strong visual hierarchy */}
-                  <div className="flex flex-col mb-10">
+                <div className="p-5 md:p-6">
+                  {/* Compact File Header */}
+                  <div className="flex flex-col mb-5">
                     {/* File Number and Tab */}
-                    <div className="inline-flex items-center mb-3">
-                      <div className="file-tab w-10 h-8 bg-playyellow/90 rounded-t-md rounded-r-md -ml-12 mr-6"></div>
-                      <span className="font-mono text-sm font-bold text-playyellow bg-playyellow/10 px-3 py-1 rounded-md border border-playyellow/20">
-                        {project.fileNumber}
-                      </span>
-                      {/* Timestamp */}
-                      {project.timestamp && (
-                        <span className="font-mono text-xs text-playgray ml-4">
-                          {project.timestamp}
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center">
+                        <div className="file-tab w-6 h-6 bg-playyellow/90 rounded-t-md rounded-r-md -ml-10 mr-4"></div>
+                        <span className="font-mono text-xs font-bold text-playyellow bg-playyellow/10 px-2 py-1 rounded border border-playyellow/20">
+                          {project.fileNumber}
                         </span>
-                      )}
+                      </div>
+                      
+                      {/* Status Badge */}
+                      <span className="bg-green-900/20 text-green-400 text-[10px] font-mono px-2 py-0.5 rounded-full border border-green-800/30 uppercase tracking-wider flex items-center whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-1 animate-pulse"></span>
+                        {project.status}
+                      </span>
                     </div>
                     
-                    <div className="flex flex-col md:flex-row md:items-center justify-between">
-                      {/* Project Name - Larger for hierarchy */}
-                      <h2 className="font-space text-3xl md:text-4xl font-bold group-hover:text-playyellow transition-colors mb-3 md:mb-0">
+                    {/* Project Name and Type */}
+                    <div className="flex items-center justify-between">
+                      <h2 className="font-space text-xl md:text-2xl font-bold group-hover:text-playyellow transition-colors">
                         {project.name}
                       </h2>
                       
-                      <div className="flex items-center gap-4">
-                        {/* Project Type Tag */}
-                        <span className="bg-playyellow/20 text-playyellow text-xs px-3 py-1 rounded-md border border-playyellow/10">
-                          {project.tag}
-                        </span>
-                        
-                        {/* Status Badge */}
-                        <span className="bg-green-900/20 text-green-400 text-xs font-mono px-3 py-1 rounded-full border border-green-800/30 uppercase tracking-wider flex items-center whitespace-nowrap">
-                          <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-                          {project.status}
-                        </span>
-                      </div>
+                      <span className="bg-playyellow/20 text-playyellow text-[10px] px-2 py-0.5 rounded border border-playyellow/10">
+                        {project.tag}
+                      </span>
                     </div>
                     
-                    {/* Horizontal divider with stronger presence */}
-                    <div className="h-px bg-gradient-to-r from-playyellow/50 via-white/10 to-transparent mt-6"></div>
+                    {/* Divider */}
+                    <div className="h-px bg-gradient-to-r from-playyellow/50 via-white/10 to-transparent mt-3"></div>
                   </div>
                   
-                  {/* File Content with alternating layouts */}
-                  <div className={`grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 ${project.reversed ? 'md:flex-row-reverse' : ''}`}>
-                    {/* Content Column */}
-                    <div className={`space-y-8 ${project.reversed ? 'md:order-2' : 'md:order-1'}`}>
+                  {/* Compact File Content */}
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* Left Column: Project Info */}
+                    <div className="space-y-3">
                       <div>
-                        <h4 className="text-sm uppercase font-bold text-playgray mb-3 flex items-center">
-                          <span className="text-playyellow text-lg mr-2">❓</span> Objective
+                        <h4 className="text-xs uppercase font-bold text-playgray mb-1 flex items-center">
+                          <span className="text-playyellow text-sm mr-1">❓</span> Objective
                         </h4>
-                        <p className="text-white text-lg leading-relaxed">{project.objective}</p>
+                        <p className="text-white text-sm">
+                          {project.objective.length > 100 
+                            ? project.objective.substring(0, 100) + '...' 
+                            : project.objective}
+                        </p>
                       </div>
                       
                       <div>
-                        <h4 className="text-sm uppercase font-bold text-playgray mb-3 flex items-center">
-                          <span className="text-playyellow text-lg mr-2">⚒️</span> Action Taken
+                        <h4 className="text-xs uppercase font-bold text-playgray mb-1 flex items-center">
+                          <span className="text-playyellow text-sm mr-1">🎯</span> Outcome
                         </h4>
-                        <p className="text-white text-lg leading-relaxed">{project.action}</p>
+                        <p className="text-playyellow font-medium text-sm">
+                          {project.outcome.length > 60
+                            ? project.outcome.substring(0, 60) + '...'
+                            : project.outcome}
+                        </p>
                       </div>
                       
-                      <div>
-                        <h4 className="text-sm uppercase font-bold text-playgray mb-3 flex items-center">
-                          <span className="text-playyellow text-lg mr-2">🎯</span> Outcome
-                        </h4>
-                        <p className="text-playyellow font-semibold text-xl">{project.outcome}</p>
-                      </div>
-                      
-                      {/* CTA Button - Moved inside the content column */}
-                      <div className="pt-4 flex justify-end">
-                        <button className="file-open-btn inline-flex items-center bg-white/10 hover:bg-playyellow/90 hover:text-playblack text-white px-5 py-3 rounded-md font-medium transition-all duration-300 border border-white/5">
-                          <span className="mr-2">Open Full File</span> <i className='bx bx-folder-open text-lg'></i>
+                      {/* CTA Button */}
+                      <div className="pt-2">
+                        <button className="file-open-btn inline-flex items-center bg-white/10 hover:bg-playyellow/90 hover:text-playblack text-white px-3 py-1.5 rounded text-xs font-medium transition-all duration-300 border border-white/5">
+                          <span className="mr-1">Open File</span> <i className='bx bx-folder-open'></i>
                         </button>
                       </div>
                     </div>
                     
-                    {/* Asset Preview Column */}
-                    <div className={`flex items-center justify-center ${project.reversed ? 'md:order-1' : 'md:order-2'}`}>
-                      <div className="project-image-container overflow-hidden rounded-md border border-white/10 shadow-2xl relative">
+                    {/* Right Column: Image */}
+                    <div className="flex items-center justify-center">
+                      <div className="project-image-container overflow-hidden rounded-md border border-white/10 shadow-xl relative w-full h-[140px]">
                         {/* Asset Frame */}
-                        <div className="absolute inset-0 border-4 border-white/5 rounded-md pointer-events-none z-10"></div>
+                        <div className="absolute inset-0 border-2 border-white/5 rounded-md pointer-events-none z-10"></div>
                         
                         {/* Image */}
                         <motion.img 
                           src={`/src/assets/${project.image}`}
                           alt={`${project.name} project preview`} 
-                          className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-1000"
+                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                           whileHover={{ scale: 1.05 }}
-                          transition={{ 
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 20
-                          }}
+                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         />
-                        
-                        {/* Corner decoration */}
-                        <div className="absolute bottom-0 right-0 w-16 h-16 flex items-end justify-end p-2 text-xs text-playgray font-mono opacity-60">
-                          PLAYSTATE™
-                        </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  {/* Footer decoration - paper-like tear line */}
-                  <div className="flex justify-center mt-12 opacity-30">
-                    <svg width="200" height="8" viewBox="0 0 200 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M0 0L5 3L10 0L15 5L20 2L25 7L30 3L35 8L40 2L45 5L50 0L55 4L60 1L65 6L70 2L75 7L80 3L85 8L90 4L95 1L100 6L105 0L110 5L115 2L120 7L125 3L130 8L135 0L140 5L145 2L150 7L155 3L160 8L165 4L170 0L175 6L180 2L185 7L190 3L195 8L200 4" stroke="rgba(255,211,0,0.5)" strokeWidth="1"/>
-                    </svg>
                   </div>
                 </div>
               </motion.div>
@@ -202,7 +189,7 @@ export default function Projects() {
 
           {/* Final CTA styled more like a new file/mission */}
           <motion.div 
-            className="text-center mt-32 bg-white/5 backdrop-blur-sm p-12 rounded-lg border border-playyellow/10 max-w-3xl mx-auto relative"
+            className="text-center mt-20 bg-white/5 backdrop-blur-sm p-8 rounded-lg border border-playyellow/10 max-w-2xl mx-auto relative"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
