@@ -111,7 +111,7 @@ export default function CaseStudySection() {
             variants={itemVariants}
           >
             <h3 className="heading-3 mb-4 text-white">
-              Case Study: <span className="text-playyellow">TRADE AI</span>
+              Case Study: <span className="text-playyellow">TradeIQ</span>
             </h3>
             
             <div className="bg-playyellow/20 text-playyellow text-xs px-3 py-1.5 rounded-md border border-playyellow/10 inline-block mb-5">
@@ -122,7 +122,7 @@ export default function CaseStudySection() {
               <div className="bg-white/5 backdrop-blur-sm p-6 rounded-[12px] border border-white/10 hover:bg-white/8 transition-all duration-300 shadow-lg">
                 <h4 className="text-sm uppercase text-playgray mb-3 font-bold">Objective:</h4>
                 <p className="body-text">
-                  "Trade AI had developed cutting-edge AI-powered trading analysis software but needed a way to attract early users and prove market demand. With £250,000 in funding on the line."
+                  "TradeIQ had developed cutting-edge AI-powered trading analysis software but needed a way to attract early users and prove market demand. With £250,000 in funding on the line."
                 </p>
               </div>
               
