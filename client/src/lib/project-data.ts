@@ -68,7 +68,7 @@ export const projects: Project[] = [
     result: "CTR improved by 2.3x.",
     fileNumber: "FILE 06",
     status: "FILE COMPLETE",
-    image: "/assets/projects/nomadwork.jpg"
+    image: "@assets/tradeiq-app.jpg"
   },
   {
     name: "EcoBox",
@@ -78,7 +78,7 @@ export const projects: Project[] = [
     result: "Enabled 15% price increase.",
     fileNumber: "FILE 07",
     status: "FILE COMPLETE",
-    image: "/assets/projects/ecobox.jpg"
+    image: "@assets/tradeiq-app.jpg"
   },
   {
     name: "MindfulMe",
@@ -88,6 +88,6 @@ export const projects: Project[] = [
     result: "Trial-to-paid up 32%.",
     fileNumber: "FILE 08",
     status: "FILE COMPLETE",
-    image: "/assets/projects/mindfulme.jpg"
+    image: "@assets/tradeiq-app.jpg"
   }
 ];
