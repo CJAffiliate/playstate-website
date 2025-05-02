@@ -1,0 +1,79 @@
+Rebuild the “Our Services” / “Offers” section using a 3-column layout directly inspired by the reference screenshot provided.
+
+Each offer should appear as a full-width visual card with:
+
+A background image related to the service
+
+A solid overlay gradient or blur layer for legibility
+
+Large title at top-left
+
+Short description beneath
+
+A row of service tags or keywords at the bottom
+
+The layout should be fully responsive, stacking vertically on mobile with all text and image ratios preserved.
+
+📐 LAYOUT STRUCTURE (PER CARD)
+css
+Copy
+Edit
+╔══════════════════════════════════════╗
+║  [Background image, full bleed]     ║
+║  [Dark overlay for readability]     ║
+║                                     
+║  TITLE (top-left, bold, white)      ║
+║  Short 2–3 line description         ║
+║  [ service tags/pills ]             ║
+╚══════════════════════════════════════╝
+📁 CONTENT FOR EACH CARD
+1. Landing Page & Website Builds
+Image: UI mockup or modern responsive site demo
+
+Title: Landing Page & Website Builds
+
+Description:
+
+Conversion-first builds that make your brand look legit and generate more leads.
+Fully mobile-optimized, clean, and made to convert.
+
+Tags: Landing Pages, Websites, Sales Pages
+
+2. Ad & Email Creative Bundles
+Image: Creative collage, social ad preview, or branded assets layout
+
+Title: Ad & Email Creative Bundles
+
+Description:
+
+Done-for-you visuals and copy—scroll-stopping ads, polished UGC, and conversion-tested email flows.
+
+Tags: Static Ads, UGC, Email Campaigns
+
+3. Custom Strategy & Solutions
+Image: Abstract problem-solving graphic, post-it wall, or strategy dashboard
+
+Title: Custom Strategy & Solutions
+
+Description:
+
+If you’re stuck, we’ll figure it out. From funnel rewires to brand repositions, we solve weird business problems.
+
+Tags: Audits, Consulting, Funnel Strategy
+
+🎨 VISUAL STYLE SPECS
+
+Element	Style
+Background	object-fit: cover, 100% height, no hard cropping
+Overlay	rgba(0,0,0,0.55) or linear gradient for contrast
+Title	Bold, white, upper-left aligned
+Description	Light gray or white, max 3 lines
+Tags	Soft pill shapes, muted tones (#ccc, #666)
+Hover	Optional: slight zoom or blur transition
+✅ MOBILE RESPONSIVE
+Stack all three cards vertically
+
+Maintain image ratio and keep titles and descriptions readable
+
+Ensure text doesn’t overlap or get cut off—allow vertical scroll if needed
+

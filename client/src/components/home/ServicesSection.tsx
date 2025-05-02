@@ -2,6 +2,11 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
+// Import SVG backgrounds
+import landingPageBg from '@/assets/services/landing-page-bg.svg';
+import adCreativeBg from '@/assets/services/ad-creative-bg.svg';
+import strategyBg from '@/assets/services/strategy-bg.svg';
+
 export default function ServicesSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
@@ -33,68 +38,29 @@ export default function ServicesSection() {
   const serviceCards = [
     {
       title: "Landing Page & Website Builds",
-      description: "Conversion-first web builds designed to make your brand look legit and generate more leads.",
-      details: "We design and build modern, mobile-optimized pages—like this one—that make visitors stop scrolling and start converting.",
-      tags: ["Conversion-Focused", "Mobile-First", "Custom Built"],
-      bgColor: "#131A2A",
-      bgPattern: "radial-gradient(circle, rgba(255, 211, 0, 0.08) 1px, transparent 1px)",
-      bgSize: "20px 20px",
+      description: "Conversion-first web builds designed to make your brand look legit and generate more leads. Fully mobile-optimized, clean, and made to convert.",
+      tags: ["Landing Pages", "Websites", "Sales Pages"],
       accentColor: "#3498db",
-      icon: "bx-laptop",
-      cta: "See Examples",
-      ctaLink: "/projects"
+      backgroundImage: landingPageBg,
+      linkUrl: "/projects"
     },
     {
       title: "Ad & Email Creative Bundles",
-      description: "Done-for-you visuals and copy designed to plug straight into your campaigns.",
-      details: "Whether you need scroll-stopping ad graphics, polished UGC, or conversion-tested emails—we'll design it, write it, and deliver it ready to use.",
-      tags: ["Static Ads", "Email Copy", "UGC Sets"],
-      bgColor: "#131825",
-      bgPattern: "linear-gradient(45deg, rgba(255, 107, 107, 0.05) 25%, transparent 25%, transparent 75%, rgba(255, 107, 107, 0.05) 75%, rgba(255, 107, 107, 0.05)), linear-gradient(-45deg, rgba(255, 107, 107, 0.05) 25%, transparent 25%, transparent 75%, rgba(255, 107, 107, 0.05) 75%, rgba(255, 107, 107, 0.05))",
-      bgSize: "30px 30px",
+      description: "Done-for-you visuals and copy—scroll-stopping ads, polished UGC, and conversion-tested email flows.",
+      tags: ["Static Ads", "UGC", "Email Campaigns"],
       accentColor: "#ff6b6b",
-      icon: "bx-broadcast",
-      cta: "View Ad Bundles",
-      ctaLink: "/projects"
+      backgroundImage: adCreativeBg,
+      linkUrl: "/projects"
     },
     {
       title: "Custom Strategy & Solutions",
-      description: "Stuck on something weird? That's our favourite kind of problem.",
-      details: "If your needs don't fit in a template, we'll audit, plan, and design a custom marketing fix—from funnel strategy to brand repositioning.",
-      tags: ["Audits", "Consulting", "Funnel Design"],
-      bgColor: "#1A1F2E",
-      bgPattern: "linear-gradient(to right, rgba(30, 144, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(30, 144, 255, 0.05) 1px, transparent 1px)",
-      bgSize: "20px 20px",
+      description: "If you're stuck, we'll figure it out. From funnel rewires to brand repositions, we solve weird business problems.",
+      tags: ["Audits", "Consulting", "Funnel Strategy"],
       accentColor: "#4ECDC4",
-      icon: "bx-bulb",
-      cta: "Book a Strategy Call",
-      ctaLink: "#"
+      backgroundImage: strategyBg,
+      linkUrl: "#"
     }
   ];
-
-  // Animation for icon hover effect
-  const iconAnimation = {
-    rest: { 
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.2,
-        type: "tween",
-        ease: "easeIn"
-      }
-    },
-    hover: { 
-      scale: 1.15,
-      opacity: 1,
-      y: -3,
-      filter: "drop-shadow(0 0 8px rgba(255, 255, 255, 0.5))",
-      transition: {
-        duration: 0.3,
-        type: "spring",
-        stiffness: 300
-      }
-    }
-  };
 
   return (
     <section id="services" className="py-24 bg-gradient-to-b from-playblack to-playblack/95">
@@ -117,9 +83,9 @@ export default function ServicesSection() {
           We combine strategy, design, and execution to deliver high-performance marketing solutions that elevate your brand.
         </motion.p>
         
-        {/* Premium Visual Service Cards */}
+        {/* Full-width Image-based Service Cards */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-4"
+          className="grid grid-cols-1 gap-10 mb-4"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : ""}
@@ -127,110 +93,67 @@ export default function ServicesSection() {
           {serviceCards.map((card, index) => (
             <motion.div 
               key={index}
-              className="rounded-[20px] overflow-hidden h-auto md:h-[520px] relative group"
+              className="rounded-xl overflow-hidden h-[320px] md:h-[280px] relative group"
               variants={itemVariants}
-              style={{ boxShadow: "0 10px 30px rgba(0, 0, 0, 0.25)" }}
+              style={{ boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)" }}
             >
-              {/* Custom Background Pattern with Overlay */}
+              {/* Background Image with Overlay */}
               <div className="absolute inset-0 w-full h-full">
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/90 z-10"></div>
-                <div 
-                  className="absolute inset-0 transition-transform duration-700 ease-in-out group-hover:scale-105"
-                  style={{ 
-                    backgroundColor: card.bgColor,
-                    backgroundImage: card.bgPattern,
-                    backgroundSize: card.bgSize,
-                  }}
-                ></div>
-                {/* Glowing accent elements */}
-                <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full opacity-20 blur-3xl" 
-                  style={{ background: `radial-gradient(circle, ${card.accentColor} 0%, transparent 70%)` }}></div>
-                <div className="absolute top-20 -left-10 w-40 h-40 rounded-full opacity-10 blur-2xl" 
-                  style={{ background: `radial-gradient(circle, ${card.accentColor} 0%, transparent 70%)` }}></div>
+                {/* Background image */}
+                <img 
+                  src={card.backgroundImage} 
+                  alt={card.title}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                />
+                
+                {/* Overlay gradient for legibility */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-black/85 z-10"></div>
               </div>
               
               {/* Content Container */}
-              <div className="relative z-20 h-full flex flex-col justify-between p-8 md:p-10">
+              <div className="relative z-20 h-full flex flex-col justify-between p-6 md:p-8">
                 <div>
-                  {/* Title with accent line and animated icon */}
-                  <div className="flex items-center gap-3 mb-3">
-                    <span 
-                      className="block w-8 h-[3px] rounded-full" 
-                      style={{ backgroundColor: card.accentColor }}
-                    ></span>
-                    <motion.div
-                      initial="rest"
-                      whileHover="hover"
-                      animate="rest"
-                    >
-                      <motion.i 
-                        className={`bx ${card.icon} text-2xl`} 
-                        variants={iconAnimation}
-                        style={{ color: card.accentColor }}
-                      ></motion.i>
-                    </motion.div>
-                  </div>
-                  
-                  <h3 className="font-space text-2xl md:text-[28px] font-bold mb-5 text-white leading-tight">
+                  {/* Title */}
+                  <h3 className="font-space text-2xl md:text-3xl font-bold mb-3 text-white leading-tight">
                     {card.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-[#cccccc] mb-5 text-lg">{card.description}</p>
-                  
-                  {/* Details (hidden on mobile for space) */}
-                  <p className="text-[#aaaaaa] text-sm md:text-base mb-8 hidden md:block leading-relaxed">{card.details}</p>
+                  <p className="text-[#e6e6e6] md:max-w-2xl">{card.description}</p>
                 </div>
                 
-                <div className="space-y-5">
-                  {/* Service Tags in Pills */}
-                  <div className="flex flex-wrap gap-2">
-                    {card.tags.map((tag, tagIndex) => (
-                      <span 
-                        key={tagIndex} 
-                        className="inline-block py-1 px-4 rounded-full text-xs font-medium transition-all duration-300 group-hover:translate-y-0"
-                        style={{ 
-                          backgroundColor: `${card.accentColor}15`, // 15 is hex for 8% opacity
-                          color: `${card.accentColor}ee`, // ee is hex for 93% opacity
-                          backdropFilter: 'blur(4px)',
-                          transform: `translateY(${tagIndex * 2}px)`,
-                          boxShadow: `0 2px 10px rgba(0,0,0,0.12)`,
-                          border: `1px solid ${card.accentColor}25` // 25 is hex for ~15% opacity
-                        }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  {/* CTA Link */}
-                  <div className="pt-2">
-                    <a 
-                      href={card.ctaLink}
-                      className="inline-flex items-center group/cta"
-                      onClick={(e) => {
-                        if (card.ctaLink === '#') {
-                          e.preventDefault();
-                          // Here we could add contact form opening logic
-                          const workWithUsBtn = document.querySelector('.work-with-us-btn') as HTMLButtonElement;
-                          if (workWithUsBtn) workWithUsBtn.click();
-                        }
+                {/* Service Tags in Pills */}
+                <div className="flex flex-wrap gap-2 mt-auto pt-4">
+                  {card.tags.map((tag, tagIndex) => (
+                    <span 
+                      key={tagIndex} 
+                      className="inline-block py-1 px-4 rounded-full text-xs font-medium"
+                      style={{ 
+                        backgroundColor: 'rgba(204, 204, 204, 0.15)',
+                        color: '#ccc',
+                        backdropFilter: 'blur(4px)',
+                        border: '1px solid rgba(204, 204, 204, 0.2)'
                       }}
                     >
-                      <span 
-                        className="text-sm font-medium transition-all duration-300 mr-1 group-hover/cta:mr-2"
-                        style={{ color: card.accentColor }}
-                      >
-                        {card.cta}
-                      </span>
-                      <i 
-                        className="bx bx-right-arrow-alt text-lg transition-transform duration-300 transform group-hover/cta:translate-x-1"
-                        style={{ color: card.accentColor }}
-                      ></i>
-                    </a>
-                  </div>
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
+              
+              {/* Clickable overlay */}
+              <a 
+                href={card.linkUrl}
+                className="absolute inset-0 z-30 cursor-pointer"
+                onClick={(e) => {
+                  if (card.linkUrl === '#') {
+                    e.preventDefault();
+                    const workWithUsBtn = document.querySelector('.work-with-us-btn') as HTMLButtonElement;
+                    if (workWithUsBtn) workWithUsBtn.click();
+                  }
+                }}
+                aria-label={`Learn more about ${card.title}`}
+              ></a>
             </motion.div>
           ))}
         </motion.div>

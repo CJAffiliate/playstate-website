@@ -1,0 +1,79 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#192A3E"/>
+  
+  <!-- Strategy board and elements -->
+  <rect x="150" y="100" width="900" height="600" rx="8" fill="#233B54" stroke="#4ECDC4" stroke-width="2" stroke-opacity="0.5"/>
+  
+  <!-- Post-it notes -->
+  <rect x="200" y="150" width="150" height="150" rx="4" transform="rotate(3 200 150)" fill="#FFEB3B" fill-opacity="0.2" stroke="#FFEB3B" stroke-opacity="0.5"/>
+  <rect x="210" y="170" width="100" height="10" rx="2" transform="rotate(3 210 170)" fill="#FFEB3B" fill-opacity="0.5"/>
+  <rect x="210" y="190" width="120" height="10" rx="2" transform="rotate(3 210 190)" fill="#FFEB3B" fill-opacity="0.5"/>
+  <rect x="210" y="210" width="110" height="10" rx="2" transform="rotate(3 210 210)" fill="#FFEB3B" fill-opacity="0.5"/>
+  
+  <rect x="380" y="180" width="150" height="150" rx="4" transform="rotate(-2 380 180)" fill="#FF4B4B" fill-opacity="0.2" stroke="#FF4B4B" stroke-opacity="0.5"/>
+  <rect x="390" y="200" width="100" height="10" rx="2" transform="rotate(-2 390 200)" fill="#FF4B4B" fill-opacity="0.5"/>
+  <rect x="390" y="220" width="120" height="10" rx="2" transform="rotate(-2 390 220)" fill="#FF4B4B" fill-opacity="0.5"/>
+  <rect x="390" y="240" width="110" height="10" rx="2" transform="rotate(-2 390 240)" fill="#FF4B4B" fill-opacity="0.5"/>
+  
+  <rect x="560" y="150" width="150" height="150" rx="4" transform="rotate(1 560 150)" fill="#4ECDC4" fill-opacity="0.2" stroke="#4ECDC4" stroke-opacity="0.5"/>
+  <rect x="570" y="170" width="100" height="10" rx="2" transform="rotate(1 570 170)" fill="#4ECDC4" fill-opacity="0.5"/>
+  <rect x="570" y="190" width="120" height="10" rx="2" transform="rotate(1 570 190)" fill="#4ECDC4" fill-opacity="0.5"/>
+  <rect x="570" y="210" width="110" height="10" rx="2" transform="rotate(1 570 210)" fill="#4ECDC4" fill-opacity="0.5"/>
+  
+  <rect x="740" y="180" width="150" height="150" rx="4" transform="rotate(-1 740 180)" fill="#A78BFA" fill-opacity="0.2" stroke="#A78BFA" stroke-opacity="0.5"/>
+  <rect x="750" y="200" width="100" height="10" rx="2" transform="rotate(-1 750 200)" fill="#A78BFA" fill-opacity="0.5"/>
+  <rect x="750" y="220" width="120" height="10" rx="2" transform="rotate(-1 750 220)" fill="#A78BFA" fill-opacity="0.5"/>
+  <rect x="750" y="240" width="110" height="10" rx="2" transform="rotate(-1 750 240)" fill="#A78BFA" fill-opacity="0.5"/>
+  
+  <!-- Flow diagram -->
+  <rect x="250" y="400" width="180" height="80" rx="8" fill="#4ECDC4" fill-opacity="0.3" stroke="#4ECDC4" stroke-opacity="0.8"/>
+  <rect x="270" y="425" width="140" height="30" rx="4" fill="#4ECDC4" fill-opacity="0.1"/>
+  
+  <rect x="550" y="400" width="180" height="80" rx="8" fill="#4ECDC4" fill-opacity="0.3" stroke="#4ECDC4" stroke-opacity="0.8"/>
+  <rect x="570" y="425" width="140" height="30" rx="4" fill="#4ECDC4" fill-opacity="0.1"/>
+  
+  <rect x="850" y="400" width="180" height="80" rx="8" fill="#4ECDC4" fill-opacity="0.3" stroke="#4ECDC4" stroke-opacity="0.8"/>
+  <rect x="870" y="425" width="140" height="30" rx="4" fill="#4ECDC4" fill-opacity="0.1"/>
+  
+  <!-- Flow arrows -->
+  <path d="M430 440L550 440" stroke="#4ECDC4" stroke-width="3" stroke-opacity="0.8"/>
+  <path d="M545 430L550 440L545 450" stroke="#4ECDC4" stroke-width="3" stroke-opacity="0.8"/>
+  
+  <path d="M730 440L850 440" stroke="#4ECDC4" stroke-width="3" stroke-opacity="0.8"/>
+  <path d="M845 430L850 440L845 450" stroke="#4ECDC4" stroke-width="3" stroke-opacity="0.8"/>
+  
+  <!-- Chart or graph -->
+  <rect x="250" y="550" width="780" height="120" rx="8" fill="#233B54" stroke="#4ECDC4" stroke-width="2" stroke-opacity="0.5"/>
+  
+  <path d="M280 650L330 610L380 630L430 580L480 600L530 560L580 530L630 550L680 520L730 550L780 520L830 490L880 510L930 480L980 520" stroke="#4ECDC4" stroke-width="3" stroke-opacity="0.7" fill="none"/>
+  
+  <circle cx="330" cy="610" r="5" fill="#4ECDC4"/>
+  <circle cx="380" cy="630" r="5" fill="#4ECDC4"/>
+  <circle cx="430" cy="580" r="5" fill="#4ECDC4"/>
+  <circle cx="480" cy="600" r="5" fill="#4ECDC4"/>
+  <circle cx="530" cy="560" r="5" fill="#4ECDC4"/>
+  <circle cx="580" cy="530" r="5" fill="#4ECDC4"/>
+  <circle cx="630" cy="550" r="5" fill="#4ECDC4"/>
+  <circle cx="680" cy="520" r="5" fill="#4ECDC4"/>
+  <circle cx="730" cy="550" r="5" fill="#4ECDC4"/>
+  <circle cx="780" cy="520" r="5" fill="#4ECDC4"/>
+  <circle cx="830" cy="490" r="5" fill="#4ECDC4"/>
+  <circle cx="880" cy="510" r="5" fill="#4ECDC4"/>
+  <circle cx="930" cy="480" r="5" fill="#4ECDC4"/>
+  <circle cx="980" cy="520" r="5" fill="#4ECDC4"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="100" cy="200" r="60" fill="url(#paint0_radial_0_1)" fill-opacity="0.2"/>
+  <circle cx="1100" cy="300" r="80" fill="url(#paint1_radial_0_1)" fill-opacity="0.15"/>
+  
+  <defs>
+    <radialGradient id="paint0_radial_0_1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(100 200) rotate(90) scale(60)">
+      <stop stop-color="#4ECDC4"/>
+      <stop offset="1" stop-color="#4ECDC4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint1_radial_0_1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1100 300) rotate(90) scale(80)">
+      <stop stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
