@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'wouter';
-import tradeIQImage from '@/assets/tradeiq-mockup.jpg';
+import tradeIQImage from '@/assets/tradeiq-app.jpg';
 
 export default function CaseStudySection() {
   const ref = useRef(null);
@@ -88,28 +88,28 @@ export default function CaseStudySection() {
             variants={itemVariants}
           >
             <h3 className="font-space text-2xl font-bold text-white">
-              Case Study: <span className="text-playyellow">Trade AI</span>
+              Case Study: <span className="text-playyellow">TradeIQ</span>
             </h3>
             
             <div className="space-y-6">
               <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/8 transition-all duration-300">
                 <h4 className="text-sm uppercase text-playgray mb-2 font-bold">Problem:</h4>
                 <p className="text-white">
-                  "Users were bouncing on a confusing homepage. Engagement was low, and trial signups were underperforming."
+                  "Trading platform lacked sophisticated AI analysis tools. Users needed real-time data insights without emotional bias impacting decisions."
                 </p>
               </div>
               
               <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/8 transition-all duration-300">
                 <h4 className="text-sm uppercase text-playgray mb-2 font-bold">Our Solution:</h4>
                 <p className="text-white">
-                  "We rebuilt the landing page with a conversion-first layout that guided the user journey. Copy, layout, and CTA strategy were refined from the ground up."
+                  "We designed a clean, data-focused mobile UI that analyzes personal trading styles to deliver smarter, faster decisions powered by real data, not emotions."
                 </p>
               </div>
               
               <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/8 transition-all duration-300">
                 <h4 className="text-sm uppercase text-playgray mb-2 font-bold">Results:</h4>
                 <p className="text-playyellow font-bold">
-                  "+19% trial signups in the first 14 days post-launch."
+                  "+42% user engagement and 8,500+ waitlist signups within first month of launch."
                 </p>
               </div>
             </div>
