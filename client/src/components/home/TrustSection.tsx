@@ -1,9 +1,10 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 
 export default function TrustSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -26,12 +27,12 @@ export default function TrustSection() {
   };
 
   const brands = [
-    { icon: 'bxl-spotify' },
-    { icon: 'bxl-slack' },
-    { icon: 'bxl-dribbble' },
-    { icon: 'bxl-shopify' },
-    { icon: 'bxl-airbnb' },
-    { icon: 'bxl-figma' }
+    { icon: 'bxl-spotify', color: '#1ED760' },
+    { icon: 'bxl-slack', color: '#E01E5A' },
+    { icon: 'bxl-dribbble', color: '#EA4C89' },
+    { icon: 'bxl-shopify', color: '#95BF47' },
+    { icon: 'bxl-airbnb', color: '#FF5A5F' },
+    { icon: 'bxl-figma', color: '#F24E1E' }
   ];
 
   return (
@@ -52,14 +53,30 @@ export default function TrustSection() {
           initial="hidden"
           animate={isInView ? "visible" : ""}
         >
-          {/* Brand logos (grayscale) */}
+          {/* Brand logos with grayscale and hover animation */}
           {brands.map((brand, index) => (
             <motion.div 
               key={index}
-              className="opacity-40 hover:opacity-80 transition-opacity"
               variants={itemVariants}
+              className="cursor-pointer"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              <i className={`bx ${brand.icon} text-5xl`}></i>
+              <motion.i 
+                className={`bx ${brand.icon} text-5xl`}
+                initial={{ filter: "grayscale(100%)", opacity: 0.4 }}
+                animate={{ 
+                  filter: hoveredIndex === index ? "grayscale(0%)" : "grayscale(100%)",
+                  opacity: hoveredIndex === index ? 1 : 0.4,
+                  scale: hoveredIndex === index ? 1.1 : 1,
+                  rotate: hoveredIndex === index ? [0, -5, 5, -3, 3, 0] : 0,
+                  color: hoveredIndex === index ? brand.color : "#FFFFFF"
+                }}
+                transition={{ 
+                  duration: 0.3,
+                  rotate: { duration: 0.5 }
+                }}
+              />
             </motion.div>
           ))}
         </motion.div>

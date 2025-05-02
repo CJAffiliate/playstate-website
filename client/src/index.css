@@ -168,3 +168,19 @@
   box-shadow: 0 0 0 2px rgba(255, 211, 0, 0.5);
   border-color: #FFD300;
 }
+
+/* Brand logo grayscale effects */
+.grayscale {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.grayscale:hover {
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  opacity: 1 !important;
+  transform: scale(1.05);
+}
