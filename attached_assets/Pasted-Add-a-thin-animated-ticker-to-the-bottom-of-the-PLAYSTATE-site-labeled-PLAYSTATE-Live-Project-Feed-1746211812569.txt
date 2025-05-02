@@ -1,0 +1,58 @@
+Add a thin, animated ticker to the bottom of the PLAYSTATE site labeled “PLAYSTATE Live Project Feed”. This strip should feel like a real-time agency activity feed, cycling through short, clever, action-based updates like a terminal or stock ticker.
+
+Must be fully responsive, fixed to the bottom of the viewport, and unobtrusive but stylish.
+
+✅ STRUCTURE
+Position: Fixed to the bottom of the viewport, above or inside the footer
+
+Height: 30–40px max height on desktop and mobile
+
+Scroll Type: Continuous left-to-right scroll loop
+
+Label: On the left:
+
+🟡 PLAYSTATE LIVE PROJECT FEED
+
+Ticker Content: Scrolling horizontally through punchy “project update” blurbs
+
+🧱 EXAMPLE FEED CONTENT (looped)
+rust
+Copy
+Edit
+🚀 Launching GrowGuru's ad bundle...  
+📈 Trade AI funnel waitlist just passed 1,000 signups...  
+🛠 FreshDrip creative sets in testing phase...  
+📧 5-email welcome series deployed for SynthEx...  
+💡 New funnel strategy underway for Project Neon...  
+🎯 CJ approved final landing page wireframe for AltGen...
+🎨 STYLING
+
+Element	Style
+Background	#0e0e0e (dark) or darker gradient to match site theme
+Text Color	White or light gray (#ffffff / #dddddd)
+Highlight Icons	Use select emojis or animated SVGs (e.g., 🚀 📈 🧠 ✅)
+Ticker Speed	Medium-fast, readable pace (animation-duration: 30–45s)
+Padding	Small vertical padding (8–10px), some horizontal breathing room
+⚙️ TECHNICAL NOTES
+Use a <marquee>-style effect via CSS keyframes or JS loop (not actual <marquee> tag)
+
+Animate inside a div that loops its contents for infinite scroll
+
+Allow ticker to pause on hover for accessibility
+
+Use z-index high enough to not be covered by the footer
+
+✅ RESPONSIVE CONSIDERATIONS
+On mobile, shrink font slightly (use 14px instead of 16px)
+
+Ensure label stays fixed and legible next to ticker line
+
+Optionally hide or simplify emojis/icons on very small screens
+
+🧠 OPTIONAL EXTRAS
+Add a faint pulse or flicker effect to the “LIVE PROJECT FEED” label
+
+Use a blinking dot or typing cursor next to it (● _)
+
+Make the ticker collapsible or closable if you want UX flexibility
+

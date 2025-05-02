@@ -14,6 +14,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/layout/ContactForm";
 import WorkWithUsModal from "@/components/layout/WorkWithUsModal";
+import LiveProjectFeed from "@/components/layout/LiveProjectFeed";
 
 function Router() {
   return (
@@ -64,6 +65,9 @@ function App() {
               <WorkWithUsModal onClose={() => setIsWorkWithUsModalOpen(false)} />
             )}
           </AnimatePresence>
+          
+          {/* Live Project Feed */}
+          <LiveProjectFeed />
         </div>
       </TooltipProvider>
     </QueryClientProvider>
