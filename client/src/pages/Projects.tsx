@@ -6,7 +6,7 @@ export default function Projects() {
   // Only using top 3 projects
   const featuredProjects = projects.slice(0, 3);
   
-  // Individual file animation for clean entrance
+  // Individual file animations with staggered timing
   const fileVariants = {
     hidden: { opacity: 0, y: 60 },
     visible: {
@@ -14,8 +14,8 @@ export default function Projects() {
       y: 0,
       transition: { 
         type: "spring",
-        stiffness: 70,
-        damping: 20,
+        stiffness: 50,
+        damping: 15,
         duration: 0.8
       }
     }
@@ -63,40 +63,50 @@ export default function Projects() {
             </motion.p>
           </motion.div>
 
-          {/* Project Files - Clean Vertical Stack */}
-          <div className="max-w-4xl mx-auto space-y-24">
+          {/* Project Files - Zig Zag Layout with rotation */}
+          <div className="max-w-6xl mx-auto relative min-h-[600px]">
             {featuredProjects.map((project, index) => (
               <motion.div 
                 key={index}
+                style={{
+                  position: 'absolute',
+                  top: `${index * 200}px`,
+                  left: index % 2 === 0 ? '5%' : 'auto', 
+                  right: index % 2 === 0 ? 'auto' : '5%',
+                  maxWidth: '500px',
+                  width: '100%',
+                  zIndex: featuredProjects.length - index,
+                  transform: `rotate(${index % 2 === 0 ? -2 : 2}deg)`
+                }}
                 className="client-file bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden hover:border-playyellow/20 transition-all relative"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.15 }}
                 variants={fileVariants}
               >
-                {/* File Container */}
-                <div className="p-8 md:p-10">
+                {/* File Container - More compact */}
+                <div className="p-4 md:p-6">
                   {/* File Header with improved hierarchy */}
-                  <div className="flex flex-col mb-8">
+                  <div className="flex flex-col mb-4">
                     {/* Top row with file number and status */}
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center">
-                        <div className="file-tab w-8 h-8 bg-playyellow/90 rounded-t-md rounded-r-md -ml-10 mr-4"></div>
-                        <h3 className="font-mono text-sm font-bold text-playyellow">
+                        <div className="file-tab w-6 h-6 bg-playyellow/90 rounded-t-md rounded-r-md -ml-8 mr-3"></div>
+                        <h3 className="font-mono text-xs font-bold text-playyellow">
                           {project.fileNumber} — {project.name}
                         </h3>
                       </div>
                       
-                      {/* Status Badge - more prominent */}
-                      <div className="bg-green-900/20 text-green-400 text-xs font-mono px-3 py-1 rounded-full border border-green-800/30 uppercase tracking-wider flex items-center whitespace-nowrap">
-                        <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                      {/* Status Badge - more compact */}
+                      <div className="bg-green-900/20 text-green-400 text-[10px] font-mono px-2 py-0.5 rounded-full border border-green-800/30 uppercase tracking-wider flex items-center whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-1 animate-pulse"></span>
                         STATUS: {project.status}
                       </div>
                     </div>
                     
                     {/* Project Type Tag */}
-                    <div className="mb-4">
-                      <span className="bg-playyellow/20 text-playyellow text-xs px-3 py-1 rounded-md border border-playyellow/10">
+                    <div className="mb-3 flex justify-between items-center">
+                      <span className="bg-playyellow/20 text-playyellow text-[10px] px-2 py-0.5 rounded-md border border-playyellow/10">
                         {project.tag}
                       </span>
                     </div>
@@ -105,35 +115,45 @@ export default function Projects() {
                     <div className="h-px bg-gradient-to-r from-playyellow/50 via-white/10 to-transparent"></div>
                   </div>
                   
-                  {/* File Content - standardized layout */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                  {/* File Content - compact layout */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     {/* Text Column */}
-                    <div className="space-y-6">
+                    <div className="space-y-3">
                       <div>
-                        <h4 className="text-sm uppercase font-bold text-playgray mb-3 flex items-center">
-                          <span className="text-playyellow text-lg mr-2">❓</span> Objective
+                        <h4 className="text-xs uppercase font-bold text-playgray mb-1 flex items-center">
+                          <span className="text-playyellow text-sm mr-1">❓</span> Objective
                         </h4>
-                        <p className="text-white">{project.objective}</p>
+                        <p className="text-white text-sm">
+                          {project.objective.length > 100 
+                            ? project.objective.substring(0, 100) + '...' 
+                            : project.objective}
+                        </p>
                       </div>
                       
                       <div>
-                        <h4 className="text-sm uppercase font-bold text-playgray mb-3 flex items-center">
-                          <span className="text-playyellow text-lg mr-2">⚙️</span> Action Taken
+                        <h4 className="text-xs uppercase font-bold text-playgray mb-1 flex items-center">
+                          <span className="text-playyellow text-sm mr-1">⚙️</span> Action
                         </h4>
-                        <p className="text-white">{project.action}</p>
+                        <p className="text-white text-sm">
+                          {project.action.length > 80 
+                            ? project.action.substring(0, 80) + '...' 
+                            : project.action}
+                        </p>
                       </div>
                       
                       <div>
-                        <h4 className="text-sm uppercase font-bold text-playgray mb-3 flex items-center">
-                          <span className="text-playyellow text-lg mr-2">🎯</span> Outcome
+                        <h4 className="text-xs uppercase font-bold text-playgray mb-1 flex items-center">
+                          <span className="text-playyellow text-sm mr-1">🎯</span> Outcome
                         </h4>
-                        <p className="text-playyellow font-medium text-xl">{project.outcome}</p>
+                        <p className="text-playyellow font-medium">
+                          {project.outcome}
+                        </p>
                       </div>
                     </div>
                     
                     {/* Image Column */}
                     <div className="flex items-center justify-center">
-                      <div className="project-image-container overflow-hidden rounded-md border border-white/10 shadow-2xl relative w-full h-full aspect-video max-h-[240px]">
+                      <div className="project-image-container overflow-hidden rounded-md border border-white/10 shadow-xl relative w-full h-[130px]">
                         {/* Asset Frame */}
                         <div className="absolute inset-0 border-2 border-white/5 rounded-md pointer-events-none z-10"></div>
                         
@@ -145,7 +165,7 @@ export default function Projects() {
                         />
                         
                         {/* Corner decoration */}
-                        <div className="absolute bottom-0 right-0 w-16 h-16 flex items-end justify-end p-2 text-xs text-playgray font-mono opacity-60">
+                        <div className="absolute bottom-0 right-0 w-8 h-8 flex items-end justify-end p-1 text-[8px] text-playgray font-mono opacity-60">
                           PLAYSTATE™
                         </div>
                       </div>
@@ -153,9 +173,9 @@ export default function Projects() {
                   </div>
                   
                   {/* CTA Button - consistent position */}
-                  <div className="mt-8 pt-6 border-t border-white/10 flex justify-end">
-                    <button className="file-open-btn inline-flex items-center bg-white/10 hover:bg-playyellow/90 hover:text-playblack text-white px-5 py-3 rounded-md font-medium transition-all duration-300 border border-white/5">
-                      <span className="mr-2">Open Full File</span> <i className='bx bx-folder-open text-lg'></i>
+                  <div className="mt-4 pt-3 border-t border-white/10 flex justify-end">
+                    <button className="file-open-btn inline-flex items-center bg-white/10 hover:bg-playyellow/90 hover:text-playblack text-white px-3 py-1.5 rounded text-xs font-medium transition-all duration-300 border border-white/5">
+                      <span className="mr-1">Open File</span> <i className='bx bx-folder-open'></i>
                     </button>
                   </div>
                 </div>
