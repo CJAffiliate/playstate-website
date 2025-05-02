@@ -41,41 +41,84 @@ export default function HeroSection({ onWorkWithUsClick }: HeroSectionProps) {
         initial="hidden"
         animate="visible"
       >
+        {/* Top row */}
         <motion.div 
-          className="floating-icon absolute top-1/4 left-1/5 text-playyellow text-3xl"
+          className="floating-icon absolute top-[10%] left-[15%] text-playyellow text-3xl"
           variants={floatingIcon}
         >
           <i className='bx bx-envelope'></i>
         </motion.div>
         <motion.div 
-          className="floating-icon-delay-1 absolute top-2/3 left-1/3 text-white text-2xl"
+          className="floating-icon-delay-1 absolute top-[10%] left-[40%] text-white text-2xl"
           variants={floatingIcon}
         >
           <i className='bx bx-mouse'></i>
         </motion.div>
         <motion.div 
-          className="floating-icon-delay-2 absolute top-1/3 right-1/4 text-playyellow text-4xl"
+          className="floating-icon-delay-2 absolute top-[10%] right-[20%] text-playyellow text-4xl"
           variants={floatingIcon}
         >
           <i className='bx bx-spreadsheet'></i>
         </motion.div>
+        
+        {/* Middle row */}
         <motion.div 
-          className="floating-icon-delay-3 absolute bottom-1/4 right-1/3 text-white text-3xl"
+          className="floating-icon-delay-3 absolute top-[35%] left-[10%] text-white text-3xl"
           variants={floatingIcon}
         >
           <i className='bx bx-trending-up'></i>
         </motion.div>
         <motion.div 
-          className="floating-icon-delay-4 absolute top-1/2 left-1/4 text-playyellow text-2xl"
+          className="floating-icon-delay-4 absolute top-[35%] left-[30%] text-playyellow text-2xl"
           variants={floatingIcon}
         >
           <i className='bx bx-bullseye'></i>
         </motion.div>
         <motion.div 
-          className="floating-icon-delay-5 absolute bottom-1/3 right-1/5 text-white text-3xl"
+          className="floating-icon-delay-5 absolute top-[35%] right-[30%] text-white text-3xl"
           variants={floatingIcon}
         >
           <i className='bx bx-bar-chart-alt-2'></i>
+        </motion.div>
+        <motion.div 
+          className="floating-icon-delay-2 absolute top-[35%] right-[10%] text-playyellow text-2xl"
+          variants={floatingIcon}
+        >
+          <i className='bx bx-line-chart'></i>
+        </motion.div>
+        
+        {/* Bottom row */}
+        <motion.div 
+          className="floating-icon-delay-3 absolute bottom-[25%] left-[20%] text-white text-2xl"
+          variants={floatingIcon}
+        >
+          <i className='bx bx-photo-album'></i>
+        </motion.div>
+        <motion.div 
+          className="floating-icon-delay-4 absolute bottom-[25%] left-[45%] text-playyellow text-3xl"
+          variants={floatingIcon}
+        >
+          <i className='bx bx-dollar-circle'></i>
+        </motion.div>
+        <motion.div 
+          className="floating-icon-delay-5 absolute bottom-[25%] right-[20%] text-white text-3xl"
+          variants={floatingIcon}
+        >
+          <i className='bx bx-target-lock'></i>
+        </motion.div>
+        
+        {/* Additional scattered icons */}
+        <motion.div 
+          className="floating-icon-delay-1 absolute top-[60%] left-[15%] text-playyellow text-4xl"
+          variants={floatingIcon}
+        >
+          <i className='bx bx-rocket'></i>
+        </motion.div>
+        <motion.div 
+          className="floating-icon-delay-3 absolute top-[60%] right-[15%] text-white text-2xl"
+          variants={floatingIcon}
+        >
+          <i className='bx bx-cart'></i>
         </motion.div>
       </motion.div>
       

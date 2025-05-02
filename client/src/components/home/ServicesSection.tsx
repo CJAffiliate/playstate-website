@@ -94,9 +94,9 @@ export default function ServicesSection() {
           </motion.div>
         </motion.div>
         
-        {/* Horizontal callout */}
+        {/* Horizontal callout with translucent yellow box */}
         <motion.div 
-          className="mt-12 p-6 bg-playyellow/10 border border-playyellow/20 rounded-lg text-center"
+          className="mt-12 p-6 bg-playyellow/25 backdrop-blur-sm border border-playyellow/30 rounded-lg text-center shadow-lg shadow-playyellow/10"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ 
@@ -104,7 +104,7 @@ export default function ServicesSection() {
             delay: 0.9
           }}
         >
-          <p className="text-white font-space">All services include post-marketing care: optimization, updates, and scaling built-in. <span className="font-bold">We grow with you.</span></p>
+          <p className="text-playblack font-space font-medium">All services include post-marketing care: optimization, updates, and scaling built-in. <span className="font-bold text-black">We grow with you.</span></p>
         </motion.div>
       </div>
     </section>
