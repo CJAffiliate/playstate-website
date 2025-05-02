@@ -63,22 +63,14 @@ export default function Projects() {
             </motion.p>
           </motion.div>
 
-          {/* Project Files - Zig Zag Layout with rotation */}
-          <div className="max-w-6xl mx-auto relative min-h-[600px]">
+          {/* Project Files - Clean Zig Zag Layout - No overlapping */}
+          <div className="max-w-6xl mx-auto">
             {featuredProjects.map((project, index) => (
               <motion.div 
                 key={index}
-                style={{
-                  position: 'absolute',
-                  top: `${index * 200}px`,
-                  left: index % 2 === 0 ? '5%' : 'auto', 
-                  right: index % 2 === 0 ? 'auto' : '5%',
-                  maxWidth: '500px',
-                  width: '100%',
-                  zIndex: featuredProjects.length - index,
-                  transform: `rotate(${index % 2 === 0 ? -2 : 2}deg)`
-                }}
-                className="client-file bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden hover:border-playyellow/20 transition-all relative"
+                className={`client-file bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden hover:border-playyellow/20 transition-all relative max-w-2xl mb-24 ${
+                  index % 2 === 0 ? 'ml-0 mr-auto transform -rotate-1' : 'ml-auto mr-0 transform rotate-1'
+                }`}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.15 }}
