@@ -2,29 +2,30 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PhoneMockup from '@/components/ui/phone-mockup';
 import greenhomePathImg from '@/assets/greenhomepath.jpg';
+import { projects } from '@/lib/project-data';
 
-// Project data with real examples
+// Create carousel project data from our project data
 const projectData = [
   {
     id: 1,
-    name: 'TRADE AI',
-    tag: 'Funnel & Waitlist',
-    image: '/tradeiq-screenshot.jpg',
-    description: 'Helped secure £250,000 in funding by designing a high-conversion funnel and waitlist system for an AI-powered trading app.'
+    name: projects[0].name,
+    tag: projects[0].tag,
+    image: projects[0].screenImage || '/tradeiq-screenshot.jpg',
+    description: projects[0].description || 'Helped secure £250,000 in funding by designing a high-conversion funnel and waitlist system for an AI-powered trading app.'
   },
   {
     id: 2,
-    name: 'GREENHOMEPATH',
-    tag: 'Lead Generation',
+    name: projects[1].name,
+    tag: projects[1].tag,
     image: greenhomePathImg,
-    description: 'Built a lead-gen system for a pay-per-lead affiliate brand in the green energy space. Targeted cost-conscious homeowners via Facebook & Instagram ads.'
+    description: projects[1].description || 'Built a lead-gen system for a pay-per-lead affiliate brand in the green energy space. Targeted cost-conscious homeowners via Facebook & Instagram ads.'
   },
   {
     id: 3,
-    name: 'SYNTHTEX',
-    tag: 'Email Campaign',
-    image: '/synthex-email.jpg',
-    description: 'Designed and implemented a 5-part email nurture sequence that increased customer activation by 43% and improved retention for a SaaS platform.'
+    name: projects[3].name,
+    tag: projects[3].tag,
+    image: projects[3].screenImage || '/email-screenshot.jpg',
+    description: projects[3].description || 'Redesigned email nurture sequence that doubled sales calls and increased open rates by 42% for B2B SaaS platform.'
   }
 ];
 

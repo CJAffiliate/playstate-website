@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { projects } from '@/lib/project-data';
 import { Link } from 'wouter';
+import PhoneMockup from '@/components/ui/phone-mockup';
+import greenhomePathImg from '@/assets/greenhomepath.jpg';
 
 export default function Projects() {
-  // Only using top 3 projects
-  const featuredProjects = projects.slice(0, 3);
+  // Using all 4 projects now, including GreenHomePath
+  const featuredProjects = projects.slice(0, 4);
   
   // Individual file animations with staggered timing
   const fileVariants = {
@@ -63,112 +65,133 @@ export default function Projects() {
             </motion.p>
           </motion.div>
 
-          {/* Project Files - Clean Zig Zag Layout - No overlapping */}
+          {/* Project Files - Modern alternating layout with phone mockups */}
           <div className="max-w-6xl mx-auto">
             {featuredProjects.map((project, index) => (
               <motion.div 
                 key={index}
-                className={`client-file bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden hover:border-playyellow/20 transition-all relative max-w-2xl mb-24 ${
-                  index % 2 === 0 ? 'ml-0 mr-auto transform -rotate-1' : 'ml-auto mr-0 transform rotate-1'
-                }`}
+                className="mb-32"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.15 }}
                 variants={fileVariants}
               >
-                {/* File Container - More compact */}
-                <div className="p-4 md:p-6">
-                  {/* File Header with improved hierarchy */}
-                  <div className="flex flex-col mb-4">
-                    {/* Top row with file number and status */}
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center">
-                        <div className="file-tab w-6 h-6 bg-playyellow/90 rounded-t-md rounded-r-md -ml-8 mr-3"></div>
-                        <h3 className="font-mono text-xs font-bold text-playyellow">
-                          {project.fileNumber} · {project.name}
-                        </h3>
-                      </div>
+                <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-4 md:gap-12 items-center`}>
+                  {/* Phone Mockup Side */}
+                  <div className="w-full md:w-2/5 relative flex justify-center">
+                    <motion.div
+                      initial={{ y: 20 }}
+                      whileInView={{ y: [20, 0, 20] }}
+                      transition={{ 
+                        duration: 6, 
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                        repeatType: "mirror"
+                      }}
+                      viewport={{ once: false, amount: 0.2 }}
+                      className="relative"
+                    >
+                      {/* Floating Phone */}
+                      {project.name === "GREENHOMEPATH" ? (
+                        <PhoneMockup 
+                          imageUrl={greenhomePathImg} 
+                          animate={false}
+                          showButtons={true}
+                          className="shadow-2xl shadow-black/20"
+                        />
+                      ) : (
+                        <PhoneMockup 
+                          imageUrl={project.name === "TradeIQ" ? "/tradeiq-screenshot.jpg" : 
+                                  project.name === "FRESHDRIP" ? "/coffee-ad-screenshot.jpg" : 
+                                  "/email-screenshot.jpg"} 
+                          animate={false}
+                          showButtons={true}
+                          className="shadow-2xl shadow-black/20"
+                        />
+                      )}
                       
-                      {/* Status Badge - more compact */}
-                      <div className="bg-green-900/20 text-green-400 text-[10px] font-mono px-2 py-0.5 rounded-full border border-green-800/30 uppercase tracking-wider flex items-center whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-1 animate-pulse"></span>
-                        STATUS: {project.status}
-                      </div>
-                    </div>
-                    
-                    {/* Project Type Tag */}
-                    <div className="mb-3 flex justify-between items-center">
-                      <span className="bg-playyellow/20 text-playyellow text-[10px] px-2 py-0.5 rounded-md border border-playyellow/10">
-                        {project.tag}
-                      </span>
-                    </div>
-                    
-                    {/* Horizontal divider with stronger presence */}
-                    <div className="h-px bg-gradient-to-r from-playyellow/50 via-white/10 to-transparent"></div>
+                      {/* Illuminating glow under phone */}
+                      <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-64 h-16 bg-playyellow/20 blur-2xl rounded-full"></div>
+                      
+                      {/* Blueprint grid background */}
+                      <div className="absolute -inset-12 -z-10 blueprint-grid opacity-[0.05] rounded-full"></div>
+                    </motion.div>
                   </div>
                   
-                  {/* File Content - compact layout */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    {/* Text Column */}
-                    <div className="space-y-3">
-                      <div>
-                        <h4 className="text-xs uppercase font-bold text-playgray mb-1 flex items-center">
-                          <span className="text-playyellow text-sm mr-1">❓</span> Objective
-                        </h4>
-                        <p className="text-white text-sm">
-                          {project.objective.length > 100 
-                            ? project.objective.substring(0, 100) + '...' 
-                            : project.objective}
-                        </p>
+                  {/* Content Side */}
+                  <div className="w-full md:w-3/5">
+                    <div className="client-file bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden hover:border-playyellow/20 transition-colors p-6 md:p-8">
+                      {/* Top section with file number and tag */}
+                      <div className="flex flex-col mb-6">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center">
+                            <div className="file-tab w-6 h-6 bg-playyellow/90 rounded-t-md rounded-r-md -ml-10 mr-3 hidden md:block"></div>
+                            <h3 className="font-mono text-sm md:text-base font-bold text-playyellow">
+                              {project.fileNumber} · {project.name}
+                            </h3>
+                          </div>
+                          
+                          {/* Status Badge */}
+                          <div className="bg-green-900/20 text-green-400 text-[10px] md:text-xs font-mono px-2 py-0.5 rounded-full border border-green-800/30 uppercase tracking-wider flex items-center whitespace-nowrap">
+                            <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-1 animate-pulse"></span>
+                            {project.status}
+                          </div>
+                        </div>
+                        
+                        {/* Project Type Tag */}
+                        <div className="mb-4 mt-2">
+                          <span className="bg-playyellow/20 text-playyellow text-xs px-3 py-1 rounded-md border border-playyellow/10">
+                            {project.tag}
+                          </span>
+                        </div>
+                        
+                        {/* Horizontal divider */}
+                        <div className="h-px bg-gradient-to-r from-playyellow/50 via-white/10 to-transparent"></div>
                       </div>
                       
-                      <div>
-                        <h4 className="text-xs uppercase font-bold text-playgray mb-1 flex items-center">
-                          <span className="text-playyellow text-sm mr-1">⚙️</span> Action
-                        </h4>
-                        <p className="text-white text-sm">
-                          {project.action.length > 80 
-                            ? project.action.substring(0, 80) + '...' 
-                            : project.action}
-                        </p>
-                      </div>
-                      
-                      <div>
-                        <h4 className="text-xs uppercase font-bold text-playgray mb-1 flex items-center">
-                          <span className="text-playyellow text-sm mr-1">🎯</span> Outcome
-                        </h4>
-                        <p className="text-playyellow font-medium">
-                          {project.outcome}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    {/* Image Column */}
-                    <div className="flex items-center justify-center">
-                      <div className="project-image-container overflow-hidden rounded-md border border-white/10 shadow-xl relative w-full h-[130px]">
-                        {/* Asset Frame */}
-                        <div className="absolute inset-0 border-2 border-white/5 rounded-md pointer-events-none z-10"></div>
+                      {/* Main content */}
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="text-sm uppercase font-bold text-playgray mb-2 flex items-center">
+                            <span className="text-playyellow text-base mr-2">❓</span> Objective
+                          </h4>
+                          <p className="text-white">
+                            {project.objective.length > 160 
+                              ? project.objective.substring(0, 160) + '...' 
+                              : project.objective}
+                          </p>
+                        </div>
                         
-                        {/* Image */}
-                        <img 
-                          src={`/src/assets/${project.image}`}
-                          alt={`${project.name}`} 
-                          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                        />
+                        <div>
+                          <h4 className="text-sm uppercase font-bold text-playgray mb-2 flex items-center">
+                            <span className="text-playyellow text-base mr-2">⚙️</span> Action
+                          </h4>
+                          <p className="text-white">
+                            {project.action.length > 160 
+                              ? project.action.substring(0, 160) + '...' 
+                              : project.action}
+                          </p>
+                        </div>
                         
-                        {/* Corner decoration */}
-                        <div className="absolute bottom-0 right-0 w-8 h-8 flex items-end justify-end p-1 text-[8px] text-playgray font-mono opacity-60">
-                          PLAYSTATE™
+                        <div>
+                          <h4 className="text-sm uppercase font-bold text-playgray mb-2 flex items-center">
+                            <span className="text-playyellow text-base mr-2">🎯</span> Outcome
+                          </h4>
+                          <p className="text-playyellow font-medium">
+                            {project.outcome.length > 120
+                              ? project.outcome.substring(0, 120) + '...'
+                              : project.outcome}
+                          </p>
                         </div>
                       </div>
+                      
+                      {/* CTA Button */}
+                      <div className="mt-8 pt-4 border-t border-white/10 flex justify-end">
+                        <button className="file-open-btn inline-flex items-center bg-white/10 hover:bg-playyellow/90 hover:text-playblack text-white px-4 py-2 rounded text-sm font-medium transition-all duration-300 border border-white/5">
+                          <span className="mr-2">View Project File</span> <i className='bx bx-folder-open'></i>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                  
-                  {/* CTA Button - consistent position */}
-                  <div className="mt-4 pt-3 border-t border-white/10 flex justify-end">
-                    <button className="file-open-btn inline-flex items-center bg-white/10 hover:bg-playyellow/90 hover:text-playblack text-white px-3 py-1.5 rounded text-xs font-medium transition-all duration-300 border border-white/5">
-                      <span className="mr-1">Open File</span> <i className='bx bx-folder-open'></i>
-                    </button>
                   </div>
                 </div>
               </motion.div>
@@ -193,7 +216,7 @@ export default function Projects() {
             {/* Tab */}
             <div className="absolute top-0 left-10 -translate-y-1/2 bg-playyellow/80 h-6 w-20 rounded-t-md"></div>
             
-            <h3 className="font-space text-3xl md:text-4xl font-bold mb-5">Your brand could be File 04.</h3>
+            <h3 className="font-space text-3xl md:text-4xl font-bold mb-5">Your brand could be File 05.</h3>
             <p className="text-playgray mb-8 text-xl max-w-xl mx-auto">Let PLAYSTATE transform your marketing strategy into a precision conversion machine.</p>
             
             <Link href="/#contact" className="cta-button inline-flex items-center bg-playyellow text-playblack px-8 py-4 rounded-md font-medium hover:bg-white transition-all duration-300 text-lg">
