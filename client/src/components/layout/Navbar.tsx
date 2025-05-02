@@ -74,7 +74,7 @@ export default function Navbar({ onWorkWithUsClick }: NavbarProps) {
             </div>
           </Link>
           <button 
-            className="bg-playyellow text-playblack px-4 py-2 rounded-md font-medium hover:bg-white transition-colors"
+            className="bg-playyellow text-playblack px-4 py-2 rounded-md font-medium hover:bg-white transition-colors work-with-us-btn"
             onClick={onWorkWithUsClick}
           >
             Work With Us
@@ -124,7 +124,7 @@ export default function Navbar({ onWorkWithUsClick }: NavbarProps) {
             </div>
           </Link>
           <button 
-            className="bg-playyellow text-playblack px-4 py-2 rounded-md font-medium hover:bg-white transition-colors"
+            className="bg-playyellow text-playblack px-4 py-2 rounded-md font-medium hover:bg-white transition-colors work-with-us-btn"
             onClick={() => {
               setIsMenuOpen(false);
               onWorkWithUsClick();

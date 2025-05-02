@@ -127,9 +127,9 @@ export default function CaseStudySection() {
           }}
         >
           <Link href="/projects">
-            <a className="inline-flex items-center bg-white/5 hover:bg-playyellow hover:text-playblack text-white px-6 py-3 rounded-md font-medium transition-all duration-300 border border-playyellow/20 shadow-[0_0_15px_rgba(255,211,0,0.15)] hover:shadow-[0_0_20px_rgba(255,211,0,0.3)]">
+            <div className="inline-flex items-center bg-white/5 hover:bg-playyellow hover:text-playblack text-white px-6 py-3 rounded-md font-medium transition-all duration-300 border border-playyellow/20 shadow-[0_0_15px_rgba(255,211,0,0.15)] hover:shadow-[0_0_20px_rgba(255,211,0,0.3)] cursor-pointer">
               View Full Projects <i className='bx bx-right-arrow-alt ml-2'></i>
-            </a>
+            </div>
           </Link>
         </motion.div>
       </div>
