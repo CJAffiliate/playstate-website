@@ -97,9 +97,7 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
               <i className='bx bx-x text-2xl'></i>
             </button>
           </div>
-          
           <p className="text-white mb-6">Tell us about your project and let's start building your custom marketing solution.</p>
-          
           <form onSubmit={handleSubmit}>
             <div className="space-y-4">
               <div>
@@ -114,7 +112,6 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
                   required
                 />
               </div>
-              
               <div>
                 <label htmlFor="email" className="block text-sm mb-1">Email</label>
                 <input 
@@ -127,15 +124,15 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
                   required
                 />
               </div>
-              
               <div>
                 <label htmlFor="projectType" className="block text-sm mb-1">Project Type</label>
                 <select 
                   id="projectType" 
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white focus-glow"
+                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-playyellow focus:ring-offset-2 appearance-none pr-8 relative"
                   value={formData.projectType}
                   onChange={handleChange}
                   required
+                  style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg fill=\'white\' height=\'20\' viewBox=\'0 0 20 20\' width=\'20\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M7.293 7.293a1 1 0 011.414 0L10 8.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z\'/></svg>')", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.75rem center', backgroundSize: '1.25em 1.25em' }}
                 >
                   <option value="">Select a project type</option>
                   <option value="landing-page">Landing Page</option>
@@ -145,15 +142,15 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
                   <option value="other">Other</option>
                 </select>
               </div>
-              
               <div>
                 <label htmlFor="budget" className="block text-sm mb-1">Budget Range</label>
                 <select 
                   id="budget" 
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white focus-glow"
+                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-playyellow focus:ring-offset-2 appearance-none pr-8 relative"
                   value={formData.budget}
                   onChange={handleChange}
                   required
+                  style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg fill=\'white\' height=\'20\' viewBox=\'0 0 20 20\' width=\'20\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M7.293 7.293a1 1 0 011.414 0L10 8.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z\'/></svg>')", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.75rem center', backgroundSize: '1.25em 1.25em' }}
                 >
                   <option value="">Select your budget range</option>
                   <option value="0-5k">$0 - $5,000</option>
@@ -162,7 +159,6 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
                   <option value="25k+">$25,000+</option>
                 </select>
               </div>
-              
               <div>
                 <label htmlFor="message" className="block text-sm mb-1">Message</label>
                 <textarea 
@@ -175,7 +171,6 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
                   required
                 ></textarea>
               </div>
-              
               <button 
                 type="submit" 
                 className="w-full bg-playyellow text-playblack py-3 rounded-md font-medium hover:bg-white transition-colors disabled:opacity-70 disabled:cursor-not-allowed"

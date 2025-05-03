@@ -15,6 +15,7 @@ import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/layout/ContactForm";
 import WorkWithUsModal from "@/components/layout/WorkWithUsModal";
 import LiveProjectFeed from "@/components/layout/LiveProjectFeed";
+import ScrollHandler from '@/components/layout/ScrollHandler';
 
 function Router() {
   return (
@@ -35,6 +36,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        <ScrollHandler />
         <div className="relative overflow-x-hidden">
           <Navbar onWorkWithUsClick={() => setIsWorkWithUsModalOpen(true)} />
           <main>

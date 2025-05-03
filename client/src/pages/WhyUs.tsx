@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import WorkWithUsModal from '@/components/layout/WorkWithUsModal';
 
 export default function WhyUs() {
+  const [isWorkWithUsModalOpen, setIsWorkWithUsModalOpen] = useState(false);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -179,12 +183,18 @@ export default function WhyUs() {
             <p className="text-white mb-6 max-w-2xl mx-auto">
               Let's work together to transform your marketing from a cost center to a revenue generator. No gimmicks, no empty promises—just results.
             </p>
-            <button className="inline-flex items-center bg-playyellow text-playblack px-8 py-3 rounded-md font-medium hover:bg-white transition-colors">
+            <button className="inline-flex items-center bg-playyellow text-playblack px-8 py-3 rounded-md font-medium hover:bg-white transition-colors"
+              onClick={() => setIsWorkWithUsModalOpen(true)}
+            >
               Work With Us <i className='bx bx-right-arrow-alt ml-2'></i>
             </button>
           </motion.div>
         </div>
       </section>
+      {/* Modal */}
+      {isWorkWithUsModalOpen && (
+        <WorkWithUsModal onClose={() => setIsWorkWithUsModalOpen(false)} />
+      )}
     </div>
   );
 }
