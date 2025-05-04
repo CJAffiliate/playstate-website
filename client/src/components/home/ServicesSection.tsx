@@ -54,7 +54,7 @@ export default function ServicesSection() {
     },
     {
       title: "Custom Strategy & Solutions",
-      description: "If you're stuck, we'll figure it out. From funnel rewires to brand repositions, we solve weird business problems.",
+      description: "Not sure what's broken, or how to fix it? We'll figure it out. We help brands audit, reposition, and rebuild with clarity. From funnel rewires to all new bespoke offer strategies. No problem is too niche or weird for us to solve!",
       tags: ["Audits", "Consulting", "Funnel Strategy"],
       accentColor: "#4ECDC4",
       backgroundImage: strategyBg,
