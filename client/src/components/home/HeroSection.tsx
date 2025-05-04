@@ -194,7 +194,7 @@ export default function HeroSection({ onWorkWithUsClick }: HeroSectionProps) {
         
         {/* CTA Button */}
         <motion.div 
-          className="mt-8"
+          className="mt-8 flex flex-col items-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -206,8 +206,9 @@ export default function HeroSection({ onWorkWithUsClick }: HeroSectionProps) {
             className="bg-playyellow text-playblack px-8 py-3 rounded-md text-lg font-medium hover:bg-white transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-playyellow focus:ring-opacity-50"
             onClick={onWorkWithUsClick}
           >
-            Work With Us
+            Get My Free Marketing Audit
           </button>
+          <p className="text-playgray text-sm mt-3 font-mono opacity-80">[Get a custom quote in 24h. No Fluff.]</p>
         </motion.div>
       </div>
       
