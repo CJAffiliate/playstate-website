@@ -501,6 +501,15 @@ html.has-scroll-dragging {
   opacity: 0.15;
 }
 
+/* Hide scrollbar for clean UI */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
 /* ===============================================================
    DESIGN SYSTEM IMPROVEMENTS - Global Consistency Standards
    =============================================================== */

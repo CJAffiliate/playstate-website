@@ -39,9 +39,24 @@ export default function WhyUsSection() {
   ];
 
   const stats = [
-    { value: '35%', label: 'Average conversion rate increase', icon: 'bx-trending-up' },
-    { value: '3.2X', label: 'ROI on marketing spend', icon: 'bx-dollar-circle' },
-    { value: '10,000+', label: 'Leads captured', icon: 'bx-user-plus' }
+    { 
+      value: '35%', 
+      label: 'Conversion Rate Increase', 
+      icon: 'bx-trending-up',
+      description: 'Average lift across all campaigns and strategies'
+    },
+    { 
+      value: '3.2X', 
+      label: 'ROI on Marketing Spend', 
+      icon: 'bx-dollar-circle',
+      description: 'Return on investment for our clients'
+    },
+    { 
+      value: '10,000+', 
+      label: 'Leads Captured', 
+      icon: 'bx-user-plus',
+      description: 'High-quality leads delivered to clients'
+    }
   ];
 
   return (
@@ -49,15 +64,23 @@ export default function WhyUsSection() {
       {/* Isometric blueprint grid background */}
       <div className="absolute inset-0 blueprint-grid opacity-[0.03] pointer-events-none"></div>
       
+      {/* Dark glow behind system block */}
+      <div className="absolute inset-0 bg-gradient-radial from-[#FFD300]/5 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+      
       <div className="container mx-auto px-4" ref={ref}>
-        <motion.h2 
-          className="font-space text-3xl md:text-5xl font-bold mb-4 text-center"
+        {/* Stacked title design */}
+        <motion.div 
+          className="flex flex-col items-center justify-center mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          The <span className="text-playyellow">PLAYSTATE Stacked System</span>
-        </motion.h2>
+          <span className="block text-white/80 text-sm md:text-lg uppercase tracking-widest font-medium">PLAYSTATE</span>
+          <h2 className="font-space font-bold text-center">
+            <span className="block text-playyellow text-2xl md:text-4xl">STACKED</span>
+            <span className="block text-white text-3xl md:text-5xl mt-[-5px]">SYSTEM</span>
+          </h2>
+        </motion.div>
         
         <motion.p 
           className="text-playgray text-center max-w-2xl mx-auto mb-16"
@@ -71,22 +94,22 @@ export default function WhyUsSection() {
           Our repeatable, strategic process that transforms marketing chaos into conversion machines.
         </motion.p>
         
-        {/* 4-Step Process - Desktop View */}
-        <div className="hidden md:block relative mb-16">
-          {/* Connector line */}
-          <motion.div 
-            className="absolute top-1/2 left-0 right-0 h-1 bg-white/5 -translate-y-1/2 z-0"
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            style={{ transformOrigin: 'left' }}
-          ></motion.div>
+        {/* System Module: Cards with animation and hover effects */}
+        <motion.div 
+          className="relative mb-10"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          {/* System Module Background (subtle grid/glow) */}
+          <div className="absolute inset-0 -m-4 bg-gradient-to-b from-black/40 to-black/10 rounded-2xl backdrop-blur-sm pointer-events-none"></div>
           
-          <div className="grid grid-cols-4 gap-4 relative">
+          {/* Desktop Cards in Horizontal Row */}
+          <div className="hidden md:flex space-x-4 relative">
             {stackedSystem.map((step, index) => (
               <motion.div
                 key={index}
-                className="relative z-10"
+                className="flex-1 min-h-[240px] z-10"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ 
@@ -95,134 +118,186 @@ export default function WhyUsSection() {
                   type: 'spring',
                   stiffness: 100
                 }}
-              >
-                <div className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-playyellow/30 transition-all shadow-lg hover:shadow-xl hover:shadow-playyellow/5 hover:-translate-y-1 hover:bg-white/8 h-full flex flex-col">
-                  {/* Step Number */}
-                  <div 
-                    className="rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm mb-4"
-                    style={{ 
-                      backgroundColor: step.iconColor,
-                      color: step.iconColor === '#8A2BE2' ? 'white' : 'black'
-                    }}
-                  >
-                    {step.step}
-                  </div>
-                  
-                  {/* Icon Circle */}
-                  <div className="flex items-center mb-4">
-                    <div className="bg-white/10 p-3 rounded-full">
-                      <i className={`bx ${step.icon} text-2xl`} style={{ color: step.iconColor }}></i>
-                    </div>
-                    <h3 className="font-space text-xl font-bold ml-3">{step.title}</h3>
-                  </div>
-                  
-                  <p className="text-playgray">{step.description}</p>
-                  
-                  {/* Connection dot at bottom */}
-                  <div className="absolute left-1/2 -bottom-6 -translate-x-1/2 w-3 h-3 rounded-full" style={{ backgroundColor: step.iconColor }}></div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        
-        {/* 4-Step Process - Mobile View (Vertical Stack) */}
-        <div className="md:hidden relative mb-16">
-          {/* Vertical line */}
-          <motion.div 
-            className="absolute top-0 bottom-0 left-4 w-1 bg-gradient-to-b from-playyellow/30 via-playyellow/20 to-playyellow/10 z-0"
-            initial={{ scaleY: 0 }}
-            animate={isInView ? { scaleY: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            style={{ transformOrigin: 'top' }}
-          ></motion.div>
-          
-          <div className="space-y-10 pl-12 relative">
-            {stackedSystem.map((step, index) => (
-              <motion.div
-                key={index}
-                className="relative"
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 0.3 + (index * 0.15),
-                  type: 'spring',
-                  stiffness: 100
+                whileHover={{ 
+                  y: -5, 
+                  boxShadow: `0 10px 25px -5px ${step.iconColor}25`,
+                  transition: { duration: 0.2 }
                 }}
               >
-                {/* Connection line to main vertical */}
-                <div className="absolute left-[-28px] top-6 w-6 h-[2px]" style={{ backgroundColor: step.iconColor }}></div>
-                
-                {/* Step circle on the vertical line */}
-                <div 
-                  className="absolute left-[-32px] top-6 w-[16px] h-[16px] rounded-full -translate-y-1/2"
-                  style={{ backgroundColor: step.iconColor }}
-                ></div>
-                
-                <div className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 shadow-lg">
-                  {/* Step Number */}
-                  <div 
-                    className="rounded-full w-8 h-8 flex items-center justify-center font-bold absolute -top-3 -left-3 text-sm"
-                    style={{ 
-                      backgroundColor: step.iconColor,
-                      color: step.iconColor === '#8A2BE2' ? 'white' : 'black'
-                    }}
-                  >
-                    {step.step}
-                  </div>
-                  
-                  {/* Icon & Title */}
-                  <div className="flex items-center mb-4 mt-2">
+                <div className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 shadow-lg h-full flex flex-col">
+                  {/* Step Number & Icon together at top */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div 
+                      className="rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm"
+                      style={{ 
+                        backgroundColor: step.iconColor,
+                        color: step.iconColor === '#8A2BE2' ? 'white' : 'black'
+                      }}
+                    >
+                      {step.step}
+                    </div>
                     <div className="bg-white/10 p-3 rounded-full">
                       <i className={`bx ${step.icon} text-2xl`} style={{ color: step.iconColor }}></i>
                     </div>
-                    <h3 className="font-space text-xl font-bold ml-3">{step.title}</h3>
                   </div>
                   
-                  <p className="text-playgray">{step.description}</p>
+                  {/* Title */}
+                  <h3 className="font-space text-xl font-bold mb-2">{step.title}</h3>
+                  
+                  {/* Description */}
+                  <p className="text-playgray text-sm">{step.description}</p>
+                  
+                  {/* Glowing border on bottom that matches icon color */}
+                  <div 
+                    className="absolute bottom-0 left-0 w-full h-1 rounded-b-xl opacity-60"
+                    style={{ backgroundColor: step.iconColor }}
+                  ></div>
                 </div>
               </motion.div>
             ))}
           </div>
-        </div>
+          
+          {/* Mobile Cards - Horizontally Scrollable Row */}
+          <div className="md:hidden relative">
+            <div className="flex overflow-x-auto pb-4 space-x-4 snap-x snap-mandatory no-scrollbar">
+              {stackedSystem.map((step, index) => (
+                <motion.div
+                  key={index}
+                  className="flex-shrink-0 w-[80%] snap-center"
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: 0.2 + (index * 0.1)
+                  }}
+                >
+                  <div className="bg-white/5 backdrop-blur-sm p-5 rounded-xl border border-white/10 shadow-lg h-full relative">
+                    {/* Step Number as badge */}
+                    <div 
+                      className="absolute -top-2 -right-2 rounded-full w-7 h-7 flex items-center justify-center font-bold text-sm z-10"
+                      style={{ 
+                        backgroundColor: step.iconColor,
+                        color: step.iconColor === '#8A2BE2' ? 'white' : 'black'
+                      }}
+                    >
+                      {step.step}
+                    </div>
+                    
+                    {/* Icon at top */}
+                    <div className="mb-4">
+                      <div className="inline-flex bg-white/10 p-3 rounded-full">
+                        <i className={`bx ${step.icon} text-2xl`} style={{ color: step.iconColor }}></i>
+                      </div>
+                    </div>
+                    
+                    {/* Title */}
+                    <h3 className="font-space text-lg font-bold mb-2">{step.title}</h3>
+                    
+                    {/* Description */}
+                    <p className="text-playgray text-sm">{step.description}</p>
+                    
+                    {/* Glowing border on left that matches icon color */}
+                    <div 
+                      className="absolute top-0 left-0 w-1 h-full rounded-l-xl opacity-60"
+                      style={{ backgroundColor: step.iconColor }}
+                    ></div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Scroll indicator dots */}
+            <div className="flex justify-center space-x-2 mt-4">
+              {stackedSystem.map((_, index) => (
+                <div 
+                  key={index} 
+                  className="w-2 h-2 rounded-full bg-white/20"
+                ></div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Connecting visual element between system and output */}
+          <motion.div 
+            className="h-24 w-full flex justify-center"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            <div className="relative h-full w-20">
+              <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-playyellow/50 to-transparent"></div>
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-6 h-6 bg-playyellow/10 rounded-full border border-playyellow/20"></div>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-3 h-3 bg-playyellow/30 rounded-full animate-pulse"></div>
+            </div>
+          </motion.div>
+        </motion.div>
         
-        {/* System output/readout stats */}
+        {/* System Output Section - Directly connected to the System */}
         <motion.div 
-          className="mt-20 bg-black/20 p-8 rounded-lg border border-playyellow/10 relative backdrop-blur-sm"
-          initial={{ opacity: 0, y: 30 }}
+          className="relative backdrop-blur-sm p-8 rounded-xl border border-playyellow/10 bg-gradient-to-b from-black/40 to-transparent"
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
         >
-          <div className="absolute -top-3 left-8 bg-playyellow text-xs text-playblack font-mono px-3 py-1 rounded">
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-playyellow text-xs text-playblack font-mono px-3 py-1 rounded">
             SYSTEM OUTPUT
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Desktop: 3-column layout */}
+          <div className="hidden md:grid grid-cols-3 gap-6">
             {stats.map((stat, index) => (
               <motion.div 
                 key={index} 
-                className="flex flex-col md:flex-row items-center md:space-x-4 p-4 bg-playblack/50 rounded-lg border border-white/10 text-center md:text-left"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ 
-                  duration: 0.6,
-                  delay: 0.9 + (index * 0.2),
-                  type: 'spring',
-                  stiffness: 100
-                }}
+                className="bg-white/5 p-6 rounded-lg border border-white/10 flex flex-col items-center text-center"
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 1 + (index * 0.15) }}
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
               >
-                <div className="bg-playyellow/10 p-3 rounded-full mb-3 md:mb-0">
+                <div className="bg-playyellow/10 p-3 rounded-full mb-3">
                   <i className={`bx ${stat.icon} text-2xl text-playyellow`}></i>
                 </div>
-                <div>
-                  <p className="text-playyellow text-3xl font-bold font-space">
-                    {isInView && <CountUp value={stat.value} />}
-                  </p>
-                  <p className="text-white text-sm">{stat.label}</p>
-                </div>
+                <p className="text-playyellow text-3xl font-bold font-space mb-1">
+                  {isInView && <CountUp value={stat.value} />}
+                </p>
+                <p className="text-white text-base font-medium mb-2">{stat.label}</p>
+                <p className="text-playgray text-xs">{stat.description}</p>
               </motion.div>
             ))}
+          </div>
+          
+          {/* Mobile: Horizontally scrollable cards */}
+          <div className="md:hidden">
+            <div className="flex overflow-x-auto pb-4 space-x-4 snap-x snap-mandatory no-scrollbar">
+              {stats.map((stat, index) => (
+                <motion.div 
+                  key={index} 
+                  className="flex-shrink-0 w-[80%] snap-center bg-white/5 p-5 rounded-lg border border-white/10 flex flex-col items-center text-center"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 1 + (index * 0.15) }}
+                >
+                  <div className="bg-playyellow/10 p-3 rounded-full mb-3">
+                    <i className={`bx ${stat.icon} text-2xl text-playyellow`}></i>
+                  </div>
+                  <p className="text-playyellow text-3xl font-bold font-space mb-1">
+                    {isInView && <CountUp value={stat.value} />}
+                  </p>
+                  <p className="text-white text-base font-medium mb-2">{stat.label}</p>
+                  <p className="text-playgray text-xs">{stat.description}</p>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Scroll indicator dots */}
+            <div className="flex justify-center space-x-2 mt-4">
+              {stats.map((_, index) => (
+                <div 
+                  key={index} 
+                  className="w-2 h-2 rounded-full bg-white/20"
+                ></div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
