@@ -318,6 +318,22 @@ export default function WhyUsSection() {
               ))}
             </div>
           </div>
+          
+          {/* Get Similar Results CTA */}
+          <motion.div
+            className="text-center mt-8"
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 1.5 }}
+          >
+            <button 
+              className="bg-playyellow hover:bg-white text-playblack font-medium py-3 px-8 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex items-center mx-auto"
+              onClick={() => window.location.href = '#contact'}
+            >
+              <span className="mr-2">Get Similar Results</span>
+              <i className="bx bx-right-arrow-alt text-xl"></i>
+            </button>
+          </motion.div>
         </motion.div>
       </div>
     </section>
