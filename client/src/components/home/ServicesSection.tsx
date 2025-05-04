@@ -38,7 +38,7 @@ export default function ServicesSection() {
   const serviceCards = [
     {
       title: "Websites Built to Convert",
-      description: "We design landing pages and websites that perform as sharp as they look. Clean, fast, and optimised fundamentally with driving your desired results.",
+      description: "We design landing pages and websites that perform as sharp as they look. Clean, fast, and fundamentally built to drive the results you care about - whether that's leads, sales, or trust.",
       tags: ["Landing Pages", "Websites", "Sales Pages"],
       accentColor: "#3498db",
       backgroundImage: landingPageBg,
