@@ -173,7 +173,16 @@ export default function ServicesSection() {
             delay: 0.9
           }}
         >
-          <p className="text-white font-space font-medium">All services include post-marketing care: optimization, updates, and scaling built-in. <span className="font-bold text-playyellow">We grow with you.</span></p>
+          <p className="text-white font-space font-medium mb-4">Launch is just the start. We stay hands-on with ongoing optimization, updates, and scaling strategy; because growth doesn't stop at delivery.</p>
+          <button 
+            onClick={() => {
+              const workWithUsBtn = document.querySelector('.work-with-us-btn') as HTMLButtonElement;
+              if (workWithUsBtn) workWithUsBtn.click();
+            }} 
+            className="bg-playyellow text-playblack px-6 py-2 rounded-md text-sm font-medium hover:bg-white transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-playyellow focus:ring-opacity-50 mt-2"
+          >
+            Get Started
+          </button>
         </motion.div>
       </div>
     </section>
