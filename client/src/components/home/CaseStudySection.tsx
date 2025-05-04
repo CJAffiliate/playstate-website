@@ -216,7 +216,7 @@ export default function CaseStudySection() {
                 className="space-y-1"
               >
                 <h3 className="heading-3 mb-4 text-white">
-                  Featured Case Study
+                  <span className="text-playyellow">{currentProject.name}</span>
                 </h3>
                 
                 <div className="bg-playyellow/20 text-playyellow text-xs px-3 py-1.5 rounded-md border border-playyellow/10 inline-block mb-5">
