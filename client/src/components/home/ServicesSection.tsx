@@ -37,8 +37,8 @@ export default function ServicesSection() {
   // Service card data
   const serviceCards = [
     {
-      title: "Landing Page & Website Builds",
-      description: "Conversion-first web builds designed to make your brand look legit and generate more leads. Fully mobile-optimized, clean, and made to convert.",
+      title: "Websites Built to Convert",
+      description: "We design landing pages and websites that perform as sharp as they look. Clean, fast, and optimised fundamentally with driving your desired results.",
       tags: ["Landing Pages", "Websites", "Sales Pages"],
       accentColor: "#3498db",
       backgroundImage: landingPageBg,
