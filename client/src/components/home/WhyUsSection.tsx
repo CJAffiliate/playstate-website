@@ -119,8 +119,8 @@ export default function WhyUsSection() {
                   stiffness: 100
                 }}
                 whileHover={{ 
-                  y: -5, 
-                  boxShadow: `0 10px 25px -5px ${step.iconColor}25`,
+                  y: -5,
+                  scale: 1.02,
                   transition: { duration: 0.2 }
                 }}
               >
@@ -157,24 +157,59 @@ export default function WhyUsSection() {
             ))}
           </div>
           
-          {/* Mobile Cards - Horizontally Scrollable Row */}
+          {/* Mobile Cards - Vertical Stack */}
           <div className="md:hidden relative">
-            <div className="flex overflow-x-auto pb-4 space-x-4 snap-x snap-mandatory no-scrollbar">
+            <div className="flex flex-col space-y-6 relative">
+              {/* Vertical connector line */}
+              <div className="absolute left-4 top-6 bottom-0 w-[2px] bg-playyellow/20"></div>
+              
               {stackedSystem.map((step, index) => (
                 <motion.div
                   key={index}
-                  className="flex-shrink-0 w-[80%] snap-center"
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  className="relative"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ 
                     duration: 0.6, 
-                    delay: 0.2 + (index * 0.1)
+                    delay: 0.2 + (index * 0.15),
+                    type: 'spring',
+                    stiffness: 100
                   }}
                 >
-                  <div className="bg-white/5 backdrop-blur-sm p-5 rounded-xl border border-white/10 shadow-lg h-full relative">
-                    {/* Step Number as badge */}
+                  {/* Animated connector dot */}
+                  <motion.div 
+                    className="absolute left-4 top-6 z-10 w-[10px] h-[10px] rounded-full bg-white"
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { 
+                      scale: 1,
+                      backgroundColor: step.iconColor
+                    } : {}}
+                    transition={{ 
+                      duration: 0.3, 
+                      delay: 0.3 + (index * 0.2)
+                    }}
+                    style={{ transform: 'translateX(-4px)' }}
+                  ></motion.div>
+                  
+                  {/* Horizontal connector line */}
+                  <motion.div 
+                    className="absolute left-4 top-6 h-[2px] bg-white/40"
+                    style={{ width: '16px', transform: 'translateX(6px)' }}
+                    initial={{ scaleX: 0 }}
+                    animate={isInView ? { 
+                      scaleX: 1,
+                      backgroundColor: step.iconColor
+                    } : {}}
+                    transition={{ 
+                      duration: 0.3, 
+                      delay: 0.35 + (index * 0.2)
+                    }}
+                  ></motion.div>
+                  
+                  <div className="bg-white/5 backdrop-blur-sm p-5 rounded-xl border border-white/10 shadow-lg ml-10 relative">
+                    {/* Step Number as badge - Improved contrast */}
                     <div 
-                      className="absolute -top-2 -right-2 rounded-full w-7 h-7 flex items-center justify-center font-bold text-sm z-10"
+                      className="absolute -top-3 -left-3 rounded-full w-8 h-8 flex items-center justify-center font-bold text-base z-10 border border-white/20"
                       style={{ 
                         backgroundColor: step.iconColor,
                         color: step.iconColor === '#8A2BE2' ? 'white' : 'black'
@@ -183,15 +218,15 @@ export default function WhyUsSection() {
                       {step.step}
                     </div>
                     
-                    {/* Icon at top */}
-                    <div className="mb-4">
-                      <div className="inline-flex bg-white/10 p-3 rounded-full">
-                        <i className={`bx ${step.icon} text-2xl`} style={{ color: step.iconColor }}></i>
+                    <div className="flex items-center mb-3">
+                      {/* Icon */}
+                      <div className="bg-white/10 p-2 rounded-full mr-3">
+                        <i className={`bx ${step.icon} text-xl`} style={{ color: step.iconColor }}></i>
                       </div>
+                      
+                      {/* Title - Moved next to icon */}
+                      <h3 className="font-space text-lg font-bold">{step.title}</h3>
                     </div>
-                    
-                    {/* Title */}
-                    <h3 className="font-space text-lg font-bold mb-2">{step.title}</h3>
                     
                     {/* Description */}
                     <p className="text-playgray text-sm">{step.description}</p>
@@ -203,16 +238,6 @@ export default function WhyUsSection() {
                     ></div>
                   </div>
                 </motion.div>
-              ))}
-            </div>
-            
-            {/* Scroll indicator dots */}
-            <div className="flex justify-center space-x-2 mt-4">
-              {stackedSystem.map((_, index) => (
-                <div 
-                  key={index} 
-                  className="w-2 h-2 rounded-full bg-white/20"
-                ></div>
               ))}
             </div>
           </div>
@@ -266,36 +291,30 @@ export default function WhyUsSection() {
             ))}
           </div>
           
-          {/* Mobile: Horizontally scrollable cards */}
+          {/* Mobile: Compact stacked layout */}
           <div className="md:hidden">
-            <div className="flex overflow-x-auto pb-4 space-x-4 snap-x snap-mandatory no-scrollbar">
+            <div className="flex flex-col space-y-4">
               {stats.map((stat, index) => (
                 <motion.div 
                   key={index} 
-                  className="flex-shrink-0 w-[80%] snap-center bg-white/5 p-5 rounded-lg border border-white/10 flex flex-col items-center text-center"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  className="flex items-center bg-white/5 p-4 rounded-lg border border-white/10"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 1 + (index * 0.15) }}
                 >
-                  <div className="bg-playyellow/10 p-3 rounded-full mb-3">
-                    <i className={`bx ${stat.icon} text-2xl text-playyellow`}></i>
+                  <div className="bg-playyellow/10 p-2 rounded-full mr-4 flex-shrink-0">
+                    <i className={`bx ${stat.icon} text-xl text-playyellow`}></i>
                   </div>
-                  <p className="text-playyellow text-3xl font-bold font-space mb-1">
-                    {isInView && <CountUp value={stat.value} />}
-                  </p>
-                  <p className="text-white text-base font-medium mb-2">{stat.label}</p>
-                  <p className="text-playgray text-xs">{stat.description}</p>
+                  <div>
+                    <div className="flex items-baseline">
+                      <p className="text-playyellow text-2xl font-bold font-space mr-2">
+                        {isInView && <CountUp value={stat.value} />}
+                      </p>
+                      <p className="text-white text-sm font-medium">{stat.label}</p>
+                    </div>
+                    <p className="text-playgray text-xs">{stat.description}</p>
+                  </div>
                 </motion.div>
-              ))}
-            </div>
-            
-            {/* Scroll indicator dots */}
-            <div className="flex justify-center space-x-2 mt-4">
-              {stats.map((_, index) => (
-                <div 
-                  key={index} 
-                  className="w-2 h-2 rounded-full bg-white/20"
-                ></div>
               ))}
             </div>
           </div>
