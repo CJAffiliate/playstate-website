@@ -3,6 +3,18 @@ import { projects } from '@/lib/project-data';
 import { Link } from 'wouter';
 import PhoneMockup from '@/components/ui/phone-mockup';
 import greenhomePathImg from '@/assets/greenhomepath.jpg';
+import { PixelText } from '@/components/ui/pixel-text';
+import HeroSection, { FloatingIconConfig } from '@/components/ui/HeroSection';
+
+const projectHeroIcons: FloatingIconConfig[] = [
+  { iconClass: 'bx bx-folder', colorClass: 'text-playyellow', sizeClass: 'text-3xl', positionClass: 'absolute top-[10%] left-[15%]' },
+  { iconClass: 'bx bx-file', colorClass: 'text-white', sizeClass: 'text-2xl', positionClass: 'absolute top-[10%] left-[40%]', delayClass: 'floating-icon-delay-1' },
+  { iconClass: 'bx bx-spreadsheet', colorClass: 'text-playyellow', sizeClass: 'text-4xl', positionClass: 'absolute top-[10%] right-[20%]', delayClass: 'floating-icon-delay-2' },
+  { iconClass: 'bx bx-document', colorClass: 'text-white', sizeClass: 'text-3xl', positionClass: 'absolute top-[35%] left-[10%]', delayClass: 'floating-icon-delay-3' },
+  { iconClass: 'bx bx-folder-open', colorClass: 'text-playyellow', sizeClass: 'text-2xl', positionClass: 'absolute top-[35%] left-[30%]', delayClass: 'floating-icon-delay-4' },
+  { iconClass: 'bx bx-archive', colorClass: 'text-white', sizeClass: 'text-3xl', positionClass: 'absolute top-[35%] right-[30%]', delayClass: 'floating-icon-delay-5' },
+  { iconClass: 'bx bx-file-blank', colorClass: 'text-playyellow', sizeClass: 'text-2xl', positionClass: 'absolute top-[35%] right-[10%]', delayClass: 'floating-icon-delay-2' },
+];
 
 export default function Projects() {
   // Using all 4 projects now, including GreenHomePath
@@ -24,47 +36,20 @@ export default function Projects() {
   };
 
   return (
-    <div className="min-h-screen pt-24">
+    <>
+      <HeroSection
+        heading="CLIENT FILES"
+        subheading="Classified mission briefings showcasing how PLAYSTATE transforms brands through strategic marketing operations."
+        floatingIcons={projectHeroIcons}
+        pixelTextClassName="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-playyellow tracking-tight font-bold whitespace-nowrap"
+      />
+
+      {/* Project Files Section */}
       <section className="py-24 pb-32 bg-playblack relative">
         {/* Subtle grid background */}
         <div className="absolute inset-0 grid-bg opacity-[0.03] pointer-events-none"></div>
         
         <div className="container mx-auto px-4">
-          <motion.div 
-            className="relative mb-16 w-full"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7 }}
-          >
-            {/* Decorative elements that look like folder tabs at the top */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-12 w-80 h-6 flex justify-center space-x-6 opacity-40">
-              <div className="h-full w-24 bg-playyellow rounded-t-md rotate-2"></div>
-              <div className="h-full w-16 bg-playyellow/60 rounded-t-md -rotate-3"></div>
-              <div className="h-full w-32 bg-playyellow/40 rounded-t-md rotate-1"></div>
-            </div>
-            
-            <motion.h1 
-              className="font-space text-5xl md:text-7xl font-bold text-center mb-6"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              Client <span className="text-playyellow">Files</span>
-            </motion.h1>
-
-            <motion.p 
-              className="text-playgray text-center max-w-2xl mx-auto mb-20 text-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.7,
-                delay: 0.2
-              }}
-            >
-              Classified mission briefings showcasing how PLAYSTATE transforms brands through strategic marketing operations.
-            </motion.p>
-          </motion.div>
-
           {/* Project Files - Modern alternating layout with phone mockups */}
           <div className="max-w-6xl mx-auto">
             {featuredProjects.map((project, index) => (
@@ -151,42 +136,41 @@ export default function Projects() {
                       
                       {/* Main content */}
                       <div className="space-y-6">
+                        {/* Objective */}
                         <div>
-                          <h4 className="text-sm uppercase font-bold text-playgray mb-2 flex items-center">
-                            <span className="text-playyellow text-base mr-2">❓</span> Objective
+                          <h4 className="text-white font-medium mb-2 flex items-center">
+                            <i className='bx bx-question-mark mr-2 text-playyellow'></i>
+                            Objective
                           </h4>
-                          <p className="text-white">
-                            {project.objective.length > 160 
-                              ? project.objective.substring(0, 160) + '...' 
-                              : project.objective}
-                          </p>
+                          <p className="text-playgray">{project.objective}</p>
                         </div>
                         
+                        {/* Action */}
                         <div>
-                          <h4 className="text-sm uppercase font-bold text-playgray mb-2 flex items-center">
-                            <span className="text-playyellow text-base mr-2">⚙️</span> Action
+                          <h4 className="text-white font-medium mb-2 flex items-center">
+                            <i className='bx bx-cog mr-2 text-playyellow'></i>
+                            Action Taken
                           </h4>
-                          <p className="text-white">
-                            {project.action.length > 160 
-                              ? project.action.substring(0, 160) + '...' 
-                              : project.action}
-                          </p>
+                          <p className="text-playgray">{project.action}</p>
                         </div>
                         
+                        {/* Outcome */}
                         <div>
-                          <h4 className="text-sm uppercase font-bold text-playgray mb-2 flex items-center">
-                            <span className="text-playyellow text-base mr-2">🎯</span> Outcome
+                          <h4 className="text-white font-medium mb-2 flex items-center">
+                            <i className='bx bx-target-lock mr-2 text-playyellow'></i>
+                            Outcome
                           </h4>
-                          <p className="text-playyellow font-medium">
-                            {project.outcome.length > 120
-                              ? project.outcome.substring(0, 120) + '...'
-                              : project.outcome}
-                          </p>
+                          <p className="text-playgray">{project.outcome}</p>
                         </div>
                       </div>
                       
-                      {/* Border line with no button */}
-                      <div className="mt-8 pt-4 border-t border-white/10"></div>
+                      {/* CTA Button */}
+                      <div className="mt-8">
+                        <button className="file-open-btn w-full bg-white/5 hover:bg-playyellow/10 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 flex items-center justify-center">
+                          <i className='bx bx-folder-open mr-2'></i>
+                          Open Full File
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -226,6 +210,6 @@ export default function Projects() {
           </motion.div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

@@ -86,9 +86,9 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
         exit="hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="p-6">
-          <div className="flex justify-between items-center mb-6">
-            <h3 className="font-space text-2xl font-bold text-playyellow">Work With Us</h3>
+        <div className="p-4 sm:p-6">
+          <div className="flex justify-between items-center mb-4 sm:mb-6">
+            <h3 className="font-space text-xl sm:text-2xl font-bold text-playyellow">Work With Us</h3>
             <button 
               className="text-white hover:text-playyellow"
               onClick={onClose}
@@ -97,15 +97,15 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
               <i className='bx bx-x text-2xl'></i>
             </button>
           </div>
-          <p className="text-white mb-6">Tell us about your project and let's start building your custom marketing solution.</p>
+          <p className="text-white text-sm sm:text-base mb-4 sm:mb-6">Tell us about your project and let's start building your custom marketing solution.</p>
           <form onSubmit={handleSubmit}>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm mb-1">Name</label>
                 <input 
                   type="text" 
                   id="name" 
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/50 focus-glow" 
+                  className="w-full px-3 sm:px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/50 focus-glow text-sm sm:text-base" 
                   placeholder="Your name"
                   value={formData.name}
                   onChange={handleChange}
@@ -117,7 +117,7 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
                 <input 
                   type="email" 
                   id="email" 
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/50 focus-glow" 
+                  className="w-full px-3 sm:px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/50 focus-glow text-sm sm:text-base" 
                   placeholder="you@example.com"
                   value={formData.email}
                   onChange={handleChange}
@@ -128,7 +128,7 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
                 <label htmlFor="projectType" className="block text-sm mb-1">Project Type</label>
                 <select 
                   id="projectType" 
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-playyellow focus:ring-offset-2 appearance-none pr-8 relative"
+                  className="w-full px-3 sm:px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-playyellow focus:ring-offset-2 appearance-none pr-8 relative text-sm sm:text-base"
                   value={formData.projectType}
                   onChange={handleChange}
                   required
@@ -146,7 +146,7 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
                 <label htmlFor="budget" className="block text-sm mb-1">Budget Range</label>
                 <select 
                   id="budget" 
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-playyellow focus:ring-offset-2 appearance-none pr-8 relative"
+                  className="w-full px-3 sm:px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-playyellow focus:ring-offset-2 appearance-none pr-8 relative text-sm sm:text-base"
                   value={formData.budget}
                   onChange={handleChange}
                   required
@@ -163,8 +163,8 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
                 <label htmlFor="message" className="block text-sm mb-1">Message</label>
                 <textarea 
                   id="message" 
-                  rows={4} 
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/50 focus-glow" 
+                  rows={3} 
+                  className="w-full px-3 sm:px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/50 focus-glow text-sm sm:text-base" 
                   placeholder="Tell us about your project goals and timeline"
                   value={formData.message}
                   onChange={handleChange}
@@ -173,7 +173,7 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
               </div>
               <button 
                 type="submit" 
-                className="w-full bg-playyellow text-playblack py-3 rounded-md font-medium hover:bg-white transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full bg-playyellow text-playblack py-2 sm:py-3 rounded-md font-medium hover:bg-white transition-colors disabled:opacity-70 disabled:cursor-not-allowed text-sm sm:text-base"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Submitting..." : "Submit Request"}

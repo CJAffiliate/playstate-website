@@ -76,9 +76,9 @@ export default function WhyUsSection() {
           transition={{ duration: 0.6 }}
         >
           <span className="block text-white/80 text-sm md:text-lg uppercase tracking-widest font-medium">PLAYSTATE</span>
-          <h2 className="font-space font-bold text-center">
-            <span className="block text-playyellow text-2xl md:text-4xl">STACKED</span>
-            <span className="block text-white text-3xl md:text-5xl mt-[-5px]">SYSTEM</span>
+          <h2 className="font-space font-bold text-center max-w-full min-w-0 overflow-x-auto flex justify-center">
+            <span className="block text-playyellow text-base sm:text-lg md:text-2xl whitespace-nowrap">STACKED</span>
+            <span className="block text-white text-lg sm:text-xl md:text-3xl mt-[-5px] whitespace-nowrap">SYSTEM</span>
           </h2>
         </motion.div>
         
