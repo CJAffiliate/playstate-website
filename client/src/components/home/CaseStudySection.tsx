@@ -158,7 +158,7 @@ export default function CaseStudySection() {
                   className="w-[280px] mx-auto"
                 />
                 
-                {/* Project name label */}
+                {/* Project name label - now as a pill below rather than behind */}
                 <motion.div 
                   className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-playyellow/90 text-playblack font-bold px-4 py-1.5 rounded-full text-sm shadow-lg whitespace-nowrap"
                   initial={{ y: 10, opacity: 0 }}
@@ -216,7 +216,7 @@ export default function CaseStudySection() {
                 className="space-y-1"
               >
                 <h3 className="heading-3 mb-4 text-white">
-                  <span className="text-playyellow">{currentProject.name}</span>
+                  Featured Case Study
                 </h3>
                 
                 <div className="bg-playyellow/20 text-playyellow text-xs px-3 py-1.5 rounded-md border border-playyellow/10 inline-block mb-5">
@@ -279,10 +279,8 @@ export default function CaseStudySection() {
           </button>
           
           <div className="mt-4 text-sm text-playgray">
-            <Link href="/projects">
-              <a className="inline-flex items-center hover:text-playyellow transition-colors">
-                Or view more case studies <i className='bx bx-right-arrow-alt ml-1'></i>
-              </a>
+            <Link href="/projects" className="inline-flex items-center hover:text-playyellow transition-colors">
+              Or view more case studies <i className='bx bx-right-arrow-alt ml-1'></i>
             </Link>
           </div>
         </motion.div>
