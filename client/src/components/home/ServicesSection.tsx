@@ -45,9 +45,9 @@ export default function ServicesSection() {
       linkUrl: "/projects"
     },
     {
-      title: "Ad & Email Creative Bundles",
-      description: "Done-for-you visuals and copy—scroll-stopping ads, polished UGC, and conversion-tested email flows.",
-      tags: ["Static Ads", "UGC", "Email Campaigns"],
+      title: "Done For You Marketing Creatives",
+      description: "We don't rely on taste, we rely on data. Visual and copy driven scroll stopping ads, polished email flows, and paid media ad creatives that have and will convert.",
+      tags: ["Static Ads", "Copywriting", "Email Campaigns"],
       accentColor: "#ff6b6b",
       backgroundImage: adCreativeBg,
       linkUrl: "/projects"
