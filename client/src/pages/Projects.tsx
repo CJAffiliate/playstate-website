@@ -185,12 +185,8 @@ export default function Projects() {
                         </div>
                       </div>
                       
-                      {/* CTA Button */}
-                      <div className="mt-8 pt-4 border-t border-white/10">
-                        <button className="file-open-btn w-full flex justify-center items-center bg-white/10 hover:bg-playyellow/90 hover:text-playblack text-white px-4 py-3 rounded text-base font-medium transition-all duration-300 border border-white/5">
-                          <span className="mr-2">View Project File</span> <i className='bx bx-folder-open'></i>
-                        </button>
-                      </div>
+                      {/* Border line with no button */}
+                      <div className="mt-8 pt-4 border-t border-white/10"></div>
                     </div>
                   </div>
                 </div>

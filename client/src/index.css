@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes progressBar {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.animate-progressBar {
+  animation: progressBar 7s linear 1;
+}
+
 :root {
   --background: 0 0% 5%;
   --foreground: 0 0% 100%;
@@ -486,6 +499,15 @@ html.has-scroll-dragging {
   background-position: center center;
   transform: perspective(500px) rotateX(30deg) scale(1.5);
   opacity: 0.15;
+}
+
+/* Hide scrollbar for clean UI */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* WebKit */
 }
 
 /* ===============================================================

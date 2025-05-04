@@ -1,0 +1,67 @@
+Refine and visually upgrade the entire “PLAYSTATE Stacked System” section to feel polished, cohesive, and optimized across all screen sizes. This includes both the 4-step system layout and the System Output metrics beneath it, which should be treated as a continuation — not a separate section.
+
+TITLE DESIGN:
+
+Redesign the section title to visually reflect the stacked nature of the system:
+
+Place the word “Stacked” directly above the word “System” in a clean stacked formation
+
+Use slightly different font weights, sizes, or coloring to differentiate the two words while keeping them unified
+
+Centered layout preferred for balance
+
+STACKED SYSTEM BLOCK (Top Half):
+
+Ensure all 4 steps (Diagnose, Build, Launch, Optimize & Scale) are:
+
+Horizontally aligned on desktop with equal spacing
+
+Displayed side-by-side on mobile, using a responsive row or scrollable container (not stacked vertically)
+
+Each step should be styled as a modular card with:
+
+Icon at top
+
+Title
+
+One-line description
+
+Clean padding and spacing inside the card
+
+Slight hover animation (e.g. glow or float)
+
+Add a subtle dark glow or grid background layer behind the entire system block to visually anchor it
+
+SYSTEM OUTPUT BLOCK (Bottom Half):
+
+Visually connect this to the system block — remove any hard dividers or contrasting backgrounds
+
+Treat this as a continuation of the system section, representing the real-world output of that process
+
+Show the 3 key metrics side-by-side even on mobile:
+
+Either use a compressed 3-column responsive layout or enable horizontal scroll for clean side-by-side layout
+
+Metric layout should include:
+
+A bold number (animated counter on scroll if possible)
+
+A short metric title (e.g. “ROI on Marketing Spend”)
+
+Light explanatory subtext
+
+Optional icon next to each metric
+
+Apply card-style visuals with matching styles to the 4 system steps for visual consistency
+
+VISUAL CONTINUITY & POLISH:
+
+Maintain consistent vertical spacing so the whole section flows smoothly without large gaps
+
+Add a visual indicator that connects the top system to the bottom output (e.g. a flowing line or fade-down background)
+
+Make sure all text is legible in dark mode and spacing adapts gracefully to smaller screens
+
+BONUS:
+
+If possible, animate the section slightly as it enters view — subtle staggered fade-in or upward movement of each block/card

@@ -37,24 +37,24 @@ export default function ServicesSection() {
   // Service card data
   const serviceCards = [
     {
-      title: "Landing Page & Website Builds",
-      description: "Conversion-first web builds designed to make your brand look legit and generate more leads. Fully mobile-optimized, clean, and made to convert.",
+      title: "Websites Built to Convert",
+      description: "We design landing pages and websites that perform as sharp as they look. Clean, fast, and fundamentally built to drive the results you care about - whether that's leads, sales, or trust.",
       tags: ["Landing Pages", "Websites", "Sales Pages"],
       accentColor: "#3498db",
       backgroundImage: landingPageBg,
       linkUrl: "/projects"
     },
     {
-      title: "Ad & Email Creative Bundles",
-      description: "Done-for-you visuals and copy—scroll-stopping ads, polished UGC, and conversion-tested email flows.",
-      tags: ["Static Ads", "UGC", "Email Campaigns"],
+      title: "Done For You Marketing Creatives",
+      description: "We don't rely on taste, we rely on data. Visual and copy driven scroll stopping ads, polished email flows, and paid media ad creatives that have and will convert.",
+      tags: ["Static Ads", "Copywriting", "Email Campaigns"],
       accentColor: "#ff6b6b",
       backgroundImage: adCreativeBg,
       linkUrl: "/projects"
     },
     {
       title: "Custom Strategy & Solutions",
-      description: "If you're stuck, we'll figure it out. From funnel rewires to brand repositions, we solve weird business problems.",
+      description: "Not sure what's broken, or how to fix it? We'll figure it out. We help brands audit, reposition, and rebuild with clarity. From funnel rewires to all new bespoke offer strategies. No problem is too niche or weird for us to solve!",
       tags: ["Audits", "Consulting", "Funnel Strategy"],
       accentColor: "#4ECDC4",
       backgroundImage: strategyBg,
@@ -88,92 +88,107 @@ export default function ServicesSection() {
           We combine strategy, design, and execution to deliver high-performance marketing solutions that elevate your brand.
         </motion.p>
         
-        {/* Full-width Image-based Service Cards */}
+        {/* Responsive Grid of Service Cards */}
         <motion.div 
-          className="grid grid-cols-1 gap-10 mb-4"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 mb-16"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : ""}
         >
           {serviceCards.map((card, index) => (
-            <motion.div 
-              key={index}
-              className="rounded-xl overflow-hidden h-[320px] md:h-[280px] relative group"
-              variants={itemVariants}
-              style={{ boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)" }}
-            >
-              {/* Background Image with Overlay */}
-              <div className="absolute inset-0 w-full h-full">
-                {/* Background image */}
-                <img 
-                  src={card.backgroundImage} 
-                  alt={card.title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-                />
-                
-                {/* Overlay gradient for legibility */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-black/85 z-10"></div>
-              </div>
+            <div key={index} className="relative flex">
+              {/* Vertical separators */}
+              {index > 0 && index < serviceCards.length && (
+                <div className="hidden md:block absolute -left-px top-1/2 h-3/4 transform -translate-y-1/2 w-[1px] bg-gradient-to-b from-transparent via-playyellow/30 to-transparent">
+                  <div className="absolute inset-0 blur-sm bg-playyellow/20"></div>
+                </div>
+              )}
               
-              {/* Content Container */}
-              <div className="relative z-20 h-full flex flex-col justify-between p-6 md:p-8">
-                <div>
-                  {/* Title */}
-                  <h3 className="heading-3 font-space font-bold mb-4 text-white">
-                    {card.title}
-                  </h3>
+              <motion.div 
+                className="rounded-xl overflow-hidden h-full relative group w-full transition-all duration-500 ease-out transform hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(255,211,0,0.3)]"
+                variants={itemVariants}
+                style={{ boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)" }}
+              >
+                {/* Background Image with Overlay */}
+                <div className="absolute inset-0 w-full h-full">
+                  {/* Background image */}
+                  <img 
+                    src={card.backgroundImage} 
+                    alt={card.title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                  />
                   
-                  {/* Description */}
-                  <p className="body-text md:max-w-2xl">{card.description}</p>
+                  {/* Overlay gradient for legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/55 to-black/85 z-10"></div>
                 </div>
                 
-                {/* Service Tags in Pills */}
-                <div className="flex flex-wrap gap-2 mt-auto pt-4">
-                  {card.tags.map((tag, tagIndex) => (
-                    <span 
-                      key={tagIndex} 
-                      className="inline-block py-1 px-4 rounded-full text-xs font-medium"
-                      style={{ 
-                        backgroundColor: 'rgba(204, 204, 204, 0.15)',
-                        color: '#ccc',
-                        backdropFilter: 'blur(4px)',
-                        border: '1px solid rgba(204, 204, 204, 0.2)'
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                {/* Content Container */}
+                <div className="relative z-20 h-full flex flex-col justify-between p-6 md:p-7">
+                  <div>
+                    {/* Title with hover underline effect */}
+                    <h3 className="heading-3 font-space font-bold mb-4 text-white inline-block group-hover:text-playyellow transition-colors duration-300">
+                      {card.title}
+                      <span className="block max-w-0 group-hover:max-w-full transition-all duration-700 h-0.5 bg-playyellow mt-1 opacity-0 group-hover:opacity-100"></span>
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="body-text">{card.description}</p>
+                  </div>
+                  
+                  {/* Service Tags in Pills */}
+                  <div className="flex flex-wrap gap-2 mt-auto pt-4">
+                    {card.tags.map((tag, tagIndex) => (
+                      <span 
+                        key={tagIndex} 
+                        className="inline-block py-1 px-3 rounded-full text-xs font-medium transition-all duration-300 hover:bg-playyellow/30 hover:border-playyellow/50"
+                        style={{ 
+                          backgroundColor: 'rgba(204, 204, 204, 0.15)',
+                          color: '#ccc',
+                          backdropFilter: 'blur(4px)',
+                          border: '1px solid rgba(204, 204, 204, 0.2)'
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              
-              {/* Clickable overlay */}
-              <a 
-                href={card.linkUrl}
-                className="absolute inset-0 z-30 cursor-pointer"
-                onClick={(e) => {
-                  if (card.linkUrl === '#') {
-                    e.preventDefault();
-                    const workWithUsBtn = document.querySelector('.work-with-us-btn') as HTMLButtonElement;
-                    if (workWithUsBtn) workWithUsBtn.click();
-                  }
-                }}
-                aria-label={`Learn more about ${card.title}`}
-              ></a>
-            </motion.div>
+                
+                {/* Clickable overlay */}
+                <a 
+                  href={card.linkUrl}
+                  className="absolute inset-0 z-30 cursor-pointer"
+                  onClick={(e) => {
+                    if (card.linkUrl === '#') {
+                      e.preventDefault();
+                      const workWithUsBtn = document.querySelector('.work-with-us-btn') as HTMLButtonElement;
+                      if (workWithUsBtn) workWithUsBtn.click();
+                    }
+                  }}
+                  aria-label={`Learn more about ${card.title}`}
+                ></a>
+              </motion.div>
+            </div>
           ))}
         </motion.div>
         
         {/* Horizontal callout with translucent yellow box */}
         <motion.div 
-          className="mt-16 p-6 bg-playyellow/20 backdrop-blur-sm border border-playyellow/30 rounded-lg text-center shadow-lg shadow-playyellow/10"
+          className="mt-4 p-6 bg-playyellow/20 backdrop-blur-sm border border-playyellow/30 rounded-lg text-center shadow-lg shadow-playyellow/10"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ 
-            duration: 0.6,
-            delay: 0.9
-          }}
+          transition={{ duration: 0.6, delay: 0.9 }}
         >
-          <p className="text-white font-space font-medium">All services include post-marketing care: optimization, updates, and scaling built-in. <span className="font-bold text-playyellow">We grow with you.</span></p>
+          <p className="text-white font-space font-medium mb-4">Launch is just the start. We stay hands-on with ongoing optimization, updates, and scaling strategy; because <span className="text-playyellow font-bold">growth doesn't stop at delivery.</span></p>
+          <button 
+            onClick={() => {
+              const workWithUsBtn = document.querySelector('.work-with-us-btn') as HTMLButtonElement;
+              if (workWithUsBtn) workWithUsBtn.click();
+            }} 
+            className="bg-playyellow text-playblack px-6 py-2 rounded-md text-sm font-medium hover:bg-white transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-playyellow focus:ring-opacity-50 mt-2"
+          >
+            Let's Grow Together
+          </button>
         </motion.div>
       </div>
     </section>

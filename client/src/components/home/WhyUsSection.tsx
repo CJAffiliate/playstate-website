@@ -1,184 +1,89 @@
-import { useRef, useState, useEffect } from 'react';
-import { motion, useInView, useAnimation } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import CountUp from '@/components/ui/counter';
 
 export default function WhyUsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-  const controls = useAnimation();
 
-  useEffect(() => {
-    if (isInView) {
-      controls.start('visible');
-    }
-  }, [isInView, controls]);
-
-  // Reorganized to match the stacked pyramid layout
-  const stackedSystems = [
-    // First row (top)
+  // New 4-step stacked system process
+  const stackedSystem = [
     {
-      icon: 'bx-radar',
+      step: 1,
+      icon: 'bx-search-alt-2',
       iconColor: '#FFD300',
-      title: 'Results-Driven',
-      description: 'Every pixel, every word strategically placed to drive conversions and boost your ROI.',
-      row: 1,
-      position: 'center',
-      linksTo: [1, 2]
+      title: 'Diagnose',
+      description: 'Strategic audit to identify opportunities and conversion gaps.',
     },
-    // Second row (middle)
     {
-      icon: 'bx-line-chart',
+      step: 2,
+      icon: 'bx-code-block',
       iconColor: '#FF6B6B',
-      title: 'Data-Backed Decisions',
-      description: 'We analyze user behavior, A/B test designs, and optimize based on real data.',
-      row: 2,
-      position: 'left',
-      linksTo: [3]
+      title: 'Build',
+      description: 'Create high-conversion assets tailored to your audience.',
     },
     {
-      icon: 'bx-refresh',
+      step: 3,
+      icon: 'bx-rocket',
       iconColor: '#4ECDC4',
-      title: 'Ongoing Optimization',
-      description: 'Continuous monitoring, testing, and refinement to maximize performance.',
-      row: 2,
-      position: 'right',
-      linksTo: [4]
+      title: 'Launch',
+      description: 'Deploy, direct qualified traffic, and monitor performance.',
     },
-    // Third row (foundation)
     {
-      icon: 'bx-palette',
+      step: 4,
+      icon: 'bx-line-chart',
       iconColor: '#8A2BE2',
-      title: 'Design That Converts',
-      description: 'Beautiful designs that work—marrying aesthetics with marketing psychology.',
-      row: 3,
-      position: 'left',
-      linksTo: []
-    },
-    {
-      icon: 'bx-analyse',
-      iconColor: '#00B8D9',
-      title: 'Strategic Planning',
-      description: 'We don\'t guess, we map out comprehensive strategies based on your business goals.',
-      row: 3,
-      position: 'center',
-      linksTo: []
-    },
-    {
-      icon: 'bx-conversation',
-      iconColor: '#FF9F1C',
-      title: 'Customer-Focused',
-      description: 'Your audience is at the center of everything we create and optimize.',
-      row: 3,
-      position: 'right',
-      linksTo: []
+      title: 'Optimize & Scale',
+      description: 'Refine based on data and scale what works.',
     }
   ];
 
   const stats = [
-    { value: '35%', label: 'Average conversion rate increase', icon: 'bx-trending-up' },
-    { value: '3.2X', label: 'ROI on marketing spend', icon: 'bx-dollar-circle' },
-    { value: '10,000+', label: 'Leads captured', icon: 'bx-user-plus' }
-  ];
-
-  // Staggered animations for blocks dropping into place
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  // Block drop-in animation
-  const blockVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: -50,
-      scale: 0.9
+    { 
+      value: '35%', 
+      label: 'Conversion Rate Increase', 
+      icon: 'bx-trending-up',
+      description: 'Average lift across all campaigns and strategies'
     },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { 
-        type: 'spring',
-        stiffness: 300,
-        damping: 15,
-        duration: 0.6
-      }
+    { 
+      value: '3.2X', 
+      label: 'ROI on Marketing Spend', 
+      icon: 'bx-dollar-circle',
+      description: 'Return on investment for our clients'
+    },
+    { 
+      value: '10,000+', 
+      label: 'Leads Captured', 
+      icon: 'bx-user-plus',
+      description: 'High-quality leads delivered to clients'
     }
-  };
-
-  // Line connector animation
-  const lineVariants = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: {
-      pathLength: 1,
-      opacity: 0.5,
-      transition: { 
-        duration: 0.8,
-        delay: 0.7,
-        ease: "easeInOut"
-      }
-    }
-  };
-
-  // Stats counter animation
-  const statsContainerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 1.8 // Start after blocks are in place
-      }
-    }
-  };
-
-  const statItemVariants = {
-    hidden: { scale: 0.8, opacity: 0, y: 30 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      y: 0,
-      transition: { 
-        type: 'spring',
-        stiffness: 300,
-        damping: 20 
-      }
-    }
-  };
-
-  // Function to determine the grid column based on position
-  const getGridColumn = (position: string): string => {
-    switch(position) {
-      case 'left': return 'col-start-1 col-end-5';
-      case 'center': return 'col-start-5 col-end-9';
-      case 'right': return 'col-start-9 col-end-13';
-      default: return '';
-    }
-  };
+  ];
 
   return (
     <section id="why-us" className="py-20 bg-gradient-to-b from-playblack to-playblack/90 relative overflow-hidden">
       {/* Isometric blueprint grid background */}
       <div className="absolute inset-0 blueprint-grid opacity-[0.03] pointer-events-none"></div>
       
+      {/* Dark glow behind system block */}
+      <div className="absolute inset-0 bg-gradient-radial from-[#FFD300]/5 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+      
       <div className="container mx-auto px-4" ref={ref}>
-        <motion.h2 
-          className="font-space text-3xl md:text-5xl font-bold mb-4 text-center"
+        {/* Stacked title design */}
+        <motion.div 
+          className="flex flex-col items-center justify-center mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          The <span className="text-playyellow">Stacked System</span>
-        </motion.h2>
+          <span className="block text-white/80 text-sm md:text-lg uppercase tracking-widest font-medium">PLAYSTATE</span>
+          <h2 className="font-space font-bold text-center">
+            <span className="block text-playyellow text-2xl md:text-4xl">STACKED</span>
+            <span className="block text-white text-3xl md:text-5xl mt-[-5px]">SYSTEM</span>
+          </h2>
+        </motion.div>
         
         <motion.p 
-          className="text-playgray text-center max-w-2xl mx-auto mb-4"
+          className="text-playgray text-center max-w-2xl mx-auto mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ 
@@ -186,397 +91,249 @@ export default function WhyUsSection() {
             delay: 0.2
           }}
         >
-          Our modular marketing approach combines these building blocks to create your custom conversion machine.
+          Our repeatable, strategic process that transforms marketing chaos into conversion machines.
         </motion.p>
         
-        <motion.p 
-          className="text-white text-center max-w-3xl mx-auto mb-16 font-medium"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ 
-            duration: 0.6,
-            delay: 0.3
-          }}
+        {/* System Module: Cards with animation and hover effects */}
+        <motion.div 
+          className="relative mb-10"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5 }}
         >
-          <span className="text-playyellow">Each block plays a role.</span> Together, they form your conversion engine.
-        </motion.p>
-        
-        {/* Stacked System Layout */}
-        <div className="relative">
-          {/* Desktop SVG Connector Lines - Hidden on mobile */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block" xmlns="http://www.w3.org/2000/svg">
-            {/* Top to Middle Left */}
-            <motion.path
-              d="M600,140 L400,280"
-              stroke="rgba(255, 211, 0, 0.4)"
-              strokeWidth="2"
-              strokeDasharray="5,5"
-              fill="none"
-              variants={lineVariants}
-              initial="hidden"
-              animate={controls}
-            />
-            {/* Top to Middle Right */}
-            <motion.path
-              d="M600,140 L800,280"
-              stroke="rgba(255, 211, 0, 0.4)"
-              strokeWidth="2"
-              strokeDasharray="5,5"
-              fill="none"
-              variants={lineVariants}
-              initial="hidden"
-              animate={controls}
-            />
-            {/* Middle Left to Bottom Left */}
-            <motion.path
-              d="M400,280 L300,420"
-              stroke="rgba(255, 211, 0, 0.4)"
-              strokeWidth="2"
-              strokeDasharray="5,5"
-              fill="none"
-              variants={lineVariants}
-              initial="hidden"
-              animate={controls}
-              transition={{ delay: 0.2 }}
-            />
-            {/* Middle Right to Bottom Right */}
-            <motion.path
-              d="M800,280 L900,420"
-              stroke="rgba(255, 211, 0, 0.4)"
-              strokeWidth="2"
-              strokeDasharray="5,5"
-              fill="none"
-              variants={lineVariants}
-              initial="hidden"
-              animate={controls}
-              transition={{ delay: 0.2 }}
-            />
-            {/* Connect to middle bottom */}
-            <motion.path
-              d="M600,280 L600,420"
-              stroke="rgba(255, 211, 0, 0.4)"
-              strokeWidth="2"
-              strokeDasharray="5,5"
-              fill="none"
-              variants={lineVariants}
-              initial="hidden"
-              animate={controls}
-              transition={{ delay: 0.3 }}
-            />
-          </svg>
+          {/* System Module Background (subtle grid/glow) */}
+          <div className="absolute inset-0 -m-4 bg-gradient-to-b from-black/40 to-black/10 rounded-2xl backdrop-blur-sm pointer-events-none"></div>
           
-          {/* Mobile Vertical Connector Line - Only visible on mobile */}
-          <div className="absolute top-0 bottom-0 left-8 md:hidden z-0 w-[2px] h-full">
-            <motion.div 
-              className="h-full w-full bg-gradient-to-b from-[#FFD300]/30 via-[#FF6B6B]/30 to-[#4ECDC4]/30"
-              initial={{ scaleY: 0, opacity: 0 }}
-              animate={isInView ? { scaleY: 1, opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              style={{ transformOrigin: 'top center' }}
-            ></motion.div>
-          </div>
-          
-          {/* Two layouts: Desktop Pyramid and Mobile Stack */}
-          <div className="block md:hidden">
-            {/* Mobile: Vertical Stack */}
-            <motion.div 
-              className="flex flex-col space-y-12 relative pl-10"
-              variants={containerVariants}
-              initial="hidden"
-              animate={controls}
-            >
-              {stackedSystems.map((block, index) => (
-                <motion.div 
-                  key={index}
-                  className="w-full"
-                  variants={blockVariants}
-                  custom={index}
-                  viewport={{ once: true, amount: 0.2 }}
-                  whileInView={{ 
-                    opacity: 1, 
-                    y: 0, 
-                    transition: { 
-                      type: 'spring',
-                      stiffness: 300,
-                      damping: 15,
-                      delay: index * 0.1,
-                      duration: 0.6
-                    } 
-                  }}
-                  initial={{ opacity: 0, y: 30 }}
-                >
-                  {/* Connection node to vertical line */}
-                  <div className="absolute left-0 top-[30px] w-10 h-[2px] bg-playyellow/30"></div>
-                  <div className="absolute left-0 top-[29px] w-4 h-4 rounded-full bg-playyellow/10 border-2 border-playyellow/30 flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-playyellow"></div>
-                  </div>
-                  
-                  <div 
-                    className="system-block bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 relative z-10 shadow-lg"
-                    style={{ 
-                      boxShadow: `0 12px 30px -5px rgba(${
-                        block.iconColor === '#FFD300' ? '255, 211, 0' : 
-                        block.iconColor === '#FF6B6B' ? '255, 107, 107' : 
-                        block.iconColor === '#4ECDC4' ? '78, 205, 196' :
-                        block.iconColor === '#8A2BE2' ? '138, 43, 226' :
-                        block.iconColor === '#00B8D9' ? '0, 184, 217' : '255, 159, 28'
-                      }, 0.1)` 
-                    }}
-                  >
-                    <div className="absolute -top-2 left-6 bg-opacity-90 text-xs font-mono px-2 py-0.5 rounded"
+          {/* Desktop Cards in Horizontal Row */}
+          <div className="hidden md:flex space-x-4 relative">
+            {stackedSystem.map((step, index) => (
+              <motion.div
+                key={index}
+                className="flex-1 min-h-[240px] z-10"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: 0.3 + (index * 0.15),
+                  type: 'spring',
+                  stiffness: 100
+                }}
+                whileHover={{ 
+                  y: -5,
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
+                }}
+              >
+                <div className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 shadow-lg h-full flex flex-col">
+                  {/* Step Number & Icon together at top */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div 
+                      className="rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm"
                       style={{ 
-                        backgroundColor: block.iconColor,
-                        color: ['#8A2BE2'].includes(block.iconColor) ? 'white' : 'black'
+                        backgroundColor: step.iconColor,
+                        color: step.iconColor === '#8A2BE2' ? 'white' : 'black'
                       }}
                     >
-                      LAYER {index < 1 ? 1 : index < 3 ? 2 : 3}
+                      {step.step}
                     </div>
-                    
-                    {/* System node icon */}
-                    <div className="mb-4 flex items-center">
-                      <div className="rounded-xl bg-gradient-to-br from-white/5 to-white/10 p-4 relative">
-                        <div className="absolute inset-0 bg-gradient-to-r opacity-20 rounded-xl" 
-                          style={{ backgroundImage: `linear-gradient(to right, transparent, ${block.iconColor})` }}></div>
-                        <i className={`bx ${block.icon} text-2xl`} style={{ color: block.iconColor }}></i>
-                      </div>
-                      <div className="ml-4">
-                        <h3 className="font-space text-lg font-bold">{block.title}</h3>
-                      </div>
+                    <div className="bg-white/10 p-3 rounded-full">
+                      <i className={`bx ${step.icon} text-2xl`} style={{ color: step.iconColor }}></i>
                     </div>
-                    
-                    {/* Description */}
-                    <p className="text-playgray text-sm">{block.description}</p>
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-          
-          {/* Desktop: Pyramid Structure - Hidden on mobile */}
-          <motion.div 
-            className="hidden md:grid grid-cols-12 gap-4 relative"
-            variants={containerVariants}
-            initial="hidden"
-            animate={controls}
-          >
-            {/* Row 1 (Top) */}
-            <motion.div 
-              className="col-start-5 col-end-9 mb-16"
-              variants={blockVariants}
-              custom={0}
-            >
-              <div 
-                className="system-block bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 relative z-10"
-                style={{ boxShadow: "0px 10px 30px -5px rgba(255, 211, 0, 0.05)" }}
-              >
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-playyellow text-playblack text-xs font-mono px-2 py-0.5 rounded">
-                  LAYER 1
-                </div>
-                {/* System node icon */}
-                <div className="mb-4 flex items-center justify-center">
-                  <div className="rounded-xl bg-gradient-to-br from-white/5 to-white/10 p-4 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r opacity-20 rounded-xl" style={{ backgroundImage: `linear-gradient(to right, transparent, #FFD300)` }}></div>
-                    <i className="bx bx-radar text-3xl" style={{ color: '#FFD300' }}></i>
-                  </div>
-                </div>
-                
-                {/* Block title and description */}
-                <div className="text-center">
-                  <h3 className="font-space text-xl font-bold mb-3">Results-Driven</h3>
-                  <p className="text-playgray">Every pixel, every word strategically placed to drive conversions and boost your ROI.</p>
-                </div>
-                
-                {/* Connection nodes */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-4 h-4 flex items-center justify-center">
-                  <div className="w-2 h-2 bg-playyellow rounded-full opacity-50"></div>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* Row 2 (Middle) - Shifted slightly inward */}
-            <motion.div 
-              className="col-start-3 col-end-6 mb-16"
-              variants={blockVariants}
-              custom={1}
-            >
-              <div 
-                className="system-block bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 relative z-10"
-                style={{ boxShadow: "0px 10px 30px -5px rgba(255, 107, 107, 0.05)" }}
-              >
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#FF6B6B] text-playblack text-xs font-mono px-2 py-0.5 rounded">
-                  LAYER 2
-                </div>
-                {/* System node icon */}
-                <div className="mb-4 flex items-center justify-center">
-                  <div className="rounded-xl bg-gradient-to-br from-white/5 to-white/10 p-4 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r opacity-20 rounded-xl" style={{ backgroundImage: `linear-gradient(to right, transparent, #FF6B6B)` }}></div>
-                    <i className="bx bx-line-chart text-3xl" style={{ color: '#FF6B6B' }}></i>
-                  </div>
-                </div>
-                
-                {/* Block title and description */}
-                <div className="text-center">
-                  <h3 className="font-space text-xl font-bold mb-3">Data-Backed Decisions</h3>
-                  <p className="text-playgray">We analyze user behavior, A/B test designs, and optimize based on real data.</p>
-                </div>
-                
-                {/* Connection nodes */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-4 h-4 flex items-center justify-center">
-                  <div className="w-2 h-2 bg-[#FF6B6B] rounded-full opacity-50"></div>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="col-start-8 col-end-11 mb-16"
-              variants={blockVariants}
-              custom={2}
-            >
-              <div 
-                className="system-block bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 relative z-10"
-                style={{ boxShadow: "0px 10px 30px -5px rgba(78, 205, 196, 0.05)" }}
-              >
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#4ECDC4] text-playblack text-xs font-mono px-2 py-0.5 rounded">
-                  LAYER 2
-                </div>
-                {/* System node icon */}
-                <div className="mb-4 flex items-center justify-center">
-                  <div className="rounded-xl bg-gradient-to-br from-white/5 to-white/10 p-4 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r opacity-20 rounded-xl" style={{ backgroundImage: `linear-gradient(to right, transparent, #4ECDC4)` }}></div>
-                    <i className="bx bx-refresh text-3xl" style={{ color: '#4ECDC4' }}></i>
-                  </div>
-                </div>
-                
-                {/* Block title and description */}
-                <div className="text-center">
-                  <h3 className="font-space text-xl font-bold mb-3">Ongoing Optimization</h3>
-                  <p className="text-playgray">Continuous monitoring, testing, and refinement to maximize performance.</p>
-                </div>
-                
-                {/* Connection nodes */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-4 h-4 flex items-center justify-center">
-                  <div className="w-2 h-2 bg-[#4ECDC4] rounded-full opacity-50"></div>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* Row 3 (Bottom) - Foundation */}
-            <motion.div 
-              className="col-start-1 col-end-5"
-              variants={blockVariants}
-              custom={3}
-            >
-              <div 
-                className="system-block bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 relative z-10"
-                style={{ boxShadow: "0px 10px 30px -5px rgba(138, 43, 226, 0.05)" }}
-              >
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#8A2BE2] text-white text-xs font-mono px-2 py-0.5 rounded">
-                  LAYER 3
-                </div>
-                {/* System node icon */}
-                <div className="mb-4 flex items-center justify-center">
-                  <div className="rounded-xl bg-gradient-to-br from-white/5 to-white/10 p-4 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r opacity-20 rounded-xl" style={{ backgroundImage: `linear-gradient(to right, transparent, #8A2BE2)` }}></div>
-                    <i className="bx bx-palette text-3xl" style={{ color: '#8A2BE2' }}></i>
-                  </div>
-                </div>
-                
-                {/* Block title and description */}
-                <div className="text-center">
-                  <h3 className="font-space text-xl font-bold mb-3">Design That Converts</h3>
-                  <p className="text-playgray">Beautiful designs that work—marrying aesthetics with marketing psychology.</p>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="col-start-5 col-end-9"
-              variants={blockVariants}
-              custom={4}
-            >
-              <div 
-                className="system-block bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 relative z-10"
-                style={{ boxShadow: "0px 10px 30px -5px rgba(0, 184, 217, 0.05)" }}
-              >
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#00B8D9] text-playblack text-xs font-mono px-2 py-0.5 rounded">
-                  LAYER 3
-                </div>
-                {/* System node icon */}
-                <div className="mb-4 flex items-center justify-center">
-                  <div className="rounded-xl bg-gradient-to-br from-white/5 to-white/10 p-4 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r opacity-20 rounded-xl" style={{ backgroundImage: `linear-gradient(to right, transparent, #00B8D9)` }}></div>
-                    <i className="bx bx-analyse text-3xl" style={{ color: '#00B8D9' }}></i>
-                  </div>
-                </div>
-                
-                {/* Block title and description */}
-                <div className="text-center">
-                  <h3 className="font-space text-xl font-bold mb-3">Strategic Planning</h3>
-                  <p className="text-playgray">We don't guess, we map out comprehensive strategies based on your business goals.</p>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="col-start-9 col-end-13"
-              variants={blockVariants}
-              custom={5}
-            >
-              <div 
-                className="system-block bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 relative z-10"
-                style={{ boxShadow: "0px 10px 30px -5px rgba(255, 159, 28, 0.05)" }}
-              >
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#FF9F1C] text-playblack text-xs font-mono px-2 py-0.5 rounded">
-                  LAYER 3
-                </div>
-                {/* System node icon */}
-                <div className="mb-4 flex items-center justify-center">
-                  <div className="rounded-xl bg-gradient-to-br from-white/5 to-white/10 p-4 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r opacity-20 rounded-xl" style={{ backgroundImage: `linear-gradient(to right, transparent, #FF9F1C)` }}></div>
-                    <i className="bx bx-conversation text-3xl" style={{ color: '#FF9F1C' }}></i>
-                  </div>
-                </div>
-                
-                {/* Block title and description */}
-                <div className="text-center">
-                  <h3 className="font-space text-xl font-bold mb-3">Customer-Focused</h3>
-                  <p className="text-playgray">Your audience is at the center of everything we create and optimize.</p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-        
-        {/* System output/readout stats */}
-        <motion.div 
-          className="mt-24 bg-black/20 p-8 rounded-lg border border-playyellow/10 relative backdrop-blur-sm"
-          variants={statsContainerVariants}
-          initial="hidden"
-          animate={controls}
-        >
-          <div className="absolute -top-3 left-8 bg-playyellow text-xs text-playblack font-mono px-3 py-1 rounded">
-            SYSTEM OUTPUT
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div 
-                key={index} 
-                className="flex flex-col md:flex-row items-center md:space-x-4 p-4 bg-playblack/50 rounded-lg border border-white/10 text-center md:text-left"
-                variants={statItemVariants}
-              >
-                <div className="bg-playyellow/10 p-3 rounded-full mb-3 md:mb-0">
-                  <i className={`bx ${stat.icon} text-2xl text-playyellow`}></i>
-                </div>
-                <div>
-                  <p className="text-playyellow text-3xl font-bold font-space">
-                    {isInView && <CountUp value={stat.value} />}
-                  </p>
-                  <p className="text-white text-sm">{stat.label}</p>
+                  
+                  {/* Title */}
+                  <h3 className="font-space text-xl font-bold mb-2">{step.title}</h3>
+                  
+                  {/* Description */}
+                  <p className="text-playgray text-sm">{step.description}</p>
+                  
+                  {/* Glowing border on bottom that matches icon color */}
+                  <div 
+                    className="absolute bottom-0 left-0 w-full h-1 rounded-b-xl opacity-60"
+                    style={{ backgroundColor: step.iconColor }}
+                  ></div>
                 </div>
               </motion.div>
             ))}
           </div>
+          
+          {/* Mobile Cards - Vertical Stack */}
+          <div className="md:hidden relative">
+            <div className="flex flex-col space-y-6 relative">
+              {/* Vertical connector line */}
+              <div className="absolute left-4 top-6 bottom-0 w-[2px] bg-playyellow/20"></div>
+              
+              {stackedSystem.map((step, index) => (
+                <motion.div
+                  key={index}
+                  className="relative"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: 0.2 + (index * 0.15),
+                    type: 'spring',
+                    stiffness: 100
+                  }}
+                >
+                  {/* Animated connector dot */}
+                  <motion.div 
+                    className="absolute left-4 top-6 z-10 w-[10px] h-[10px] rounded-full bg-white"
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { 
+                      scale: 1,
+                      backgroundColor: step.iconColor
+                    } : {}}
+                    transition={{ 
+                      duration: 0.3, 
+                      delay: 0.3 + (index * 0.2)
+                    }}
+                    style={{ transform: 'translateX(-4px)' }}
+                  ></motion.div>
+                  
+                  {/* Horizontal connector line */}
+                  <motion.div 
+                    className="absolute left-4 top-6 h-[2px] bg-white/40"
+                    style={{ width: '16px', transform: 'translateX(6px)' }}
+                    initial={{ scaleX: 0 }}
+                    animate={isInView ? { 
+                      scaleX: 1,
+                      backgroundColor: step.iconColor
+                    } : {}}
+                    transition={{ 
+                      duration: 0.3, 
+                      delay: 0.35 + (index * 0.2)
+                    }}
+                  ></motion.div>
+                  
+                  <div className="bg-white/5 backdrop-blur-sm p-5 rounded-xl border border-white/10 shadow-lg ml-10 relative">
+                    {/* Step Number as badge - Improved contrast */}
+                    <div 
+                      className="absolute -top-3 -left-3 rounded-full w-8 h-8 flex items-center justify-center font-bold text-base z-10 border border-white/20"
+                      style={{ 
+                        backgroundColor: step.iconColor,
+                        color: step.iconColor === '#8A2BE2' ? 'white' : 'black'
+                      }}
+                    >
+                      {step.step}
+                    </div>
+                    
+                    <div className="flex items-center mb-3">
+                      {/* Icon */}
+                      <div className="bg-white/10 p-2 rounded-full mr-3">
+                        <i className={`bx ${step.icon} text-xl`} style={{ color: step.iconColor }}></i>
+                      </div>
+                      
+                      {/* Title - Moved next to icon */}
+                      <h3 className="font-space text-lg font-bold">{step.title}</h3>
+                    </div>
+                    
+                    {/* Description */}
+                    <p className="text-playgray text-sm">{step.description}</p>
+                    
+                    {/* Glowing border on left that matches icon color */}
+                    <div 
+                      className="absolute top-0 left-0 w-1 h-full rounded-l-xl opacity-60"
+                      style={{ backgroundColor: step.iconColor }}
+                    ></div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Connecting visual element between system and output */}
+          <motion.div 
+            className="h-24 w-full flex justify-center"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            <div className="relative h-full w-20">
+              <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-playyellow/50 to-transparent"></div>
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-6 h-6 bg-playyellow/10 rounded-full border border-playyellow/20"></div>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-3 h-3 bg-playyellow/30 rounded-full animate-pulse"></div>
+            </div>
+          </motion.div>
+        </motion.div>
+        
+        {/* System Output Section - Directly connected to the System */}
+        <motion.div 
+          className="relative backdrop-blur-sm p-8 rounded-xl border border-playyellow/10 bg-gradient-to-b from-black/40 to-transparent"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.9 }}
+        >
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-playyellow text-xs text-playblack font-mono px-3 py-1 rounded">
+            SYSTEM OUTPUT
+          </div>
+          
+          {/* Desktop: 3-column layout */}
+          <div className="hidden md:grid grid-cols-3 gap-6">
+            {stats.map((stat, index) => (
+              <motion.div 
+                key={index} 
+                className="bg-white/5 p-6 rounded-lg border border-white/10 flex flex-col items-center text-center"
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 1 + (index * 0.15) }}
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+              >
+                <div className="bg-playyellow/10 p-3 rounded-full mb-3">
+                  <i className={`bx ${stat.icon} text-2xl text-playyellow`}></i>
+                </div>
+                <p className="text-playyellow text-3xl font-bold font-space mb-1">
+                  {isInView && <CountUp value={stat.value} />}
+                </p>
+                <p className="text-white text-base font-medium mb-2">{stat.label}</p>
+                <p className="text-playgray text-xs">{stat.description}</p>
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Mobile: Compact stacked layout */}
+          <div className="md:hidden">
+            <div className="flex flex-col space-y-4">
+              {stats.map((stat, index) => (
+                <motion.div 
+                  key={index} 
+                  className="flex items-center bg-white/5 p-4 rounded-lg border border-white/10"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 1 + (index * 0.15) }}
+                >
+                  <div className="bg-playyellow/10 p-2 rounded-full mr-4 flex-shrink-0">
+                    <i className={`bx ${stat.icon} text-xl text-playyellow`}></i>
+                  </div>
+                  <div>
+                    <div className="flex items-baseline">
+                      <p className="text-playyellow text-2xl font-bold font-space mr-2">
+                        {isInView && <CountUp value={stat.value} />}
+                      </p>
+                      <p className="text-white text-sm font-medium">{stat.label}</p>
+                    </div>
+                    <p className="text-playgray text-xs">{stat.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Get Similar Results CTA */}
+          <motion.div
+            className="text-center mt-8"
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 1.5 }}
+          >
+            <button 
+              className="bg-playyellow hover:bg-white text-playblack font-medium py-3 px-8 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex items-center mx-auto"
+              onClick={() => window.location.href = '#contact'}
+            >
+              <span className="mr-2">Get Similar Results</span>
+              <i className="bx bx-right-arrow-alt text-xl"></i>
+            </button>
+          </motion.div>
         </motion.div>
       </div>
     </section>
