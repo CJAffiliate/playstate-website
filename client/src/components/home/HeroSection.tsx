@@ -189,7 +189,7 @@ export default function HeroSection({ onWorkWithUsClick }: HeroSectionProps) {
             delay: 0.4
           }}
         >
-          Custom-built marketing. From pixels to profits.
+          Custom-built marketing systems that scale your brand from pixels to profits.
         </motion.p>
         
         {/* CTA Button */}
