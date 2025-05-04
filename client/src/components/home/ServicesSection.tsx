@@ -62,25 +62,6 @@ export default function ServicesSection() {
     }
   ];
 
-  // Value process steps
-  const processSteps = [
-    {
-      icon: "🚀",
-      label: "Launch",
-      color: "#FFD300"
-    },
-    {
-      icon: "🔁",
-      label: "Optimize",
-      color: "#FF6B6B"
-    },
-    {
-      icon: "📈",
-      label: "Scale",
-      color: "#4ECDC4"
-    }
-  ];
-
   return (
     <section id="services" className="section-spacing relative bg-gradient-to-b from-playblack to-playblack/95 overflow-hidden">
       {/* Background pattern */}
@@ -189,34 +170,6 @@ export default function ServicesSection() {
               </motion.div>
             </div>
           ))}
-        </motion.div>
-
-        {/* Value-add process block */}
-        <motion.div 
-          className="mt-10 mb-10 py-8 bg-black/40 backdrop-blur-sm border-t border-b border-playyellow/20 rounded-lg"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-            {processSteps.map((step, index) => (
-              <motion.div 
-                key={index}
-                className="p-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.7 + (index * 0.2) }}
-              >
-                <div 
-                  className="text-4xl mb-3 mx-auto flex items-center justify-center w-16 h-16 rounded-full bg-playblack/60 border border-gray-800"
-                  style={{ textShadow: `0 0 10px ${step.color}` }}
-                >
-                  {step.icon}
-                </div>
-                <h4 className="font-space font-bold text-lg text-white">{step.label}</h4>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
         
         {/* Horizontal callout with translucent yellow box */}
