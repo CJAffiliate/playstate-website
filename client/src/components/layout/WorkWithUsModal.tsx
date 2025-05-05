@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
+
+const GOOGLE_SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycby9pdNS4Y1-I-5KyV7SniPuV_egwlLS5xtd1kfL-LUkpV_TE9309QYGLpeE5vN3FSeV/exec';
 
 interface WorkWithUsModalProps {
   onClose: () => void;
@@ -39,8 +40,28 @@ export default function WorkWithUsModal({ onClose }: WorkWithUsModalProps) {
     setIsSubmitting(true);
     
     try {
-      await apiRequest('POST', '/api/work-with-us', formData);
-      
+      // Prepare data for Google Sheets
+      const rowData = [
+        new Date().toISOString(), // Timestamp
+        formData.name,
+        formData.email,
+        formData.projectType,
+        formData.budget,
+        formData.message
+      ];
+
+      // Send data directly to Google Sheets
+      const response = await fetch(GOOGLE_SHEETS_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          values: [rowData]
+        }),
+        mode: 'no-cors' // Required for Google Apps Script
+      });
+
       toast({
         title: "Request Submitted!",
         description: "We'll get back to you with next steps."

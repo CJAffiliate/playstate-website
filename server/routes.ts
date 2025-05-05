@@ -55,6 +55,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         createdAt: new Date()
       });
       
+      if (!workRequest) {
+        throw new Error('Failed to create work request');
+      }
+      
       res.status(201).json({ 
         success: true, 
         message: 'Work request submitted successfully',

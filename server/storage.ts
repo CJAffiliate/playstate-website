@@ -1,76 +1,99 @@
-import { 
-  users, 
-  contactSubmissions, 
-  subscriptions, 
-  type User, 
-  type InsertUser, 
-  type ContactSubmission,
-  type InsertContactSubmission,
-  type Subscription,
-  type InsertSubscription
-} from "@shared/schema";
-import { db } from "./db";
-import { eq } from "drizzle-orm";
+import type { ContactSubmission, Subscription } from "@shared/schema";
+
+const GOOGLE_SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycbwheqDSye2NFn5UsdWPeCH-3L_rLV8d_7HHW6QS1ChDOslQBVf-RdM3Hi2v-CgSzxUO/exec';
 
 export interface IStorage {
-  // User methods
-  getUser(id: number): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
-  
   // Contact submission methods
-  createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission>;
+  createContactSubmission(submission: {
+    name: string;
+    email: string;
+    business: string | null;
+    message: string;
+    type: 'contact' | 'work-request';
+    projectType?: string;
+    budget?: string;
+    createdAt: Date;
+  }): Promise<ContactSubmission>;
   
   // Subscription methods
   getSubscriptionByEmail(email: string): Promise<Subscription | undefined>;
-  createSubscription(subscription: InsertSubscription): Promise<Subscription>;
+  createSubscription(subscription: {
+    email: string;
+    createdAt: Date;
+  }): Promise<Subscription>;
 }
 
-export class DatabaseStorage implements IStorage {
-  // User methods
-  async getUser(id: number): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.id, id));
-    return user || undefined;
-  }
+export class GoogleSheetsStorage implements IStorage {
+  async createContactSubmission(submission: {
+    name: string;
+    email: string;
+    business: string | null;
+    message: string;
+    type: 'contact' | 'work-request';
+    projectType?: string;
+    budget?: string;
+    createdAt: Date;
+  }): Promise<ContactSubmission> {
+    const rowData = [
+      submission.createdAt.toISOString(), // Timestamp
+      submission.name,
+      submission.email,
+      submission.projectType || '',
+      submission.budget || '',
+      submission.message
+    ];
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.username, username));
-    return user || undefined;
-  }
+    await fetch(GOOGLE_SHEETS_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        values: [rowData]
+      }),
+      mode: 'no-cors' // Required for Google Apps Script
+    });
 
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const [user] = await db
-      .insert(users)
-      .values(insertUser)
-      .returning();
-    return user;
+    return {
+      id: Date.now(), // Generate a temporary ID
+      ...submission,
+      processed: false
+    };
   }
   
-  // Contact submission methods
-  async createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission> {
-    const [contactSubmission] = await db
-      .insert(contactSubmissions)
-      .values(submission)
-      .returning();
-    return contactSubmission;
-  }
-  
-  // Subscription methods
   async getSubscriptionByEmail(email: string): Promise<Subscription | undefined> {
-    const [subscription] = await db
-      .select()
-      .from(subscriptions)
-      .where(eq(subscriptions.email, email));
-    return subscription || undefined;
+    // Since we're using Google Apps Script, we can't easily query the sheet
+    // This is a limitation of the current setup
+    return undefined;
   }
   
-  async createSubscription(subscription: InsertSubscription): Promise<Subscription> {
-    const [newSubscription] = await db
-      .insert(subscriptions)
-      .values(subscription)
-      .returning();
-    return newSubscription;
+  async createSubscription(subscription: {
+    email: string;
+    createdAt: Date;
+  }): Promise<Subscription> {
+    const rowData = [
+      subscription.createdAt.toISOString(), // Timestamp
+      subscription.email,
+      'false' // unsubscribed
+    ];
+
+    await fetch(GOOGLE_SHEETS_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        values: [rowData]
+      }),
+      mode: 'no-cors' // Required for Google Apps Script
+    });
+
+    return {
+      id: Date.now(), // Generate a temporary ID
+      ...subscription,
+      unsubscribed: false
+    };
   }
 }
 
-export const storage = new DatabaseStorage();
+export const storage = new GoogleSheetsStorage();
