@@ -63,7 +63,10 @@ export default function HeroSection({ onWorkWithUsClick }: HeroSectionProps) {
   };
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden hero-parallax">
+    <section
+      ref={sectionRef}
+      className={`relative min-h-screen flex flex-col items-center justify-center overflow-hidden hero-parallax pt-8 mobile-menu-open:pt-4`}
+    >
       {/* 3D Grid Tunnel Background */}
       <div className="grid-tunnel">
         <div className="grid-lines"></div>
@@ -75,7 +78,7 @@ export default function HeroSection({ onWorkWithUsClick }: HeroSectionProps) {
       {/* Scanline effect */}
       <div className="scanline absolute inset-0 opacity-20 pointer-events-none z-[1]"></div>
       
-      {/* Floating marketing icons */}
+      {/* Floating marketing icons (animated, floating around PLAYSTATE) */}
       <motion.div 
         className="absolute inset-0 overflow-hidden pointer-events-none z-[2]"
         variants={floatingIconsContainer}

@@ -11,6 +11,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        playyellow: "#FFD300",
+        playblack: "#0e0e0e",
+        playgray: "#aaaaaa",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

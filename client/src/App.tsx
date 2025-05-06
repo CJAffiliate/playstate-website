@@ -15,6 +15,7 @@ import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/layout/ContactForm";
 import WorkWithUsModal from "@/components/layout/WorkWithUsModal";
 import LiveProjectFeed from "@/components/layout/LiveProjectFeed";
+import ScrollHandler from '@/components/layout/ScrollHandler';
 
 function Router() {
   return (
@@ -30,27 +31,34 @@ function Router() {
 function App() {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   const [isWorkWithUsModalOpen, setIsWorkWithUsModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        <ScrollHandler />
         <div className="relative overflow-x-hidden">
-          <Navbar onWorkWithUsClick={() => setIsWorkWithUsModalOpen(true)} />
-          <main>
+          <Navbar 
+            onWorkWithUsClick={() => setIsWorkWithUsModalOpen(true)} 
+            onMenuOpenChange={setIsMobileMenuOpen}
+          />
+          <main className={isMobileMenuOpen ? 'mobile-menu-open' : ''}>
             <Router />
           </main>
           <Footer />
           
           {/* Floating Contact Button */}
-          <div className="fixed bottom-6 right-6 z-50">
-            <button 
-              className="bg-playyellow text-playblack w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-playyellow focus:ring-opacity-50"
-              onClick={() => setIsContactFormOpen(true)}
-            >
-              <i className="bx bx-message-detail text-2xl"></i>
-            </button>
-          </div>
+          {!isMobileMenuOpen && (
+            <div className="fixed bottom-6 right-6 z-50">
+              <button 
+                className="bg-playyellow text-playblack w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-playyellow focus:ring-opacity-50"
+                onClick={() => setIsContactFormOpen(true)}
+              >
+                <i className="bx bx-message-detail text-2xl"></i>
+              </button>
+            </div>
+          )}
 
           {/* Contact Form */}
           <AnimatePresence>
